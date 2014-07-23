@@ -1,0 +1,670 @@
+"DOTAAbilities"
+{
+	"ability_warden_q"
+	{
+		"ID"							"5000"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilitySharedCooldown"			"ability_elements"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_q"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			"TODO"
+				"Target"				"CASTER"
+				"AttachType"			"follow_origin"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_q"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"q"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_w"
+	{
+		"ID"							"5001"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilitySharedCooldown"			"ability_elements"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_w"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			"TODO"
+				"Target"				"CASTER"
+				"AttachType"			"follow_origin"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_w"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"w"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_e"
+	{
+		"ID"							"5002"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilitySharedCooldown"			"ability_elements"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_e"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			"TODO"
+				"Target"				"CASTER"
+				"AttachType"			"follow_origin"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_e"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"e"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_qw"
+	{
+		"ID"							"5003"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastAnimation"			""
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_wq"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_dragonknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			""
+				"Target"				"CASTER"
+				"AttachType"			""
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_w"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"q"
+				"Function"				"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"w"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_qe"
+	{
+		"ID"							"5004"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastAnimation"			""
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_qe"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_dragonknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			""
+				"Target"				"CASTER"
+				"AttachType"			""
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_e"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"q"
+				"Function"				"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"e"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_wq"
+	{
+		"ID"							"5005"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastAnimation"			""
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_wq"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_dragonknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			""
+				"Target"				"CASTER"
+				"AttachType"			""
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_q"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"w"
+				"Function"				"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"q"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_we"
+	{
+		"ID"							"5006"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastAnimation"			""
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_we"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_dragonknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			""
+				"Target"				"CASTER"
+				"AttachType"			""
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_e"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"w"
+				"Function"				"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"e"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ablity_warden_eq"
+	{
+		"ID"							"5007"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastAnimation"			""
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_eq"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_dragonknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			""
+				"Target"				"CASTER"
+				"AttachType"			""
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_q"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"e"
+				"Function"				"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"q"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+	"ability_warden_ew"
+	{
+		"ID"							"5008"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityCastAnimation"			""
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"28"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ability_warden_ew"
+
+		"Precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_dragonknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"			""
+				"Target"				"CASTER"
+				"AttachType"			""
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_warden_w"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"e"
+				"Function"				"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elemetthinker"
+				"Element"				"w"
+				"Function"				"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_w"
+			}
+			"modifier_wardem_e"
+			{
+				"IsHidden"		"0"
+				"Passive"		"1"
+				"TextureName"	"modifier_warden_e"
+			}
+		}
+	}
+
+
+	"ability_warden_result_qq"
+	//灵巧攻击：一次有力的攻击 武器伤害 38
+	"ability_warden_result_qe"
+	//双击：一次二连击 武器伤害 38
+	"ability_warden_result_qw"
+	//蹬踏：25%几率2秒眩晕 95伤害 45
+	"ability_warden_result_qeq"
+	//前后连击：一次二连击 武器伤害+24 45
+	"ability_warden_result_qwe"
+	//强力攻击：45伤害，持续16秒，4秒一次 武器伤害 45
+	"ability_warden_result_qwq"
+	//猛攻：三连击 40伤害，三次
+	"ability_warden_result_qweq"
+	//挥击：武器伤害+76,4秒53伤害，持续16秒 45
+	"ability_warden_result_qeqe"
+	//野猪冲撞，造成190伤害
+	"ability_warden_result_qwqw"
+	//铁壁：三次武器伤害，增加格挡 45
+	"ability_warden_result_qwqeq"
+	//黎明前的黑暗：两次武器伤害+63 恢复魔法
+	"ability_warden_result_qewqe"
+	//守望者制胜：武器伤害+155，增加10%基础攻击，持续20秒
+
+	"ability_warden_result_ew"
+	//战斗咆哮：近战范围4秒10点伤害，持续16秒 初始恢复24，每4秒恢复24，持续16秒
+	"ability_warden_result_eq"
+	//精准重击：武器伤害+13，减少对方护甲 4点
+	"ability_warden_result_ee"
+	//鞭笞：近战范围 43初始伤害，4秒10伤害，持续16秒
+	"ability_warden_result_eqw"
+	//疯狂，吸血，4秒一次，持续16秒，对方减少22，自己恢复22
+	"ability_warden_result_ewe"
+	//胜利在望：初始43伤害，4秒43伤害，持续16秒
+	"ability_warden_result_eqe"
+	//贯穿：武器伤害+7 2次，减少护甲5点
+	"ability_warden_result_ewew"
+	//必杀：初始武器伤害+71,4秒43伤害，持续16秒 10%几率造成额外200伤害
+	"ability_warden_result_eqwe"
+	//坚毅：目标减少120点生命，自己增加120点生命
+	"ability_warden_result_eqeq"
+	//穿甲：武器伤害+24 二次伤害，护甲减少6点
+	"ability_warden_result_eqwew"
+	//嗜血：每4秒对手减少50点生命，自己恢复50生命
+	"ability_warden_result_ewewe"
+	//孤军，范围伤害，60初始伤害，4秒造成43伤害，持续16秒
+
+	"ability_warden_result_ww"
+	//以攻为守：武器伤害+13，增加840格挡等级
+	"ability_warden_result_we"
+	//压迫：初始43伤害，4秒造成10伤害，持续16秒，自己3秒恢复24，持续6秒
+	"ability_warden_result_wq"
+	//永不言败：初始恢复38,3秒恢复38，持续6秒
+	"ability_warden_result_wqe"
+	//举盾：增加闪避，格挡和护甲，持续30秒
+	"ability_warden_result_wqw"
+	//喘息：初始59,3秒恢复59，持续6秒
+	"ability_warden_result_wew"
+	//狂攻：主手武器+30伤害，转移范围内敌人的30血量到自身。
+	"ability_warden_result_wqew"
+	//盾牌精通：增加闪避，格挡和护甲，持续60秒
+	"ability_warden_result_wqwq"
+	//庆功：武器伤害+21，如果最近3秒有敌人死亡，则最初治疗68体力，持续治疗68体力，3秒一次，持续6秒
+	"ability_warden_result_wewe"
+	//战争之舞：大量增加闪避几率
+	"ability_warden_result_wqwqw"
+	//恢复：持续大量治疗
+	"ability_warden_result_wewewe"
+	//信念：持续大量治疗，队友治疗
+}
