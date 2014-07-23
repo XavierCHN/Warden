@@ -5,23 +5,7 @@ if ElementThinker = nil then
 end
 ------------------------------------------------------------------------------------------------------
 ALL_ABILITIES = {
-	-- 2 ELEMENTS
-	'ability_warden_qq','ability_warden_qw','ability_warden_qe',
-	'ability_warden_ww','ability_warden_wq','ability_warden_we',
-	'ability_warden_eq','ability_warden_wq','ability_warden_ee',
-	-- 3 ELEMENTS
-	'ability_warden_qwq','ability_warden_qeq',
-	'ability_warden_wqw','ability_warden_wew',
-	'ability_warden_eqe','ability_warden_ewe',
-	-- 4 ELEMENTS
-	'ability_warden_qwqw','ability_warden_qeqe',
-	'ability_warden_wqwq','ability_warden_wewe',
-	'ability_warden_eqeq','ability_warden_ewew',
-	-- 5 ELEMENTS 
-	'ability_warden_qwqwq','ability_warden_qwqwe','ability_warden_qweqw','ability_warden_qweqe',
-	'ability_warden_wqwqw','ability_warden_wqweq','ability_warden_wewqe','ability_warden_weqwe',
-	'ability_warden_'
-	-- TODO
+
 }
 ------------------------------------------------------------------------------------------------------
 -- element thinker new
@@ -115,6 +99,7 @@ end
 local function ElementTHinker:StoreAbility(hero,plyid)
 	hero:RemoveAbility(self.CurrentAbility[hero])
 	hero:AddAbility('ability_warden_empty')
+	hero:RemoveAbility(self.StoredAbility[hero])
 	hero:AddAbility(self.CurrentAbility[hero])
 	hero:FindAbilityByName('ability_warden_empty'):SetLevel(1)
 	hero:FindAbilityByName(self.CurrentAbility[hero]):SetLevel(1)
@@ -158,6 +143,12 @@ end
 function OnAbilityStore(keys)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local plyid = caster:GetPlayerID()
+	if ElementThinker.StoredAbility[caster] == nil then
+		ElementThinker.StoredAbility[caster] = 'ability_warden_store_empty'
+		if not hero:FindAbilityByName('ability_warden_store_empty') then
+			hero:AddAbility('ability_warden_store_empty')
+		end
+	end
 	ElementThinker:StoreAbility(caster,plyid)
 end
 
