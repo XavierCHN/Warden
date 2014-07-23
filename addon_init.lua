@@ -12,7 +12,7 @@ local function loadModule(name)
 end
 
 function tPrint(msg)
-  local PREFIX = '[EXINVOKER]'
+  local PREFIX = '[WARDEN]'
   print PREFIX..msg
 end
 
