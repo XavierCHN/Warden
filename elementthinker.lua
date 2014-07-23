@@ -47,7 +47,7 @@ local function ElementThinker:GetAbility(hero , plyid)
 		return 'ability_warden_empty'
 	end
 	-- catch the result ability
-	local resultAbility = 'ability_warden_'
+	local resultAbility = 'ability_warden_result_'
 	for i = 1,#self.Elements[hero] do
 		resultAbility = resultAbility + string.sub(self.Elements[hero][i],-1,-1)
 	end
@@ -79,7 +79,8 @@ local function ElementThinker:RemoveFirstModifier(hero , plyid)
 end
 ------------------------------------------------------------------------------------------------------
 local function ElementThinker:RefreshAbility(hero , plyid , newelement)
-	table.insert(self.Elements[hero])
+	local newElement = "modifier_warden_"..newelement
+	table.insert(self.Elements[hero],newElement)
 	if #self.Elements[hero] > 5 then
 		self:RemoveFirstModifier(hero , plyid)
 	end
