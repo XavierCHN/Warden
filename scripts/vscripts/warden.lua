@@ -51,7 +51,44 @@ ALL_ABILITY_MAP = {
 	'ability_warden_e',
 	'ability_warden_normal_empty',
 	'ability_warden_store_empty',
-	'ability_warden_store'
+	'ability_warden_store',
+
+	"ability_warden_result_qq",
+	"ability_warden_result_qe",
+	"ability_warden_result_qw",
+	"ability_warden_result_qeq",
+	"ability_warden_result_qwe",
+	"ability_warden_result_qwq",
+	"ability_warden_result_qweq",
+	"ability_warden_result_qeqe",
+	"ability_warden_result_qwqw",
+	"ability_warden_result_qwqeq",
+	"ability_warden_result_qewqe",
+
+	"ability_warden_result_ew",
+	"ability_warden_result_eq",
+	"ability_warden_result_ee",
+	"ability_warden_result_eqw",
+	"ability_warden_result_ewe",
+	"ability_warden_result_eqe",
+	"ability_warden_result_ewew",
+	"ability_warden_result_eqwe",
+	"ability_warden_result_eqeq",
+	"ability_warden_result_eqwew",
+	"ability_warden_result_ewewe",
+
+	"ability_warden_result_ww",
+	"ability_warden_result_we",
+	"ability_warden_result_wq",
+	"ability_warden_result_wqe",
+	"ability_warden_result_wqw",
+	"ability_warden_result_wew",
+	"ability_warden_result_wqew",
+	"ability_warden_result_wqwq",
+	"ability_warden_result_wewe",
+	"ability_warden_result_wqwqw",
+	"ability_warden_result_wewew"
+
 }
 -----------------------------------------------------------------------------------
 

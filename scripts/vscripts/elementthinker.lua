@@ -39,7 +39,7 @@ ALL_ABILITIES = {
 	"ability_warden_result_wqwq",
 	"ability_warden_result_wewe",
 	"ability_warden_result_wqwqw",
-	"ability_warden_result_wewewe"
+	"ability_warden_result_wewew"
 }
 ------------------------------------------------------------------------------------------------------
 -- element thinker new

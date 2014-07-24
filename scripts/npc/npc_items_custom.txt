@@ -1,0 +1,2931 @@
+"DOTAAbilities"
+{
+    "item_recipe_pudge_barathrum_lantern2"
+    {
+      "ID"                            "1701"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_barathrum_lantern2"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_barathrum_lantern1"
+      }
+    }
+    "item_recipe_pudge_barathrum_lantern3"
+    {
+      "ID"                            "1702"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_barathrum_lantern3"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_barathrum_lantern2"
+      }
+    }
+    "item_recipe_pudge_barathrum_lantern4"
+    {
+      "ID"                            "1703"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_barathrum_lantern4"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_barathrum_lantern3"
+      }
+    }
+    "item_recipe_pudge_barathrum_lantern5"
+    {
+      "ID"                            "1704"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_barathrum_lantern5"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_barathrum_lantern4"
+      }
+    }
+    "item_pudge_barathrum_lantern1"
+    {
+        "ID"                            "1705"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_barathrum_lantern1"
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+        
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_bonus_percent"      "15.0 20.0 25.0 30.0 35.0"
+            }
+        }
+    }
+    "item_pudge_barathrum_lantern2"
+    {
+        "ID"                            "1706"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_barathrum_lantern2"
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+        
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "damage_bonus_percent"  "15.0 20.0 25.0 30.0 35.0"
+            }
+        }
+    }
+    "item_pudge_barathrum_lantern3"
+    {
+        "ID"                        "1707"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                 "item_datadriven"
+        "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+        "AbilityTextureName"        "item_pudge_barathrum_lantern3"
+        "AbilityCastRange"          "5000"
+        "AbilityCastPoint"          "0"
+        "AbilityCooldown"           "0"
+        "ItemCost"                  "750"
+        "ItemInitialCharges"        "0"
+        
+        "ItemKillable"              "0"
+        "ItemDroppable"             "1"
+        "ItemSellable"              "1"
+        "ItemRequiresCharges"       "0"
+        "ItemShopTags"              "consumable"
+        "ItemQuality"               "consumable"
+        "ItemShareability"          "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                  "1"
+        
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "3"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_bonus_percent"      "15.0 20.0 25.0 30.0 35.0"
+            }
+        }
+    }
+    "item_pudge_barathrum_lantern4"
+    {
+        "ID"                        "1708"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                 "item_datadriven"
+        "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+        "AbilityTextureName"        "item_pudge_barathrum_lantern4"
+        "AbilityCastRange"          "5000"
+        "AbilityCastPoint"          "0"
+        "AbilityCooldown"           "0"
+        "ItemCost"                  "750"
+        "ItemInitialCharges"        "0"
+        
+        "ItemKillable"              "0"
+        "ItemDroppable"             "1"
+        "ItemSellable"              "1"
+        "ItemRequiresCharges"       "0"
+        "ItemShopTags"              "consumable"
+        "ItemQuality"               "consumable"
+        "ItemShareability"          "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                  "1"
+        
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "4"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_bonus_percent"      "15.0 20.0 25.0 30.0 35.0"
+            }
+        }
+    }
+    "item_pudge_barathrum_lantern5"
+    {
+        "ID"                        "1709"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                 "item_datadriven"
+        "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+        "AbilityTextureName"        "item_pudge_barathrum_lantern5"
+        "AbilityCastRange"          "5000"
+        "AbilityCastPoint"          "0"
+        "AbilityCooldown"           "0"
+        "ItemCost"                  "750"
+        "ItemInitialCharges"        "0"
+        
+        "ItemKillable"              "0"
+        "ItemDroppable"             "1"
+        "ItemSellable"              "1"
+        "ItemRequiresCharges"       "0"
+        "ItemShopTags"              "consumable"
+        "ItemQuality"               "consumable"
+        "ItemShareability"          "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                  "1"
+        
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "5"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_bonus_percent"      "15.0 20.0 25.0 30.0 35.0"
+            }
+        }
+    }
+    "item_recipe_pudge_bloodseeker_claw2"
+    {
+        "ID"                            "1720"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_bloodseeker_claw2"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_bloodseeker_claw1"
+        }
+    }
+    "item_recipe_pudge_bloodseeker_claw3"
+    {
+        "ID"                            "1721"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_bloodseeker_claw3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_bloodseeker_claw2"
+        }
+    }
+    "item_recipe_pudge_bloodseeker_claw4"
+    {
+        "ID"                            "1722"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_bloodseeker_claw4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_bloodseeker_claw3"
+        }
+    }
+    "item_recipe_pudge_bloodseeker_claw5"
+    {
+        "ID"                            "1723"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_bloodseeker_claw5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_bloodseeker_claw4"
+        }
+    }
+    "item_pudge_bloodseeker_claw1"
+    {
+        "ID"                            "1724"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_bloodseeker_claw1"
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+    
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "Modifiers"
+        {
+            "modifier_item_bloodseeker_claw_1"
+            {
+                "IsHidden"  "0"
+                "Passive"   "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "damage_per_move"   "20.0 30.0 40.0 50.0 60.0"
+            }
+        }
+    }
+    "item_pudge_bloodseeker_claw2"
+    {
+        "ID"                            "1725"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_bloodseeker_claw2"
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+    
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+
+        "Modifiers"
+        {
+            "modifier_item_bloodseeker_claw_2"
+            {
+                "IsHidden"  "0"
+                "Passive"   "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "damage_per_move"   "20.0 30.0 40.0 50.0 60.0"
+            }
+        }
+    }
+    "item_pudge_bloodseeker_claw3"
+    {
+        "ID"                            "1726"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_bloodseeker_claw3"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+    
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "3"
+
+        "Modifiers"
+        {
+            "modifier_item_bloodseeker_claw_3"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "damage_per_move"   "20.0 30.0 40.0 50.0 60.0"
+            }
+        }
+    }
+    "item_pudge_bloodseeker_claw4"
+    {
+        "ID"                            "1727"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_bloodseeker_claw4"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+    
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "4"
+
+        "Modifiers"
+        {
+            "modifier_item_bloodseeker_claw_4"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "damage_per_move"   "20.0 30.0 40.0 50.0 60.0"
+            }
+        }
+    }
+    "item_pudge_bloodseeker_claw5"
+    {
+        "ID"                            "1728"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_bloodseeker_claw5"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+    
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "5"
+
+        "Modifiers"
+        {
+            "modifier_item_bloodseeker_claw_5"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "damage_per_move"   "20.0 30.0 40.0 50.0 60.0"
+            }
+        }
+    }
+    "item_recipe_pudge_naix_jaw2"
+    {
+        "ID"                            "1729" 
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_naix_jaw2"
+
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_naix_jaw1"
+        }
+    }
+    "item_recipe_pudge_naix_jaw3"
+    {
+        "ID"                            "1730"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "500"   
+        "ItemShopTags"                  ""
+        
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_naix_jaw3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_naix_jaw2"
+        }
+    }
+    "item_recipe_pudge_naix_jaw4"
+    {
+        "ID"                            "1731"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        
+        "ItemCost"                      "500"   
+        "ItemShopTags"                  ""
+        
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_naix_jaw4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_naix_jaw3"
+        }
+    }
+    "item_recipe_pudge_naix_jaw5"
+    {
+        "ID"                            "1732"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        
+        "ItemCost"                      "500"   
+        "ItemShopTags"                  ""
+        
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_naix_jaw5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_naix_jaw4"
+        }
+    }
+    "item_pudge_naix_jaw1"
+    {
+        "ID"                                "1733"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                         "item_datadriven"
+        "AbilityCastAnimation"              "ACT_DOTA_DISABLED"
+        "AbilityTextureName"                "item_pudge_naix_jaw1"
+
+        "AbilityCastRange"                  "5000"
+        "AbilityCastPoint"                  "0"
+        "AbilityCooldown"                   "0"
+
+        "ItemCost"                          "750"
+        "ItemInitialCharges"                "0"
+    
+        "ItemKillable"                      "0"
+        "ItemDroppable"                     "1"
+        "ItemSellable"                      "1"
+        "ItemRequiresCharges"               "0"
+        "ItemShopTags"                      "consumable"
+        "ItemQuality"                       "consumable"
+        "ItemShareability"                  "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                          "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "1"
+
+        "Modifiers"
+        {
+            "modifier_item_naix_life_steal_1"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "heal_multiplier"   "10.0 15.0 20.0 25.0 30.0"
+            }
+        }
+    }
+    "item_pudge_naix_jaw2"
+    {
+        "ID"                            "1734"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_naix_jaw2"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+        
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "2"
+
+        "Modifiers"
+        {
+            "modifier_item_naix_life_steal_2"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "heal_multiplier"   "10.0 15.0 20.0 25.0 30.0"
+            }
+        }
+    }
+    "item_pudge_naix_jaw3"
+    {
+        "ID"                            "1735"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_naix_jaw3"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+        
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "3"
+
+        "Modifiers"
+        {
+            "modifier_item_naix_life_steal_3"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "heal_multiplier"   "10.0 15.0 20.0 25.0 30.0"
+            }
+        }
+    }
+    "item_pudge_naix_jaw4"
+    {
+        "ID"                            "1736"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_naix_jaw4"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "4"
+
+        "Modifiers"
+        {
+            "modifier_item_naix_life_steal_4"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "heal_multiplier"   "10.0 15.0 20.0 25.0 30.0"
+            }
+        }
+    }
+    "item_pudge_naix_jaw5"
+    {
+        "ID"                            "1737"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityTextureName"            "item_pudge_naix_jaw5"
+
+        "AbilityCastRange"              "5000"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "0"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "5"
+
+        "Modifiers"
+        {
+            "modifier_item_naix_life_steal_5"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "heal_multiplier"   "10.0 15.0 20.0 25.0 30.0"
+            }
+        }
+    } 
+    "item_recipe_pudge_tiny_arm2"
+    {
+      "ID"                            "1738"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_tiny_arm2"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_tiny_arm1"
+      }
+    }
+    "item_recipe_pudge_tiny_arm3"
+    {
+      "ID"                            "1739"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_tiny_arm3"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_tiny_arm2"
+      }
+    }
+    "item_recipe_pudge_tiny_arm4"
+    {
+      "ID"                            "1740"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_tiny_arm4"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_tiny_arm3"
+      }
+    }
+    "item_recipe_pudge_tiny_arm5"
+    {
+      "ID"                            "1741"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "BaseClass"                     "item_recipe_arcane_boots"
+      "ItemCost"                      "1000"  
+      "ItemShopTags"                  ""
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_pudge_tiny_arm5"
+      "ItemRequirements"
+      {
+          "01"                        "item_pudge_tiny_arm4"
+      }
+    }
+    "item_pudge_tiny_arm1"
+    {
+        "ID"                            "1742"
+        
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_tiny_arm1"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "0.0"
+        "ItemCost"                      "700"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+        "AbilitySharedCooldown"	        "ability_tiny_arm"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/abilityhook.lua"
+                "Target"        "TARGET"
+                "Level"         "1"
+                "Function"      "OnTinyArmCast"
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "1.0 1.0 1.0 1.0 1.0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "grab_radius"           "250 250 250 250 250 250"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275 275 275 275 275 275"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage_pct"      "20 20 20 20 20 20"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "grow_bonus_damage_pct"     "35 50 80 80 80"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_range"             "2500"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "toss_damage"               "75 150 225 300 350 450"
+            }
+        }
+    }
+    "item_pudge_tiny_arm2"
+    {
+        "ID"                            "1743"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_tiny_arm2"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "0.0"
+        "ItemCost"                      "700"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+        "AbilitySharedCooldown"	        "ability_tiny_arm"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts\vscripts\abilityhook.lua"
+                "Target"        "TARGET"
+                "Level"         "2"
+                "Function"      "OnTinyArmCast"
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "1.0 1.0 1.0 1.0 1.0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "grab_radius"           "250 250 250 250 250 250"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275 275 275 275 275 275"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage_pct"      "20 20 20 20 20 20"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "grow_bonus_damage_pct"     "35 50 80 80 80"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_range"             "2500"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "toss_damage"               "75 150 225 300 350 450"
+            }
+        }
+    }
+    "item_pudge_tiny_arm3"
+    {
+        "ID"                        "1744"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_tiny_arm3"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "10.0"
+        "ItemCost"                      "700"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+        "AbilitySharedCooldown"	        "ability_tiny_arm"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts\vscripts\abilityhook.lua"
+                "Target"        "TARGET"
+                "Level"         "3"
+                "Function"      "OnTinyArmCast"
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "1.0 1.0 1.0 1.0 1.0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "grab_radius"           "250 250 250 250 250 250"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275 275 275 275 275 275"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage_pct"      "20 20 20 20 20 20"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "grow_bonus_damage_pct"     "35 50 80 80 80"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_range"             "2500"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "toss_damage"               "75 150 225 300 350 450"
+            }
+        }
+    }
+    "item_pudge_tiny_arm4"
+    {
+        "ID"                        "1745"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_tiny_arm4"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "10.0"
+        "ItemCost"                      "700"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+        "AbilitySharedCooldown"	        "ability_tiny_arm"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "4"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts\vscripts\abilityhook.lua"
+                "Target"        "TARGET"
+                "Level"         "4"
+                "Function"      "OnTinyArmCast"
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "1.0 1.0 1.0 1.0 1.0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "grab_radius"           "250 250 250 250 250 250"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275 275 275 275 275 275"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage_pct"      "20 20 20 20 20 20"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "grow_bonus_damage_pct"     "35 50 80 80 80"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_range"             "2500"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "toss_damage"               "75 150 225 300 350 450"
+            }
+        }
+    }
+    "item_pudge_tiny_arm5"
+    {
+        "ID"                        "1746"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_tiny_arm5"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "10.0"
+        "ItemCost"                      "700"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+        "AbilitySharedCooldown"	        "ability_tiny_arm"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts\vscripts\abilityhook.lua"
+                "Target"        "TARGET"
+                "Level"         "5"
+                "Function"      "OnTinyArmCast"
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "1.0 1.0 1.0 1.0 1.0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "grab_radius"           "250 250 250 250 250 250"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275 275 275 275 275 275"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage_pct"      "20 20 20 20 20 20"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "grow_bonus_damage_pct"     "35 50 80 80 80"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_range"             "2500"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "toss_damage"               "75 150 225 300 350 450"
+            }
+        }
+    }
+    "item_recipe_pudge_techies_explosive_barrel2"
+    {
+        "ID"                            "1747"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_techies_explosive_barrel2"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_techies_explosive_barrel1"
+        }
+    }
+    "item_recipe_pudge_techies_explosive_barrel3"
+    {
+        "ID"                            "1748"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_techies_explosive_barrel3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_techies_explosive_barrel2"
+        }
+    }
+    "item_recipe_pudge_techies_explosive_barrel4"
+    {
+        "ID"                            "1749"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_techies_explosive_barrel4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_techies_explosive_barrel3"
+        }
+    }
+    "item_recipe_pudge_techies_explosive_barrel5"
+    {
+        "ID"                            "1750"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_techies_explosive_barrel5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_techies_explosive_barrel4"
+        }
+    }
+    "item_pudge_techies_explosive_barrel1"
+    {
+        "ID"                            "1751"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_techies_explosive_barrel1"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/abilityhook.lua"
+                "Function"      "PlantABomb"
+                "Level"         "1"
+            }
+        }
+    }
+    "item_pudge_techies_explosive_barrel2"
+    {
+        "ID"                            "1752"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_techies_explosive_barrel2"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/abilityhook.lua"
+                "Function"      "PlantABomb"
+                "Level"         "2"
+            }
+        }
+    }
+    "item_pudge_techies_explosive_barrel3"
+    {
+        "ID"                            "1753"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_techies_explosive_barrel3"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/abilityhook.lua"
+                "Function"      "PlantABomb"
+                "Level"         "3"
+            }
+        }
+    }
+    "item_pudge_techies_explosive_barrel4"
+    {
+        "ID"                            "1754"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_techies_explosive_barrel4"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "4"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/abilityhook.lua"
+                "Function"      "PlantABomb"
+                "Level"         "4"
+            }
+        }
+    }
+    "item_pudge_techies_explosive_barrel5"
+    {
+        "ID"                            "1755"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_techies_explosive_barrel5"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/abilityhook.lua"
+                "Function"      "PlantABomb"
+                "Level"         "5"
+            }
+        }
+    }
+    "item_recipe_pudge_lycan_paw2"
+    {
+        "ID"                            "1756"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_lycan_paw2"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_lycan_paw1"
+        }
+    }
+    "item_recipe_pudge_lycan_paw3"
+    {
+        "ID"                            "1757"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_lycan_paw3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_lycan_paw2"
+        }
+    }
+    "item_recipe_pudge_lycan_paw4"
+    {
+        "ID"                            "1758"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_lycan_paw4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_lycan_paw3"
+        }
+    }
+    "item_recipe_pudge_lycan_paw5"
+    {
+        "ID"                            "1759"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_lycan_paw5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_lycan_paw4"
+        }
+    }
+    "item_pudge_lycan_paw1"
+    {
+        "ID"                            "1760"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_lycan_paw1"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+
+        "Modifiers"
+        {
+            "modifier_pudge_lycan_paw_1"
+            {
+                "Passive"       "1"
+                "IsHidden"      "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "20"
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"  "FIELD_INTEGER"
+                "move_speed_bonus"     "20 50 80 110 150"
+            }
+        }
+    }
+    "item_pudge_lycan_paw2"
+    {
+        "ID"                            "1761"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_lycan_paw2"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+
+        "Modifiers"
+        {
+            "modifier_pudge_lycan_paw_2"
+            {
+                "Passive"       "1"
+                "IsHidden"      "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "50"
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"  "FIELD_INTEGER"
+                "move_speed_bonus"     "20 50 80 110 150"
+            }
+        }
+    }    
+    "item_pudge_lycan_paw3"
+    {
+        "ID"                            "1762"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_lycan_paw3"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"
+
+        "Modifiers"
+        {
+            "modifier_pudge_lycan_paw_3"
+            {
+                "Passive"       "1"
+                "IsHidden"      "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "80"
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"  "FIELD_INTEGER"
+                "move_speed_bonus"     "20 50 80 110 150"
+            }
+        }
+    }
+    "item_pudge_lycan_paw4"
+    {
+        "ID"                            "1763"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_lycan_paw4"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "4"
+
+        "Modifiers"
+        {
+            "modifier_pudge_lycan_paw_4"
+            {
+                "Passive"       "1"
+                "IsHidden"      "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "110"
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"  "FIELD_INTEGER"
+                "move_speed_bonus"     "20 50 80 110 150"
+            }
+        }
+    }
+    "item_pudge_lycan_paw5"
+    {
+        "ID"                            "1764"
+        "BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0"
+        "AbilityCooldown"               "20"
+        "AbilityManaCost"               "0 0 0 0 0"
+        "AbilityModifierSupportValue"   "0.25"
+        "AbilityTextureName"            "pudge_lycan_paw5"
+
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+
+        "Modifiers"
+        {
+            "modifier_pudge_lycan_paw_5"
+            {
+                "Passive"       "1"
+                "IsHidden"      "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "150"
+                }
+            }
+            "modifier_pudge_pycan_paw_hidden"
+            {
+                "Passive"   "1"
+                "IsHidden"  "0"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "27"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"      "12"
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"  "FIELD_INTEGER"
+                "move_speed_bonus"     "20 50 80 110 150"
+            }
+        }
+    }
+    "item_pudge_wardr1"
+    {
+        "ID"                            "1765"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "pudge_wardr1"
+        "ItemKillable"                  "0"
+        "ItemSellable"                  "1"
+        "ItemDroppable"                 "1"
+        "AbilityCastRange"              "4000"
+        "AbilityCastPoint"              "0.0"
+
+        "AbilityManaCost"               "20"
+        "ItemCost"                      "50"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_SPECTATORS"
+        "ItemPurchasable"               "1"
+        "SideShop"                      "1"
+        "ItemStackable"                 "1"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "ItemDisplayCharges"            "1"
+        "ItemStockMax"                  "3"
+        "ItemStockTime"                 "120.0"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ItemSupport"                   "1"
+        "ItemAlertable"                 "1"
+
+        "OnSpellStart"
+        {
+            "SpendCharge"
+            {}
+            "SpawnUnit"
+            {
+                "UnitName"          "npc_pudge_ward_dummy"
+                "UnitCount"         "1"
+                "Target"            "POINT"
+                "Duration"          "%duration"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "duration"      "5"
+            }
+        }
+    }
+    "item_pudge_flask1"
+    {
+        "ID"                            "1766"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "Model"                         "models/props_gameplay/salve_red.mdl"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_flask1"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "100"
+        "AbilityCastPoint"              "0.0"
+        "ItemCost"                      "100"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemStackable"                 "1"
+        "ItemShareability"              "ITEM_FULLY_SHAREABLE_STACKING"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "SideShop"                      "1"
+
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target" "CURSOR_TARGET"
+                "ModifierName" "modifier_item_greater_salve"
+            }
+            "FireSound"
+            {
+                "Target" "UNIT"
+                "EffectName" "DOTA_Item.HealingSalve.Activate"
+            }
+            "SpendCharge"
+            {}
+        }
+        "Modifiers"
+        {
+            "modifier_item_pudge_flask"
+            {
+                "TextureName" "item_greater_salve"
+                "EffectName" "item_pudge_flask1"
+                "EffectAttachType" "follow_origin"
+                "Duration" "%buff_duration"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_per_tick"
+                }
+                "OnTakeDamage"
+                {
+                    "RemoveModifier"
+                    {
+                        "Target" "UNIT"
+                        "ModifierName" "modifier_item_pudge_flask"
+                    }
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "buff_duration"         "60"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "total_hp"              "1000"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "hp_per_tick"           "16"  // %total_mana / %buff_duration
+            }
+        }
+    }
+    "item_recipe_pudge_grappling_hook2"
+    {
+        "ID"                            "1767"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_grappling_hook2"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_grappling_hook1"
+        }
+    }
+    "item_recipe_pudge_grappling_hook3"
+    {
+        "ID"                            "1768"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_grappling_hook3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_grappling_hook2"
+        }
+    }
+    "item_recipe_pudge_grappling_hook4"
+    {
+        "ID"                            "1769"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_grappling_hook4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_grappling_hook3"
+        }
+    }
+    "item_recipe_pudge_grappling_hook5"
+    {
+        "ID"                            "1770"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_grappling_hook5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_grappling_hook4"
+        }
+    }
+    "item_pudge_grappling_hook1"
+    {
+        "ID"                            "1771"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_grappling_hook1"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"   "3500"
+        "AbilityCastPoint"   "0.0"
+        "AbilityDamage"  "0"
+        "AbilityManaCost"    "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "1"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                    "Caster"            "CASTER"
+                    "Target"             "POINT"
+                    "ScriptFile"         "scripts/vscripts/abilityhook.lua"
+                    "Function"           "OnGrapplingHook"                
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "chain_radius"      "40"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "range"             "1700 2000 2300 2500 3000"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "damage_radius"     "0"
+            }
+            "04"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "speed"             "1000 1100 1200 1350 1600"
+            }
+            "05"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "damage"            "0"
+            }
+        } 
+    }
+    "item_pudge_grappling_hook2"
+    {
+        "ID"                            "1772"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_grappling_hook2"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "2500"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "2"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                    "Caster"               "CASTER"
+                    "Target"             "POINT"
+                    "ScriptFile"         "scripts/vscripts/abilityhook.lua"
+                    "Function"           "OnGrapplingHook"                
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "chain_radius"      "40"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "range"             "1700 2000 2300 2500 3000"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "damage_radius"     "0"
+            }
+            "04"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "speed"             "1000 1100 1200 1350 1600"
+            }
+            "05"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "damage"            "0"
+            }
+        } 
+    }
+    "item_pudge_grappling_hook3"
+    {
+        "ID"                            "1773"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_grappling_hook3"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"   "3500"
+        "AbilityCastPoint"   "0.0"
+        "AbilityDamage"  "0"
+        "AbilityManaCost"    "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "3"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                    "Caster"            "CASTER"
+                    "Target"             "POINT"
+                    "ScriptFile"         "scripts/vscripts/abilityhook.lua"
+                    "Function"           "OnGrapplingHook"                
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "chain_radius"      "40"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "range"             "1700 2000 2300 2500 3000"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "damage_radius"     "0"
+            }
+            "04"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "speed"             "1000 1100 1200 1350 1600"
+            }
+            "05"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "damage"            "0"
+            }
+        } 
+    }
+    "item_pudge_grappling_hook4"
+    {
+        "ID"                            "1774"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_grappling_hook4"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"   "3500"
+        "AbilityCastPoint"   "0.0"
+        "AbilityDamage"  "0"
+        "AbilityManaCost"    "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "4"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                    "Caster"            "CASTER"
+                    "Target"             "POINT"
+                    "ScriptFile"         "scripts/vscripts/abilityhook.lua"
+                    "Function"           "OnGrapplingHook"                
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "chain_radius"      "40"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "range"             "1700 2000 2300 2500 3000"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "damage_radius"     "0"
+            }
+            "04"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "speed"             "1000 1100 1200 1350 1600"
+            }
+            "05"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "damage"            "0"
+            }
+        } 
+    }
+    "item_pudge_grappling_hook5"
+    {
+        "ID"                            "1775"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_grappling_hook5"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"   "3500"
+        "AbilityCastPoint"   "0.0"
+        "AbilityDamage"  "0"
+        "AbilityManaCost"    "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "5"
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                    "Caster"            "CASTER"
+                    "Target"             "POINT"
+                    "ScriptFile"         "scripts/vscripts/abilityhook.lua"
+                    "Function"           "OnGrapplingHook"                
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "chain_radius"      "40"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "range"             "1700 2000 2300 2500 3000"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "damage_radius"     "0"
+            }
+            "04"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "speed"             "1000 1100 1200 1350 1600"
+            }
+            "05"
+            {   
+                "var_type"          "FIELD_INTEGER"
+                "damage"            "0"
+            }
+        } 
+    }
+    "item_pudge_earthshaker_totem1"
+    {
+        "ID"                            "1776"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_earthshaker_totem1"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1200"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "1"
+
+        "OnSpellStart"
+        {
+            "SpawnUnit"
+            {
+                "UnitName"      "npc_pudge_wars_barrier"
+                "UnitCount"     "1"
+                "SpawnRadius"   "0"
+                "Target"        "POINT"
+                "Duration"      "%wall_duration"
+                "OnSpawn"
+                {
+                    "RunScript"
+                    {
+                        "Caster"                "CASTER"
+                        "Target"                "TARGET"
+                        "ScriptFile"            "scripts/vscripts/abilityhook.lua"
+                        "Function"              "OnBarrierBuilt"                
+                    }
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "wall_duration"         "2.0 3.0 5.0 7.0 10.0"
+            }
+        }
+    }
+    "item_pudge_earthshaker_totem2"
+    {
+        "ID"                            "1777"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_earthshaker_totem2"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1200"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "2"
+
+        "OnSpellStart"
+        {
+            "SpawnUnit"
+            {
+                "UnitName"      "npc_pudge_wars_barrier"
+                "UnitCount"     "1"
+                "SpawnRadius"   "0"
+                "Target"        "POINT"
+                "Duration"      "%wall_duration"
+                "OnSpawn"
+                {
+                    "RunScript"
+                    {
+                        "Caster"                "CASTER"
+                        "Target"                "TARGET"
+                        "ScriptFile"            "scripts/vscripts/abilityhook.lua"
+                        "Function"              "OnBarrierBuilt"                
+                    }
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "wall_duration"         "2.0 3.0 5.0 7.0 10.0"
+            }
+        }
+    }
+    "item_pudge_earthshaker_totem3"
+    {
+        "ID"                            "1778"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_earthshaker_totem3"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1200"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "3"
+
+        "OnSpellStart"
+        {
+            "SpawnUnit"
+            {
+                "UnitName"      "npc_pudge_wars_barrier"
+                "UnitCount"     "1"
+                "SpawnRadius"   "0"
+                "Target"        "POINT"
+                "Duration"      "%wall_duration"
+                "OnSpawn"
+                {
+                    "RunScript"
+                    {
+                        "Caster"                "CASTER"
+                        "Target"                "TARGET"
+                        "ScriptFile"            "scripts/vscripts/abilityhook.lua"
+                        "Function"              "OnBarrierBuilt"                
+                    }
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "wall_duration"         "2.0 3.0 5.0 7.0 10.0"
+            }
+        }
+    }
+    "item_pudge_earthshaker_totem4"
+    {
+        "ID"                            "1779"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_earthshaker_totem4"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1200"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "4"
+
+        "OnSpellStart"
+        {
+            "SpawnUnit"
+            {
+                "UnitName"      "npc_pudge_wars_barrier"
+                "UnitCount"     "1"
+                "SpawnRadius"   "0"
+                "Target"        "POINT"
+                "Duration"      "%wall_duration"
+                "OnSpawn"
+                {
+                    "RunScript"
+                    {
+                        "Caster"                "CASTER"
+                        "Target"                "TARGET"
+                        "ScriptFile"            "scripts/vscripts/abilityhook.lua"
+                        "Function"              "OnBarrierBuilt"                
+                    }
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "wall_duration"         "2.0 3.0 5.0 7.0 10.0"
+            }
+        }
+    }
+    "item_pudge_earthshaker_totem5"
+    {
+        "ID"                            "1780"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_pudge_earthshaker_totem5"
+        "ItemKillable"                  "0"
+        "AbilityCooldown"               "9.0"
+        "ItemCost"                      "650"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemShopTags"                  ""
+        "ItemQuality"                   "common"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemSellable"                  "0"
+        "ItemKillable"                  "0"
+        "AbilityCastRange"              "1200"
+        "AbilityCastPoint"              "0.0"
+        "AbilityDamage"                 "0"
+        "AbilityManaCost"               "0"
+
+        "MaxUpgradeLevel"           "5"
+        "ItemBaseLevel"             "5"
+
+        "OnSpellStart"
+        {
+            "SpawnUnit"
+            {
+                "UnitName"      "npc_pudge_wars_barrier"
+                "UnitCount"     "1"
+                "SpawnRadius"   "0"
+                "Target"        "POINT"
+                "Duration"      "%wall_duration"
+                "OnSpawn"
+                {
+                    "RunScript"
+                    {
+                        "Caster"                "CASTER"
+                        "Target"                "TARGET"
+                        "ScriptFile"            "scripts/vscripts/abilityhook.lua"
+                        "Function"              "OnBarrierBuilt"                
+                    }
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "wall_duration"         "2.0 3.0 5.0 7.0 10.0"
+            }
+        }
+    }
+    "item_recipe_pudge_earthshaker_totem2"
+    {
+        "ID"                            "1781"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_earthshaker_totem2"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_earthshaker_totem1"
+        }
+    }
+    "item_recipe_pudge_earthshaker_totem3"
+    {
+        "ID"                            "1782"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_earthshaker_totem3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_earthshaker_totem2"
+        }
+    }
+    "item_recipe_pudge_earthshaker_totem4"
+    {
+        "ID"                            "1783"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_earthshaker_totem4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_earthshaker_totem3"
+        }
+    }
+    "item_recipe_pudge_earthshaker_totem5"
+    {
+        "ID"                            "1784"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_earthshaker_totem5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_earthshaker_totem4"
+        }
+    }
+    "item_pudge_ricochet_turbine1"
+    {
+        "ID"                                "1785"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                         "item_datadriven"
+        "AbilityCastAnimation"              "ACT_DOTA_DISABLED"
+        "AbilityTextureName"                "item_pudge_ricochet_turbine1"
+
+        "AbilityCastRange"                  "5000"
+        "AbilityCastPoint"                  "0"
+        "AbilityCooldown"                   "0"
+
+        "ItemCost"                          "750"
+        "ItemInitialCharges"                "0"
+    
+        "ItemKillable"                      "0"
+        "ItemDroppable"                     "1"
+        "ItemSellable"                      "1"
+        "ItemRequiresCharges"               "0"
+        "ItemShopTags"                      "consumable"
+        "ItemQuality"                       "consumable"
+        "ItemShareability"                  "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                          "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "1"
+
+        "Modifiers"
+        {
+            "modifier_ricochet_turbine1"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "bonus_damage_per_turn"   "100.0 150.0 200.0 250.0 300.0"
+            }
+        }
+    }
+    "item_pudge_ricochet_turbine2"
+    {
+        "ID"                                "1786"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                         "item_datadriven"
+        "AbilityCastAnimation"              "ACT_DOTA_DISABLED"
+        "AbilityTextureName"                "item_pudge_ricochet_turbine2"
+
+        "AbilityCastRange"                  "5000"
+        "AbilityCastPoint"                  "0"
+        "AbilityCooldown"                   "0"
+
+        "ItemCost"                          "750"
+        "ItemInitialCharges"                "0"
+    
+        "ItemKillable"                      "0"
+        "ItemDroppable"                     "1"
+        "ItemSellable"                      "1"
+        "ItemRequiresCharges"               "0"
+        "ItemShopTags"                      "consumable"
+        "ItemQuality"                       "consumable"
+        "ItemShareability"                  "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                          "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "2"
+
+        "Modifiers"
+        {
+            "modifier_ricochet_turbine2"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "bonus_damage_per_turn"   "100.0 150.0 200.0 250.0 300.0"
+            }
+        }
+    }
+    "item_pudge_ricochet_turbine3"
+    {
+        "ID"                                "1787"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                         "item_datadriven"
+        "AbilityCastAnimation"              "ACT_DOTA_DISABLED"
+        "AbilityTextureName"                "item_pudge_ricochet_turbine3"
+
+        "AbilityCastRange"                  "5000"
+        "AbilityCastPoint"                  "0"
+        "AbilityCooldown"                   "0"
+
+        "ItemCost"                          "750"
+        "ItemInitialCharges"                "0"
+    
+        "ItemKillable"                      "0"
+        "ItemDroppable"                     "1"
+        "ItemSellable"                      "1"
+        "ItemRequiresCharges"               "0"
+        "ItemShopTags"                      "consumable"
+        "ItemQuality"                       "consumable"
+        "ItemShareability"                  "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                          "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "3"
+
+        "Modifiers"
+        {
+            "modifier_ricochet_turbine3"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "bonus_damage_per_turn"   "100.0 150.0 200.0 250.0 300.0"
+            }
+        }
+    }
+    "item_pudge_ricochet_turbine4"
+    {
+        "ID"                                "1788"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                         "item_datadriven"
+        "AbilityCastAnimation"              "ACT_DOTA_DISABLED"
+        "AbilityTextureName"                "item_pudge_ricochet_turbine4"
+
+        "AbilityCastRange"                  "5000"
+        "AbilityCastPoint"                  "0"
+        "AbilityCooldown"                   "0"
+
+        "ItemCost"                          "750"
+        "ItemInitialCharges"                "0"
+    
+        "ItemKillable"                      "0"
+        "ItemDroppable"                     "1"
+        "ItemSellable"                      "1"
+        "ItemRequiresCharges"               "0"
+        "ItemShopTags"                      "consumable"
+        "ItemQuality"                       "consumable"
+        "ItemShareability"                  "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                          "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "4"
+
+        "Modifiers"
+        {
+            "modifier_ricochet_turbine4"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "bonus_damage_per_turn"   "100.0 150.0 200.0 250.0 300.0"
+            }
+        }
+    }
+    "item_pudge_ricochet_turbine5"
+    {
+        "ID"                                "1789"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_HERO"
+        "BaseClass"                         "item_datadriven"
+        "AbilityCastAnimation"              "ACT_DOTA_DISABLED"
+        "AbilityTextureName"                "item_pudge_ricochet_turbine5"
+
+        "AbilityCastRange"                  "5000"
+        "AbilityCastPoint"                  "0"
+        "AbilityCooldown"                   "0"
+
+        "ItemCost"                          "750"
+        "ItemInitialCharges"                "0"
+    
+        "ItemKillable"                      "0"
+        "ItemDroppable"                     "1"
+        "ItemSellable"                      "1"
+        "ItemRequiresCharges"               "0"
+        "ItemShopTags"                      "consumable"
+        "ItemQuality"                       "consumable"
+        "ItemShareability"                  "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                          "1"
+    
+        "MaxUpgradeLevel"        "5"
+        "ItemBaseLevel"          "5"
+
+        "Modifiers"
+        {
+            "modifier_ricochet_turbine5"
+            {
+                "IsHidden"  "0"
+                "Passive" "1"
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "bonus_damage_per_turn"   "100.0 150.0 200.0 250.0 300.0"
+            }
+        }
+    }
+    "item_recipe_pudge_ricochet_turbine2"
+    {
+        "ID"                            "1790"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_ricochet_turbine2"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_ricochet_turbine1"
+        }
+    }
+    "item_recipe_pudge_ricochet_turbine2"
+    {
+        "ID"                            "1791"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_ricochet_turbine3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_ricochet_turbine2"
+        }
+    }
+    "item_recipe_pudge_ricochet_turbine3"
+    {
+        "ID"                            "1792"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_ricochet_turbine3"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_ricochet_turbine2"
+        }
+    }
+    "item_recipe_pudge_ricochet_turbine4"
+    {
+        "ID"                            "1793"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_ricochet_turbine4"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_ricochet_turbine3"
+        }
+    }
+    "item_recipe_pudge_ricochet_turbine5"
+    {
+        "ID"                            "1794"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "BaseClass"                     "item_recipe_arcane_boots"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_pudge_ricochet_turbine5"
+        "ItemRequirements"
+        {
+            "01"                        "item_pudge_ricochet_turbine4"
+        }
+    }
+}
