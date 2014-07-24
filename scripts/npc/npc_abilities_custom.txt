@@ -23,6 +23,11 @@
 	    		"Target"					"CASTER"
 	    		"ModifierName"				"modifier_warden_q"
 	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"Target"					"CASTER"
+	    		"ModifierName"				"modifier_warden_q_fx"
+	    	}
 	    	"RunScript"
 	    	{
 	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
@@ -36,6 +41,28 @@
 	    	{
 	    		"IsHidden"					"0"
 	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    	}
+	    	"modifier_warden_q_fx"
+	    	{
+	    		"Duration"					"0.5"
+	    		"OnCreated"
+	    		{
+	    			"AttachEffect"
+	    			{
+	    				//todo
+						"Target" "TARGET"
+						"ControlPointEntities"
+						{
+							// Lol
+							"TARGET"		"attach_hitloc"
+							"TARGET"		"attach_hitloc"
+							"TARGET"		"attach_hitloc"
+							"TARGET"		"attach_hitloc"
+						}
+						"EffectName"		"skeletonking_hellfireblast_explosion"
+						"EffectAttachType"	"start_at_customorigin"
+	    			}
+	    		}
 	    	}
 	    }
 	}
