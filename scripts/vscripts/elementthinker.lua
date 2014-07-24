@@ -110,18 +110,6 @@ function ElementThinker:RebuildAllAbilities( hero , changeFlag , toChangeAbility
     self.EnableAbility[hero] = ability_map[6]
 end
 ------------------------------------------------------------------------------------------------------------------
--- get the sub ability for the casted ability and add sub ability
-function AddSubAbility(keys, ability )
-  tPrint( 'add sub ability called' )
-  local sub_ability = ElementThinker:GetSubAbility( ability )
-  if sub_ability then
-    tPrint( 'add sub ability '..sub_ability )
-    if ElementThinker:IsStoredAbility( caster, ability ) then
-        --TODO
-    end
-  end
-end
-------------------------------------------------------------------------------------------------------------------
 -- if an ability has an dummy ability , fire it
 function ElementThinker:FireDummyAbility(keys, ability )
   if ElementThinker:GetDummyAbility( ability ) then
