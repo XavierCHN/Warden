@@ -16,7 +16,7 @@ function ElementThinker:new(o)
 end
 ------------------------------------------------------------------------------------------------------
 -- element thinker init
-function ElementThinker:init()
+function ElementThinker:Init()
 	self.Elements = {}
 	self.CurrentAbility = {}
 	self.StoredAbility = {}
