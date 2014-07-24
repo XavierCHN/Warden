@@ -53,7 +53,10 @@ local function AddSubAbility(keys, ability )
   if sub_ability then
     tPrint( 'add sub ability '..sub_ability )
     if AbilityHook:IsStoredAbility( caster, ability ) then caster:RemoveAbility('ability_warden_empty') end
-    if not AbilityHook:IsStoredAbility( caster, ability ) then caster:RemoveAbility('ability_warden_store_empty) end
+    if not AbilityHook:IsStoredAbility( caster, ability ) then
+      caster:RemoveAbility('ability_warden_store_empty')
+      ElementThinker:ChangeStoredAbility( sub_ability )
+    end
     caster:AddAbility(sub_ability)
     caster:FindAbilityByName( sub_ability ):SetLevel(1)
   end
