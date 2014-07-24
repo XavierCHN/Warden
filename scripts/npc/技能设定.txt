@@ -1,0 +1,70 @@
+	"ability_warden_result_qq"
+	//灵巧攻击：对目标进行一次双剑攻击，伤害90+90。
+	"ability_warden_result_qe"
+	//双击：一道远程剑气(风暴之锤粒子特效)，伤害200，遇到单位不删除，
+	"ability_warden_result_qw"
+	//蹬踏：300施法距离，25%几率2秒眩晕 195伤害 45
+	"ability_warden_result_qeq"
+	//前后连击：在敌人身后创造一个镜像（npc_units_custom创造一个镜像），本体释放一道剑气，镜像释放一道剑气，对其进行攻击
+	//本体剑气为Linear Projectile 伤害200
+	//镜像剑气为Tracking Projectile 伤害100
+	"ability_warden_result_qwe"
+	//强力攻击：145伤害，持续16秒，4秒一次40伤害的Modifier 
+	"ability_warden_result_qwq"
+	//猛攻：三连击 90伤害，三次，增加5%攻击的Modifier，持续5秒。
+	"ability_warden_result_qweq"
+	//以退为进：武器伤害+76,4秒53伤害，持续16秒，本体向后推移500距离
+	"ability_warden_result_qeqe"
+	//野猪冲撞，本体向前冲撞1000距离，击飞路径上的单位，附加烈火盾粒子特效，附加0.1S对周边造成10伤害Modifier。
+	"ability_warden_result_qwqw"
+	//铁壁：附加无光之盾粒子特效，并对周边每0.5秒造成40点伤害，增加格挡 45 持续5秒
+	"ability_warden_result_qwqeq"
+	//黎明前的黑暗：只有生命值小于50%才可以使用，恢复10%魔法
+	"ability_warden_result_qewqe"
+	//守望者制胜：造成145点伤害，增加10%基础攻击，持续20秒
+
+	"ability_warden_result_ew"
+	//战斗咆哮：近战范围4秒10点伤害，持续16秒 初始恢复24，每4秒恢复24，持续16秒
+	"ability_warden_result_eq"
+	//精准重击：武器伤害+13，减少对方护甲 4点
+	"ability_warden_result_ee"
+	//鞭笞：近战范围 43初始伤害，4秒10伤害，持续16秒
+	"ability_warden_result_eqw"
+	//疯狂，吸血，4秒一次，持续16秒，对方减少22，自己恢复22
+	"ability_warden_result_ewe"
+	//胜利在望：初始43伤害，4秒43伤害，持续16秒
+	"ability_warden_result_eqe"
+	//贯穿：TrackingProjectile 火枪爆头粒子特效，伤害145点，减少护甲5点
+	"ability_warden_result_ewew"
+	//必杀：初始武器伤害+71,4秒43伤害，持续16秒 10%几率造成额外200伤害,恩赐解脱粒子特效
+	"ability_warden_result_eqwe"
+	//坚毅：基于噬脑，目标减少120点生命，自己增加120点生命
+	"ability_warden_result_eqeq"
+	//穿甲：减少对方22点护甲，持续6秒。
+	"ability_warden_result_eqwew"
+	//嗜血：范围技能，范围500，每4秒对手减少50点生命，自己恢复50生命，持续16秒
+	"ability_warden_result_ewewe"
+	//孤军奋战，范围伤害，60初始伤害，每4秒造成43伤害，持续16秒
+
+	"ability_warden_result_ww"
+	//以攻为守：武器伤害+13，增加840格挡等级
+	"ability_warden_result_we"
+	//压迫：初始43伤害，4秒造成10伤害，持续16秒，自己3秒恢复24，持续6秒
+	"ability_warden_result_wq"
+	//永不言败：初始恢复38,3秒恢复38，持续6秒
+	"ability_warden_result_wqe"
+	//举盾：增加闪避，格挡和护甲，持续30秒
+	"ability_warden_result_wqw"
+	//喘息：初始59,3秒恢复59，持续6秒
+	"ability_warden_result_wew"
+	//狂攻：主手武器+30伤害，转移范围内敌人的30血量到自身。
+	"ability_warden_result_wqew"
+	//盾牌精通：增加闪避，格挡和护甲，持续60秒
+	"ability_warden_result_wqwq"
+	//庆功：武器伤害+21，如果最近3秒有敌人死亡，则最初治疗68体力，持续治疗68体力，3秒一次，持续6秒
+	"ability_warden_result_wewe"
+	//战争之舞：大量增加闪避几率
+	"ability_warden_result_wqwqw"
+	//恢复：持续大量治疗
+	"ability_warden_result_wewewe"
+	//信念：持续大量治疗，并对范围内队友进行治疗
