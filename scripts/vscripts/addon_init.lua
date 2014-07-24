@@ -1,5 +1,7 @@
 ADDON_PREFIX = '[WARDEN]'
 
+InitLogFile('log/log_warden.txt','log_init\n')
+
 function tPrint(msg)
   local tMsg = msg
   if not type(msg) == 'string' then tMsg = tostring(msg) end
@@ -18,6 +20,7 @@ local function loadModule(name)
         -- Tell the user about it
         tPrint('WARNING: '..name..' failed to load!')
         tPrint(err)
+        AppendToLogFile('log/log_warden.txt',err..'\n')
     end
 end
 
@@ -33,6 +36,6 @@ end
 loadModule('util')
 loadModule('warden')
 loadModule('elementthinker')
-loadModule('abilityhook')
+--loadModule('abilityhook')
 
 tPrint('done loading addon_init.lua')

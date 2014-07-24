@@ -27,7 +27,7 @@ function AbiltiyHook:Init()
   end
 end
 ------------------------------------------------------------------------------------------------------------------
-local function AbiltiyHook:GetSubAbility( ability )
+local function AbilityHook:GetSubAbility( ability )
   if self.sub_abilities[ability] then
    return self.sub_abilities[ability]
   end

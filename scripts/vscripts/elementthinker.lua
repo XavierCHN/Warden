@@ -1,6 +1,6 @@
 tPrint(' EXECUTING: elementthinker.lua')
 
-if ElementThinker = nil then
+if ElementThinker == nil then
 	ElementThinker = {}
 end
 ------------------------------------------------------------------------------------------------------
@@ -41,6 +41,12 @@ ALL_ABILITIES = {
 	"ability_warden_result_wqwqw",
 	"ability_warden_result_wewew"
 }
+
+local SUB_ABILITIES = {
+}
+local DUMMY_ABILITIES = {
+}
+
 ------------------------------------------------------------------------------------------------------
 -- element thinker new
 function ElementThinker:new(o)
@@ -55,13 +61,66 @@ function ElementThinker:Init()
 	self.CurrentAbility = {}
 	self.StoredAbility = {}
 end
+------------------------------------------------------------------------------------------------------------------
+function ElementThinker:GetSubAbility( ability )
+  if self.sub_abilities[ability] then
+   return self.sub_abilities[ability]
+  end
+  return nil
+end
+------------------------------------------------------------------------------------------------------------------
+function ElementThinker:GetDummyAbility( ability )
+  if self.dummy_abilities[ability] then
+    return self.dummy_abilities[ability]
+  end
+  return nil
+end
+------------------------------------------------------------------------------------------------------------------
+-- get the sub ability for the casted ability and add sub ability
+function AddSubAbility(keys, ability )
+  tPrint( 'add sub ability called' )
+  local sub_ability = ElementThinker:GetSubAbility( ability )
+  if sub_ability then
+    tPrint( 'add sub ability '..sub_ability )
+    if ElementThinker:IsStoredAbility( caster, ability ) then caster:RemoveAbility('ability_warden_empty') end
+    if not ElementThinker:IsStoredAbility( caster, ability ) then
+      caster:RemoveAbility('ability_warden_store_empty')
+      ElementThinker:ChangeStoredAbility( sub_ability )
+    end
+    caster:AddAbility(sub_ability)
+    caster:FindAbilityByName( sub_ability ):SetLevel(1)
+  end
+end
+------------------------------------------------------------------------------------------------------------------
+-- if an ability has an dummy ability , fire it
+function ElementThinker:FireDummyAbility(keys, ability )
+  if ElementThinker:GetDummyAbility( ability ) then
+    local dummy_ability = ElementThinker:GetDummyAbility( ability )
+    caster:AddAbility( dummy_ability )
+    caster:FindAbilityByName( dummy_ability ):SetLevel( 1 )
+    local tAbility = caster:FindAbilityByName( dummy_ability )
+    local ability_cast_type = tAbility:GetSpecialValueFor( 'cast_type' )
+
+    if ability_cast_type == 'no_target' then
+      caster:CastAbilityNoTarget( dummy_ability, 0 )
+    end
+    if ability_cast_type == 'unit_target' then
+      local target = keys.target
+      caster:CastAbilityOnTarget( target, dummy_ability, 0 )
+    end
+    if ability_cast_type == 'position_target' then
+      local target = keys.target_points[1]
+      caster:CastAbilityOnPosition(target, dummy_ability, 0 )
+    end
+  end
+end
 ------------------------------------------------------------------------------------------------------
 -- return ability according to modifiers
 -- the result ability is 'ability_warden_qqqqq'
 -- or 'ability_warden_qwqwq'
-local function ElementThinker:GetAbility(hero , plyid)
+function ElementThinker:GetAbility(hero , plyid)
 	-- if the player has no any elements, return empty ability
-	if self.Elements[hero] = nil then
+	if self.Elements[hero] == nil then
 		return 'ability_warden_empty'
 	end
 	-- catch the result ability
@@ -70,7 +129,7 @@ local function ElementThinker:GetAbility(hero , plyid)
 		resultAbility = resultAbility + string.sub(self.Elements[hero][i],-1,-1)
 	end
 	for _,v in pairs(ALL_ABILITIES) do
-		if resultAbility = v then
+		if resultAbility == v then
 			tPrint(' avilable ability found'..resultAbility)
 			return resultAbility
 		end
@@ -79,7 +138,7 @@ local function ElementThinker:GetAbility(hero , plyid)
 end
 ------------------------------------------------------------------------------------------------------
 -- clear all modifiers from hero
-local function ElementThinker:ClearAllModifiers(hero , plyid)
+function ElementThinker:ClearAllModifiers(hero , plyid)
 	for k,v in pairs(self.Elements[hero]) do
 		if hero:HasModifier(v) then
 			hero:RemoveModifierByName(v)
@@ -91,12 +150,12 @@ local function ElementThinker:ClearAllModifiers(hero , plyid)
 end
 ------------------------------------------------------------------------------------------------------
 -- remove the first element from hero
-local function ElementThinker:RemoveFirstModifier(hero , plyid)
+function ElementThinker:RemoveFirstModifier(hero , plyid)
 	hero:RemoveModifierByName(self.Elements[hero][1])
 	table.remove(self.Elements[hero],1)
 end
 ------------------------------------------------------------------------------------------------------
-local function ElementThinker:RefreshAbility(hero , plyid , newelement)
+function ElementThinker:RefreshAbility(hero , plyid , newelement)
 	local newElement = "modifier_warden_"..newelement
 	table.insert(self.Elements[hero],newElement)
 	if #self.Elements[hero] > 5 then
@@ -109,7 +168,7 @@ local function ElementThinker:RefreshAbility(hero , plyid , newelement)
 	-- get the result according to the modifiers
 	local resultAbility = self:GetAbility(hero , plyid)
 	-- unable to have same ability
-	if resultAbility = self.StoredAbility[hero] then
+	if resultAbility == self.StoredAbility[hero] then
 		resultAbility = 'ability_warden_empty'
 	end
 	-- think about ability store
@@ -130,7 +189,7 @@ local function ElementThinker:RefreshAbility(hero , plyid , newelement)
 	hero:FindAbilityByName(resultAbility):SetLevel(1)
 end
 ------------------------------------------------------------------------------------------------------
-local function ElementTHinker:StoreAbility(hero,plyid)
+function ElementThinker:StoreAbility(hero,plyid)
 	hero:RemoveAbility(self.CurrentAbility[hero])
 	hero:AddAbility('ability_warden_empty')
 	hero:RemoveAbility(self.StoredAbility[hero])
@@ -141,18 +200,25 @@ local function ElementTHinker:StoreAbility(hero,plyid)
 	self.CurrentAbility[hero] = 'ability_warden_empty'
 end
 ------------------------------------------------------------------------------------------------------
-local function ElementThinker:StoredAbilityCasted(hero , plyid , ability)
+function ElementThinker:StoredAbilityCasted(hero , plyid , ability)
 	hero:RemoveAbility(ability)
-	hero:AddAbility('ability_warden_store_emtpy')
-	hero:FindAbilityByName('ability_warden_store_emtpy'):SetLevel(1)
+	local subAbility = self:GetSubAbility( ability )
+	local nextAbility = 'ability_warden_store_emtpy'
+	if subAbility then nextAbility = subAblity end
+	hero:AddAbility( nextAbility )
+	self.StoredAbility[hero] = subAbility
+	hero:FindAbilityByName(nextAbility):SetLevel(1)
 end
 ------------------------------------------------------------------------------------------------------
-local function ElementThinker:NormalAbilityCasted(hero , plyid , ability)
+function ElementThinker:NormalAbilityCasted(hero , plyid , ability)
 	self:ClearAllModifiers(hero,plyid)
-	hero:RemoveAbility(ability)
-	hero:AddAbility('ability_warden_empty')
-	self.CurrentAbility[hero] = 'ability_warden_empty'
-	hero:FindAbilityByName('ability_warden_empty'):SetLevel(1)
+	hero:RemoveAbility( ability )
+	local subAbility = self:GetSubAbility( ability )
+	local nextAbility = 'ability_warden_empty'
+	if subAbility then nextAbility = subAblity end
+	hero:AddAbility( subAbility )
+	self.CurrentAbility[hero] = subAbility
+	hero:FindAbilityByName(subAbility):SetLevel(1)
 end
 ------------------------------------------------------------------------------------------------------
 function OnElement(keys)

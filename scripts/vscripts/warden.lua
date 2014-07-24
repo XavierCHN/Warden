@@ -161,7 +161,7 @@ end
 -----------------------------------------------------------------------------------
 -- regist console commands
 function WardenGameMode:RegisterCommands()
-	ConVars:RegisterConvar('WARDEN_FAKE_CLIENTS',function()
+	Convars:RegisterCommand('WARDEN_FAKE_CLIENTS',function()
 			for index=0, 9 do
 				if PlayerResource:IsFakeClient(index) then
 					local ply = PlayerResource:GetPlayer(index)
@@ -180,7 +180,7 @@ function WardenGameMode:RegisterCommands()
 			tPrint(' ERROR: CHANGE TIME INVALID ARGS')
 		end
 	end, 'Force a time change', FCVAR_CHEAT)
-	Convars::RegisterCommand('WARDEN_END_ROUND', function( name, winner )
+	Convars:RegisterCommand('WARDEN_END_ROUND', function( name, winner )
 		if winner then
 			if winner == '2' then
 				winner = 2
@@ -233,7 +233,7 @@ function WardenGameMode:_thinkState_PreGame( dt )
 	GameRules:SendCustomMessage('<font color="#3498db">WARDEN GAME MODE</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#ecf0f1">Created by: XavierCHN</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#ecf0f1">github.com/XavierCHN/Warden</font>', 0, 0)
-	GameRules:SendCustomMessage("<font color="#3498db">Pratice in next "..GAMETIME_PRATICEGAME.." seconds</font>", 0, 0)
+	GameRules:SendCustomMessage('<font color="#3498db">Pratice in next '..GAMETIME_PRATICEGAME..' seconds</font>', 0, 0)
 
 	self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' )
 end
@@ -344,10 +344,10 @@ function WardenGameMode:CheckRoundWinner()
 		local team = hero:GetTeam()
 		if hero:IsRealHero() then
 			if hero:IsAlive() then
-				if team = 2 then 
+				if team == 2 then 
 					RADIANT_ALIVE_HERO_COUNT = RADIANT_ALIVE_HERO_COUNT + 1
 				end
-				if team = 3 then 
+				if team == 3 then 
 					DIRE_ALIVE_HERO_COUNT = DIRE_ALIVE_HERO_COUNT + 1
 				end
 			end
@@ -390,24 +390,24 @@ function WardenGameMode:ActiveAllHero()
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:ModifyTeamGold(winner)
-	for plyid,_ in pairs(self.vPlayerData)
+	for plyid,_ in pairs(self.vPlayerData) do
 		local player = PlayerResource:GetPlayer(plyid)
 		local hero = player:GetAssignedHero()
 		local team = player:GetTeam()
 
-		if winner = "RADIANT" then
-			if team = 2 then
+		if winner == "RADIANT" then
+			if team == 2 then
 				hero:ModifyGold( GOLD_PER_WINNER , GOLD_WINNER_UNRELIABLE , 1 )
 			end
-			if team = 3 then 
+			if team == 3 then 
 				hero:ModifyGold( GOLD_PER_LOSER , true , 1)
 			end
 		end
-		if winner = "DIRE" then
-			if team = 2 then
+		if winner == "DIRE" then
+			if team == 2 then
 				hero:ModifyGold( GOLD_PER_LOSER , true , 1 )
 			end
-			if team = 3 then 
+			if team == 3 then 
 				hero:ModifyGold( GOLD_PER_WINNER , GOLD_WINNER_UNRELIABLE , 1)
 			end
 		end
@@ -415,7 +415,7 @@ function WardenGameMode:ModifyTeamGold(winner)
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerConnect( keys )
-	self.vPlayerNames[keys.index] = keys.name
+	
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerConnectFull( keys )

@@ -3,13 +3,13 @@
 "AddonInfo"
 {
 	"addonSteamAppID"	"816"
-	"addontitle"	"Reflex"
+	"addontitle"	"Warden"
 	"addonversion"	"0.1"
-	"addontagline"	"Reflex game test"
-	"addonauthor"	"Reflex game test"
+	"addontagline"	"Warden"
+	"addonauthor"	"XavierCHN"
 	"addonSteamGroupName"	""
 	"addonauthorSteamID"	""
 	"addonContent_Campaign"	"0"
 	"addonURL0"	""
-	"addonDescription"	"Reflex"
+	"addonDescription"	"Warden"
 }
