@@ -1,11 +1,15 @@
 ADDON_PREFIX = '[WARDEN]'
 
-InitLogFile('log/log_warden.txt','log_init\n')
+DEBUG_MODE = true
 
+InitLogFile('log/log_warden.txt','log_init\n')
+AppendToLogFile('log/log_warden.txt','---------------------------------------\n')
 function tPrint(msg)
-  local tMsg = msg
-  if not type(msg) == 'string' then tMsg = tostring(msg) end
-  print(ADDON_PREFIX..tMsg)
+    if not DEBUG_MODE then return end
+    local tMsg = msg
+    if not type(msg) == 'string' then tMsg = tostring(msg) end
+    print(ADDON_PREFIX..tMsg)
+    AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
 end
 
 tPrint('addon_init.lua')
@@ -20,7 +24,6 @@ local function loadModule(name)
         -- Tell the user about it
         tPrint('WARNING: '..name..' failed to load!')
         tPrint(err)
-        AppendToLogFile('log/log_warden.txt',err..'\n')
     end
 end
 

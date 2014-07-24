@@ -3,5 +3,258 @@
 "DOTAAbilities"
 {
 	"Version"		"1"
-  
+	"ability_warden_q"//5095
+	{
+		"ID"								"5095"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_q"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "OnSpellStart"
+	    {
+	    	"ApplyModifier"
+	    	{
+	    		"Target"					"CASTER"
+	    		"ModifierName"				"modifier_warden_q"
+	    	}
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+	    		"Element"					"q"
+	    		"Function"					"OnElement"
+	    	}
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_warden_q"
+	    	{
+	    		"IsHidden"					"0"
+	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    	}
+	    }
+	}
+	"ability_warden_w"//5096
+	{
+		"ID"								"5096"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_w"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "OnSpellStart"
+	    {
+	    	"ApplyModifier"
+	    	{
+	    		"Target"					"CASTER"
+	    		"ModifierName"				"modifier_warden_w"
+	    	}
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+	    		"Element"					"w"
+	    		"Function"					"OnElement"
+	    	}
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_warden_w"
+	    	{
+	    		"IsHidden"					"0"
+	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    	}
+	    }
+	}
+	"ability_warden_e"//5097
+	{
+		"ID"								"5097"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_e"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "OnSpellStart"
+	    {
+	    	"ApplyModifier"
+	    	{
+	    		"Target"					"CASTER"
+	    		"ModifierName"				"modifier_warden_e"
+	    	}
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+	    		"Element"					"e"
+	    		"Function"					"OnElement"
+	    	}
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_warden_e"
+	    	{
+	    		"IsHidden"					"0"
+	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    	}
+	    }
+	}
+	"ability_warden_normal_empty"//5098
+	{
+		"ID"								"5098"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_normal_empty"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"scripts/vscripts/elementthinker.lua"
+	    		"Ability"		"ability_warden_normal_empty"
+	    		"Function"		"OnAbilityCast"
+
+	    	}
+	    }
+	}
+	"ability_warden_store_empty"//5099
+	{
+		"ID"								"5099"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_store_empty"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"	"scripts/vscripts/elementthinker.lua"
+	    		"Ability"		"ability_warden_store_empty"
+	    		"Function"		"OnAbilityCast"
+
+	    	}
+	    }
+	}
+	"ability_warden_enable_empty"//5100
+	{
+		"ID"								"5100"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_enable_empty"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	}
+	"ability_warden_enable"//5100
+	{
+		"ID"								"5094"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_enable"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+	    		"Function"					"OnAbilityStore"
+	    	}
+	    }
+	}
+
+	"ability_warden_result_qq"//5101
+	{
+		"ID"								"5101"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qq"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+	    		"Ability"					"ability_warden_result_qq"
+	    		"Function"					"OnAbilityCast"
+
+	    	}
+	    }
+	}
+	//"ability_warden_result_qe"//5102
+	//"ability_warden_result_qw"//5103
+	//"ability_warden_result_qeq"//5104
+	//"ability_warden_result_qwe"//5105
+	//"ability_warden_result_qwq"//5106
+	//"ability_warden_result_qweq"//5107
+	//"ability_warden_result_qeqe"//5108
+	//"ability_warden_result_qwqw"//5109
+	//"ability_warden_result_qwqeq"//5110
+	//"ability_warden_result_qewqe"//5111
+
+	//"ability_warden_result_ew"//5121
+	//"ability_warden_result_eq"//5122
+	//"ability_warden_result_ee"//5123
+	//"ability_warden_result_eqw"//5124
+	//"ability_warden_result_ewe"//5125
+	//"ability_warden_result_eqe"//5126
+	//"ability_warden_result_ewew"//5127
+	//"ability_warden_result_eqwe"//5128
+	//"ability_warden_result_eqeq"//5129
+	//"ability_warden_result_eqwew"//5130
+	//"ability_warden_result_ewewe"//5131
+
+	//"ability_warden_result_ww"//5141
+	//"ability_warden_result_we"//5142
+	//"ability_warden_result_wq"//5143
+	//"ability_warden_result_wqe"//5144
+	//"ability_warden_result_wqw"//5145
+	//"ability_warden_result_wew"//5146
+	//"ability_warden_result_wqew"//5147
+	//"ability_warden_result_wqwq"//5148
+	//"ability_warden_result_wewe"//5149
+	//"ability_warden_result_wqwqw"//5150
+	//"ability_warden_result_wewew"//5151
 }

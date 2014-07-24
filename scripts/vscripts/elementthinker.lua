@@ -58,22 +58,56 @@ end
 -- element thinker init
 function ElementThinker:Init()
 	self.Elements = {}
-	self.CurrentAbility = {}
+	self.NormalAbility = {}
 	self.StoredAbility = {}
+    self.EnableAbility = {}
 end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:GetSubAbility( ability )
-  if self.sub_abilities[ability] then
-   return self.sub_abilities[ability]
+  if SUB_ABILITIES[ability] then
+   return SUB_ABILITIES[ability]
   end
   return nil
 end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:GetDummyAbility( ability )
-  if self.dummy_abilities[ability] then
-    return self.dummy_abilities[ability]
+  if DUMMY_ABILITIES[ability] then
+    return DUMMY_ABILITIES[ability]
   end
   return nil
+end
+------------------------------------------------------------------------------------------------------------------
+function ElementThinker:RebuildAllAbilities( hero , changeFlag , toChangeAbility )
+    local ability_map = {
+        [1] = 'ability_warden_q',
+        [2] = 'ability_warden_w',
+        [3] = 'ability_warden_e',
+        [4] = self.NormalAbility[hero] or 'ability_warden_normal_empty',
+        [5] = self.StoredAbility[hero] or 'ability_warden_store_empty',
+        [6] = self.EnableAbility[hero] or 'ability_warden_enable_empty'
+    }
+    for _,ability in pairs( ability_map ) do
+        hero:RemoveAbility(ability)
+    end
+    if changeFlag == 'CHANGE_NORMAL' then
+        ability_map[4] = toChangeAbility
+    end
+    if changeFlag == 'CHANGE_STORE' then
+        ability_map[5] = toChangeAbility
+    end
+    if changeFlag == 'CHANGE_ENABLE' then
+        ability_map[6] = toChangeAbility
+    end
+    for _,ability in pairs( ability_map ) do
+        hero:AddAbility(ability)
+    end
+    for _,ability in pairs( ability_map ) do 
+        local ab = hero:FindAbilityByName(ability)
+        if ab then ab:SetLevel(1) end
+    end
+    self.NormalAbility[hero] = ability_map[4]
+    self.StoredAbility[hero] = ability_map[5]
+    self.EnableAbility[hero] = ability_map[6]
 end
 ------------------------------------------------------------------------------------------------------------------
 -- get the sub ability for the casted ability and add sub ability
@@ -82,63 +116,45 @@ function AddSubAbility(keys, ability )
   local sub_ability = ElementThinker:GetSubAbility( ability )
   if sub_ability then
     tPrint( 'add sub ability '..sub_ability )
-    if ElementThinker:IsStoredAbility( caster, ability ) then caster:RemoveAbility('ability_warden_empty') end
-    if not ElementThinker:IsStoredAbility( caster, ability ) then
-      caster:RemoveAbility('ability_warden_store_empty')
-      ElementThinker:ChangeStoredAbility( sub_ability )
+    if ElementThinker:IsStoredAbility( caster, ability ) then
+        --TODO
     end
-    caster:AddAbility(sub_ability)
-    caster:FindAbilityByName( sub_ability ):SetLevel(1)
   end
 end
 ------------------------------------------------------------------------------------------------------------------
 -- if an ability has an dummy ability , fire it
 function ElementThinker:FireDummyAbility(keys, ability )
   if ElementThinker:GetDummyAbility( ability ) then
-    local dummy_ability = ElementThinker:GetDummyAbility( ability )
-    caster:AddAbility( dummy_ability )
-    caster:FindAbilityByName( dummy_ability ):SetLevel( 1 )
-    local tAbility = caster:FindAbilityByName( dummy_ability )
-    local ability_cast_type = tAbility:GetSpecialValueFor( 'cast_type' )
-
-    if ability_cast_type == 'no_target' then
-      caster:CastAbilityNoTarget( dummy_ability, 0 )
-    end
-    if ability_cast_type == 'unit_target' then
-      local target = keys.target
-      caster:CastAbilityOnTarget( target, dummy_ability, 0 )
-    end
-    if ability_cast_type == 'position_target' then
-      local target = keys.target_points[1]
-      caster:CastAbilityOnPosition(target, dummy_ability, 0 )
-    end
+    -- TODO
   end
 end
 ------------------------------------------------------------------------------------------------------
 -- return ability according to modifiers
 -- the result ability is 'ability_warden_qqqqq'
 -- or 'ability_warden_qwqwq'
-function ElementThinker:GetAbility(hero , plyid)
+function ElementThinker:GetResultAbility(hero , plyid)
 	-- if the player has no any elements, return empty ability
 	if self.Elements[hero] == nil then
-		return 'ability_warden_empty'
+		return 'ability_warden_normal_empty'
 	end
 	-- catch the result ability
 	local resultAbility = 'ability_warden_result_'
 	for i = 1,#self.Elements[hero] do
-		resultAbility = resultAbility + string.sub(self.Elements[hero][i],-1,-1)
+		resultAbility = resultAbility..string.sub(self.Elements[hero][i],-1,-1)
 	end
+    tPrint(' attempt to get result ability of:'..resultAbility)
 	for _,v in pairs(ALL_ABILITIES) do
 		if resultAbility == v then
 			tPrint(' avilable ability found'..resultAbility)
 			return resultAbility
 		end
 	end
-	return 'ability_warden_empty'
+	return 'ability_warden_normal_empty'
 end
 ------------------------------------------------------------------------------------------------------
 -- clear all modifiers from hero
 function ElementThinker:ClearAllModifiers(hero , plyid)
+    if not self.Elements[hero] then return end
 	for k,v in pairs(self.Elements[hero]) do
 		if hero:HasModifier(v) then
 			hero:RemoveModifierByName(v)
@@ -157,86 +173,81 @@ end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:RefreshAbility(hero , plyid , newelement)
 	local newElement = "modifier_warden_"..newelement
+    self.Elements[hero] = self.Elements[hero] or {}
 	table.insert(self.Elements[hero],newElement)
 	if #self.Elements[hero] > 5 then
 		self:RemoveFirstModifier(hero , plyid)
 	end
-	if self.CurrentAbility[hero] == nil then
-		self.CurrentAbility[hero] = 'ability_warden_empty'
-		hero:AddAbility('ability_warden_empty')
-	end
-	-- get the result according to the modifiers
-	local resultAbility = self:GetAbility(hero , plyid)
+	
+	local resultAbility = self:GetResultAbility(hero , plyid)
 	-- unable to have same ability
 	if resultAbility == self.StoredAbility[hero] then
-		resultAbility = 'ability_warden_empty'
+		resultAbility = 'ability_warden_normal_empty'
 	end
-	-- think about ability store
-	if resultAbility ~= "ability_warden_empty" then
-		hero:RemoveAbility('ability_warden_store_empty')
-		hero:AddAbility('ability_warden_store')
-		hero:FindAbilityByName('ability_warden_store'):SetLevel(1)
-	else
-		if hero:HasAbility('ability_warden_store') then
-			hero:RemoveAbility('ability_warden_store')
-			hero:AddAbility('ability_warden_store_empty')
-			hero:FindAbilityByName('ability_warden_store_empty'):SetLevel(1)
-		end
-	end
-	-- add result ability
-	hero:RemoveAbility(self.CurrentAbility[hero])
-	hero:AddAbility(resultAbility)
-	hero:FindAbilityByName(resultAbility):SetLevel(1)
+	
+    if resultAbility then
+        self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', resultAbility)
+    end
+
+    if resultAbility ~= 'ability_warden_normal_empty' then
+        self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable')
+    else
+        self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable_empty')
+    end
 end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:StoreAbility(hero,plyid)
-	hero:RemoveAbility(self.CurrentAbility[hero])
-	hero:AddAbility('ability_warden_empty')
-	hero:RemoveAbility(self.StoredAbility[hero])
-	hero:AddAbility(self.CurrentAbility[hero])
-	hero:FindAbilityByName('ability_warden_empty'):SetLevel(1)
-	hero:FindAbilityByName(self.CurrentAbility[hero]):SetLevel(1)
-	self.StoredAbility[hero] = self.CurrentAbility[hero]
-	self.CurrentAbility[hero] = 'ability_warden_empty'
+    self:ClearAllModifiers(hero,plyid)
+
+    self:RebuildAllAbilities( hero, 'CHANGE_STORE', self.NormalAbility[hero])
+    self:RebuildAllAbilities( hero, 'CHANGE_NORMAL','ability_warden_normal_empty')
+
+    if self.NormalAbility[hero] ~= 'ability_warden_normal_empty' then
+        self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable')
+    else
+        self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable_empty')
+    end
 end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:StoredAbilityCasted(hero , plyid , ability)
-	hero:RemoveAbility(ability)
-	local subAbility = self:GetSubAbility( ability )
-	local nextAbility = 'ability_warden_store_emtpy'
-	if subAbility then nextAbility = subAblity end
-	hero:AddAbility( nextAbility )
-	self.StoredAbility[hero] = subAbility
-	hero:FindAbilityByName(nextAbility):SetLevel(1)
+    self:ClearAllModifiers(hero,plyid)
+	if self:GetSubAbility(ability) then
+        self:RebuildAllAbilities( hero, 'CHANGE_STORE', self:GetSubAbility(ability))
+    else
+        self:RebuildAllAbilities( hero, 'CHANGE_STORE', 'ability_warden_store_empty')
+    end
 end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:NormalAbilityCasted(hero , plyid , ability)
 	self:ClearAllModifiers(hero,plyid)
-	hero:RemoveAbility( ability )
-	local subAbility = self:GetSubAbility( ability )
-	local nextAbility = 'ability_warden_empty'
-	if subAbility then nextAbility = subAblity end
-	hero:AddAbility( subAbility )
-	self.CurrentAbility[hero] = subAbility
-	hero:FindAbilityByName(subAbility):SetLevel(1)
+	
+    if self:GetSubAbility(ability) then
+        self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', self:GetSubAbility(ability))
+    else
+        self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', 'ability_warden_normal_empty')
+    end
 end
 ------------------------------------------------------------------------------------------------------
 function OnElement(keys)
+    PrintTable( keys )
+
   	local caster = EntIndexToHScript(keys.caster_entindex)
   	local plyid = caster:GetPlayerID()
   	local newElement = keys.Element
+
+     tPrint(' On Element '..newElement )
   	ElementThinker:RefreshAbility(caster,plyid,newElement)
 end
 ------------------------------------------------------------------------------------------------------
 function OnAbilityCast(keys)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local plyid = caster:GetPlayerID()
-	local abilityCasted = keys.ability
+	local abilityCasted = keys.Ability
 
 	if abilityCasted == ElementThinker.StoredAbility[caster] then
-		ElementThinker:StoredAbilityCasted(hero,plyid,abilityCasted)
+		ElementThinker:StoredAbilityCasted(caster,plyid,abilityCasted)
 	else
-		ElementThinker:NormalAbilityCasted(hero,plyid,abilityCasted)
+		ElementThinker:NormalAbilityCasted(caster,plyid,abilityCasted)
 	end
 end
 ------------------------------------------------------------------------------------------------------

@@ -1,18 +1,19 @@
 "DOTAHeroes"
 {
-	"npc_dota2x_pudgewars_pudge"
+	"npc_warden_hero_warden"
 	{
-		//"AbilityLayout" 		"5"
 		"AbilityLayout" 		"6"
-		"override_hero"			"npc_dota_hero_pudge"
-		"Ability1"				"ability_pudgewars_hook" 
-		"Ability2"				"ability_pudgewars_upgrade_damage" 
-		"Ability3"				"ability_pudgewars_upgrade_radius" 
-		"Ability4"				"ability_pudgewars_upgrade_length"
-		"Ability5"				"ability_pudgewars_upgrade_speed"
-		"Ability6"				"ability_pudgewars_toggle_hook"
-		"Ability7"				"ability_dota2x_pudgewars_toss"
-		"Ability8"				"ability_pudge_wars_grappling_hook"
+		"override_hero"			"npc_dota_hero_dragon_knight"
+
+		"Ability1"				"ability_warden_q"
+		"Ability2"				"ability_warden_w"
+		"Ability3"				"ability_warden_e"
+		"Ability4"				"ability_warden_empty"
+		"Ability5"				"ability_warden_store_empty"
+		"Ability6"				"ability_warden_store"
+
+
+
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"			"0"									// Magical protection (percentage).
 
@@ -32,17 +33,14 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
-		//"RingRadius"				"70"
-
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"280"									// Speed.
 		"MovementTurnRate"			"1.0"									// Turning rate.
 
-		"StatusHealth"				"1588"									// Base health.
-		"StatusHealthRegen"			"0.0"									// Health regeneration rate.
-		"StatusMana"				"387"										// Base mana.
-		"StatusManaRegen"			"97.97"									// Mana regeneration rate.
+		"StatusHealth"				"2048"									// Base health.
+		"StatusHealthRegen"			"2.0"									// Health regeneration rate.
+		"StatusMana"				"1096"										// Base mana.
+		"StatusManaRegen"			"2.01"									// Mana regeneration rate.
 
 		"VisionNighttimeRange"		"1800"									// Range of vision at night time.
 	}

@@ -1,6 +1,4 @@
 WARDEN_ADDON_VERSION = 'APLHA 0.1'
-
-tPrint('gamemode version:'..WARDEN_ADDON_VERSION)
 tPrint('executing warden.lua')
 
 USE_LOBBY = false
@@ -42,7 +40,7 @@ INIT_ABILITY_MAP = {
 	'ability_warden_e',
 	'ability_warden_normal_empty',
 	'ability_warden_store_empty',
-	'ability_warden_store'
+	'ability_warden_enable_empty'
 }
 -----------------------------------------------------------------------------------
 ALL_ABILITY_MAP = {
@@ -51,7 +49,8 @@ ALL_ABILITY_MAP = {
 	'ability_warden_e',
 	'ability_warden_normal_empty',
 	'ability_warden_store_empty',
-	'ability_warden_store',
+	'ability_warden_enable_empty',
+	'ability_warden_enable',
 
 	"ability_warden_result_qq",
 	"ability_warden_result_qe",
@@ -112,6 +111,7 @@ end
 -- init game mode    --called in addon_game_mode.lua
 function WardenGameMode:Init()
 
+	tPrint('warden game mode : init')
 	-- Setup GameRules
 	GameRules:SetTreeRegrowTime( 30.0 )
 	GameRules:SetHeroSelectionTime( 0.0 )
@@ -390,7 +390,7 @@ function WardenGameMode:ActiveAllHero()
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:ModifyTeamGold(winner)
-	for plyid,_ in pairs(self.vPlayerData) do
+	for plyid = 0 , 9  do
 		local player = PlayerResource:GetPlayer(plyid)
 		local hero = player:GetAssignedHero()
 		local team = player:GetTeam()
@@ -419,6 +419,8 @@ function WardenGameMode:OnPlayerConnect( keys )
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerConnectFull( keys )
+	tPrint('on player connect full')
+	PrintTable(keys)
 	if self.vPlayerData == nil then self.vPlayerData = {} end
 
 	local playerIndex = keys.index + 1
@@ -430,19 +432,23 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 			if TEAM_SIZE_RADIANT > TEAM_SIZE_DIRE then
 				ply:SetTeam(DOTA_TEAM_BADGUYS)
 				TEAM_SIZE_DIRE = TEAM_SIZE_DIRE + 1
+				tPrint('player '..plyid..'assigned to team dire')
 			else
 				ply:SetTeam(DOTA_TEAM_GOODGUYS)
 				TEAM_SIZE_RADIANT = TEAM_SIZE_RADIANT + 1
+				tPrint('player '..plyid..'assigned to team radiant')
 			end
 		end
 
 		local assignedHero = CreateHeroForPlayer('npc_dota_hero_dragon_knight', ply)
+		tPrint('done assign hero')
 		self:InitHero(assignedHero)
+		tPrint('done init hero')
 		self.vPlayerData[plyid] = {
 			hero = assignedHero,
 			steamid = PlayerResource:GetSteamAccountID(plyid)
 		}
-
+	tPrint('done auto assign player')
 	end
 end
 -----------------------------------------------------------------------------------
@@ -453,22 +459,22 @@ function WardenGameMode:InitHero(hero)
 		hero:HeroLevelUp(false)
 		level = hero:GetLevel()
 	end
-
+	tPrint('hero level set')
 	for _,ability in pairs(ALL_ABILITY_MAP) do
 		if hero:HasAbility(ability) then
-			tPrint(' remove abiltiy '..ability..' from hero '..hero:GetName())
 			hero:RemoveAbility(ability)
 		end
 	end
-
 	-- add all init ability and set level
 	for _,ability in pairs(INIT_ABILITY_MAP) do
-		if not hero:HasAbility(ability) then
-			hero:AddAbility(ability)
-		end
-		hero:FindAbilityByName(abiltiy):SetLevel(1)
+		hero:AddAbility(ability)
 	end
-
+	
+	for _,ability in pairs(INIT_ABILITY_MAP) do
+		local ab = hero:FindAbilityByName(ability)
+		if ab then ab:SetLevel(1) end
+	end
+	tPrint('done init hero ability')
 	-- set ability points
 	hero:SetAbilityPoints(0)
 
