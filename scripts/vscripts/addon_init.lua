@@ -1,4 +1,4 @@
-ADDON_PREFIX = '[WARDEN]※'
+ADDON_PREFIX = '[WARDEN] '
 
 DEBUG_MODE = true
 
@@ -15,7 +15,7 @@ function tPrint(msg)
     AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
 end
 tPrint( 'Hello World!' )
-tPrint('EXECUTING: addon_init.lua')
+tPrint( 'EXECUTING: addon_init.lua')
 
 local function loadModule(name)
     local status, err = pcall(function()
