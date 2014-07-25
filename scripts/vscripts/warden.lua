@@ -2,6 +2,8 @@ WARDEN_ADDON_VERSION = 'APLHA 0.1'
 tPrint('executing warden.lua')
 
 USE_LOBBY = false
+LOBBY_TYPE = "PVE" --
+LOBBY_TYPE = "PVP"
 -----------------------------------------------------------------------------------
 --GOLD CONSTANT--
 -----------------------------------------------------------------------------------
@@ -87,10 +89,29 @@ ALL_ABILITY_MAP = {
 	"ability_warden_result_wewe",
 	"ability_warden_result_wqwqw",
 	"ability_warden_result_wewew"
-
 }
 -----------------------------------------------------------------------------------
-
+BOSS_MAP = {
+	[1] = {
+		name = 'npc_warden_boss_invoker',
+		crazytime = 600
+		phases = {
+			[1] = {
+				phase_change_type = 'time_based',
+				phase_duration = 120
+			},
+			[2] = {
+				phase_change_type = 'health_percentage_based',
+				health_threshold = 80
+			},
+			[3] = {
+				phase_change_type = 'health_number_based',
+				health_threshold = 20000
+			}
+		}
+	}
+}
+-----------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------
 -- create game mode var
@@ -235,7 +256,8 @@ function WardenGameMode:_thinkState_PreGame( dt )
 	GameRules:SendCustomMessage('<font color="#ecf0f1">github.com/XavierCHN/Warden</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#3498db">Pratice in next '..GAMETIME_PRATICEGAME..' seconds</font>', 0, 0)
 
-	self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' )
+	if LOBBY_TYPE = "PVP" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' ) end
+	if LOBBY_TYPE = "PVE" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_BossSpawn' ) end
 end
 -----------------------------------------------------------------------------------
 -- time for player to pratice game mode
@@ -337,6 +359,171 @@ function WardenGameMode:_thinkState_PostGame( dt )
 
 end
 -----------------------------------------------------------------------------------
+function WardenGameMode:_thinkState_BossSpawn( dt )
+	if #BOSS_MAP < 1 then
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossFightWins' )
+		return
+	end
+	
+	if self.BossSpawnTime == nil then 
+		self.BossSpawnTime = 5
+		local dummy = CreateUnitByName( 'npc_warden_camera_dummy', Vector( 0, 0, 0), false, nil, nil, DOTA_TEAM_BADGUYS )
+		--lock player camera
+		if self.cameraLock == nil then
+			self.cameraLock = 1
+			tPrint( ' lock camera to the boss spawn' )
+			for plyid = 0,9 do
+				if PlayerResource:IsValidPlayer(plyid) then
+					PlayerResource:SetCameraTarget( plyid, dummy )
+				end
+			end
+		end
+	end
+	self.BossSpawnTime = math.max( 0, self.BossSpawnTime - dt )
+	if self.BossSpawnTime < 3 then
+		self.CurrentBossData = BOSS_MAP[1]
+		table.remove( BOSS_MAP, 1 )
+		local bossname = self.CurrentBossData.name
+		local boss = CreateUnitByName(bossname,Vector(0,0,0),true,nil,nil,DOTA_TEAM_BADGUYS)
+		self.CurrentBossData.unit = boss
+	end
+	if self.BossSpawnTime < 2 then
+		for plyid = 0,9 do
+			if PlayerResource:IsValidPlayer(plyid) then
+				local hero = self.vPlayerData[plyid].hero
+				PlayerResource:SetCameraTarget( plyid ,hero)
+				dummy:Destroy()
+			end
+		end
+	end
+	if self.BossSpawnTime <= 0 then
+		for plyid = 0,9 do
+			if PlayerResource:IsValidPlayer(plyid) then
+				PlayerResource:SetCameraTarget(plyid, nil )
+			end
+	end
+		
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
+		self.BossSpawnTime = nil
+	end
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:_thinkState_BossInit( dt )
+	
+	tPrint( ' boss init, boss is now waiting' )
+	
+	self.CurrentBossData.PhaseFightTime = 0
+	self.CurrentBossData.BossFightTime = 0
+	self.CurrentBossData.phase = 1
+	self.CurrentBossData.unit:SetHealth( self.CurrentBossData.unit:GetMaxHealth() )
+	self.CurrentBossData.unit:SetMana( self.CurrentBossData.unit:GetMaxMana() )
+	self.CurrentBossData.unit:SetOrigin(Vector(0,0,0)
+	self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossWaiting' )
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:_thinkState_BossWaiting( dt )
+	local boss = self.CurrentBossData.unit
+	if self:CheckBossActivated( boss ) then
+		tPrint( ' boss fight start at'..GameRules:GetGameTime() )
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossFighting' )
+	end
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:_thinkState_BossFighting( dt )
+	local boss = self.CurrentBossData.unit
+	local phase = self.CurrentBossData.phase
+	local phases = self.CurrentBossData.phases
+	
+	self.CurrentBossData.PhaseFightTime = self.CurrentBossData.PhaseFightTime + dt
+	self.CurrentBossData.BossFightTime = self.CurrentBossData.BossFightTime + dt
+	
+	if self:ChechBossFightPhaseIncrease(boss, phase, phases.phases, self.CurrentBossData.PhaseFightTime ) then
+		phase = phase + 1
+		tPrint(' phase increased, current phase:'..phase)
+	end
+	
+	if self:CheckBossNeedToInit(boss) then
+		tPrint(' initing boss' )
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
+	end
+	
+	if self:CheckBossKilled(boss) then
+		tPrint(' boss killed')
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossSpawn' )
+	end
+	if self.CurrentBossData.crazytime then
+		if self.CurrentBossData.BossFightTime > self.CurrentBossData.crazytime
+			tPrint(' boss become crazy at:'..GameRules:GetGameTime())
+			self.CurrentBossData.crazy = true
+		end
+	end
+
+	self.CurrentBossData.phase = phase
+end
+-----------------------------------------------------------------------------------
+local function distance(a,b)
+	return (math.sqrt((a.x-b.x)*(a.x-b.x))+(a.y-b.y)*(a.y-b.y)) )
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:CheckBossNeedToInit(boss)
+	if distance(boss:GetOrigin(), Vector(0,0,0)) > 2000 then
+		tPrint(' out of boss fight battle field, init boss')
+		return true
+	end
+	local heroAlive = 0
+	for plyid = 0,4 do
+		local hero = self.vPlayerData[plyid].hero
+		if hero:IsAlive() then
+			heroAlive = heroAlive + 1
+		end
+	end
+	if heroAlive == 0 then
+		tPrint(' no hero alive,init boss')
+		return true
+	end
+	return false
+end
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+function WardenGameMode:GetPahse()
+	if self.CurrentBossData ~= nil then
+		return self.CurrentBossData.phase
+	end
+	return nil
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:GetCrazy()
+	if self.CurrentBossData then
+		return self.CurrentBossData.crazy
+	end
+	return nil
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:CheckBossActivated( boss )
+	if boss:GetHealth() < boss:GetMaxHealth() then
+		return true
+	end
+	return false
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:CHeckBossFightPhaseIncrease( boss, phase, phasedata , phasefighttime)
+	local changetype = phasedata[phase].phase_change_type
+	if chagetype == 'time_based' then
+		if phasefighttime > phasedata[phase].phase_duration then
+			return true
+		end
+	elseif changetype == 'health_percentage_based' then
+		if boss:GetHealthPercent() < phasedata[phase].health_thresold then
+			return true
+		end
+	elseif changetype == 'health_number_based' then
+		if boss:GetHealth() < phasedata[phase].health_thresold then
+			return true
+		end
+	end
+	return false
+end
+-----------------------------------------------------------------------------------
 function WardenGameMode:CheckRoundWinner()
 	local RADIANT_ALIVE_HERO_COUNT = 0
 	local DIRE_ALIVE_HERO_COUNT    = 0
@@ -428,7 +615,7 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 	local plyid = ply:GetPlayerID()
 
 	if self.vPlayerData[plyid] == nil then
-		if not USE_LOBBY and plyid == -1 then 
+		if not USE_LOBBY and LOBBY_TYPE == 'PVP' and plyid == -1 then 
 			if TEAM_SIZE_RADIANT > TEAM_SIZE_DIRE then
 				ply:SetTeam(DOTA_TEAM_BADGUYS)
 				TEAM_SIZE_DIRE = TEAM_SIZE_DIRE + 1
@@ -439,7 +626,9 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 				tPrint('player '..plyid..'assigned to team radiant')
 			end
 		end
-
+		if not USE_LOBBY and LOBBY_TYPE == 'PVE' and plyid == -1 then
+			ply:SetTeam(DOTA_TEAM_GOODGUYS)
+		end
 		local assignedHero = CreateHeroForPlayer('npc_dota_hero_dragon_knight', ply)
 		tPrint('done assign hero')
 		self:InitHero(assignedHero)
