@@ -426,16 +426,33 @@ end
 -----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_BossInit( dt )
 	
-	tPrint( ' boss init, boss is now waiting' )
+	tPrint( ' initing boss' )
 	
+	-- respawn/reset all heroes
+	self:ResetAllHeroes()
+	
+	-- reset current boss data
 	self.CurrentBossData.PhaseFightTime = 0
 	self.CurrentBossData.BossFightTime = 0
 	self.CurrentBossData.phase = 1
+	
+	--reset boss health and mana
 	self.CurrentBossData.unit:SetHealth( self.CurrentBossData.unit:GetMaxHealth() )
 	self.CurrentBossData.unit:SetMana( self.CurrentBossData.unit:GetMaxMana() )
-	self.CurrentBossData.unit:SetOrigin(Vector(0,0,0)
-	self.CurrentBossData.unit:Stop
-	self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossWaiting' )
+	
+	-- order boss to move to start position
+	self.CurrentBossData.unit:MoveToPosition(Vector(0,0,0))
+	
+	local bossOrigin = self.CurrentBossData.unit:GetOrigin()
+	if math.abs(bossOrigin.x) < 50 and math.abs(bossOrigin.y) < 50 then
+		tPrint(' boss reset to start position')
+		self.CurrentBossData.unit:Stop()
+		-- active all heroes
+		self:ActiveAllHero()
+		-- enter state boss waiting
+		tPrint(' boss is now waiting! \n')
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossWaiting' )
+	end
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_BossWaiting( dt )
@@ -464,8 +481,6 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 	if self:CheckBossNeedToInit(boss) then
 		tPrint(' initing boss' )
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
-		self:ResetAllHeroes()
-		self:ActiveAllHero()
 	end
 	-- check phase increase
 	if self:ChechBossFightPhaseIncrease(boss, phase, phases.phases, self.CurrentBossData.PhaseFightTime ) then
