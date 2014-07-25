@@ -1,5 +1,5 @@
 WARDEN_ADDON_VERSION = 'APLHA 0.1'
-tPrint('executing warden.lua')
+tPrint('EXECUTING: warden.lua')
 
 USE_LOBBY = false
 --LOBBY_TYPE = "PVE" 
@@ -93,7 +93,7 @@ ALL_ABILITY_MAP = {
 -----------------------------------------------------------------------------------
 BOSS_MAP = {}
 function RegistBoss(keys)
-	tPrint(' BOSS REGISTED:'..keys.name)
+	tPrint('BOSS REGISTED:'..keys.name)
 	table.insert(BOSS_MAP,keys)
 end
 -----------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ end
 -- init game mode    --called in addon_game_mode.lua
 function WardenGameMode:Init()
 
-	tPrint('warden game mode : init')
+	tPrint('FUNCTION: WARDENGAMEMODE INIT')
 	-- Setup GameRules
 	GameRules:SetTreeRegrowTime( 30.0 )
 	GameRules:SetHeroSelectionTime( 0.0 )
@@ -166,11 +166,9 @@ function WardenGameMode:Init()
 
 	self.bStatePlaying = false
 
-	tPrint( ' begin to precache unit' )
 	PrecacheUnitByName('npc_precache_everything')
-	tPrint( ' done precache unit')
 
-	tPrint('done init warden game mode \n\n')
+	tPrint(' DONE: WARDENGAMEMODE INIT \n\n')
 
 end
 
@@ -195,7 +193,7 @@ function WardenGameMode:RegisterCommands()
 			GameRules:SetTimeOfDay( tonumber(time) )
 			self.daytime = tonumber(time)
 		else
-			tPrint(' ERROR: CHANGE TIME INVALID ARGS')
+			tPrint('ERROR: CHANGE TIME INVALID ARGS')
 		end
 	end, 'Force a time change', FCVAR_CHEAT)
 	Convars:RegisterCommand('WARDEN_END_ROUND', function( name, winner )
@@ -206,7 +204,7 @@ function WardenGameMode:RegisterCommands()
 				winner = 3
 			end
 
-			tPrint(' DEBUG: FORCE END ROUND')
+			tPrint('DEBUG: FORCE END ROUND')
 			self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_PostRound' )
 
 			self:DistributeScore(winner)
@@ -258,7 +256,7 @@ function WardenGameMode:_thinkState_PreGame( dt )
 	end
 	
 	-- tell out addon message
-	tPrint(' GAME THINK ENDS PRE GAME')
+	tPrint('GAME THINK ENDS PRE GAME')
 	GameRules:SendCustomMessage('<font color="#3498db">WARDEN GAME MODE</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#ecf0f1">Created by: XavierCHN</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#ecf0f1">github.com/XavierCHN/Warden</font>', 0, 0)
@@ -294,7 +292,7 @@ function WardenGameMode:_thinkState_Pratice( dt )
 	else
 		
 		-- TODO Move onto next stage of game.
-		tPrint(' GAME THINK ENTERING PREGAME')
+		tPrint('GAME THINK ENTERING PREGAME')
 
 		-- enter state playing 
 		self.bStatePlaying = true
@@ -415,7 +413,7 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 		--lock player camera
 		if self.cameraLock == nil then
 			self.cameraLock = 1
-			tPrint( ' lock camera to the boss spawn position' )
+			tPrint( 'CAMERA: LOCK TO BOSS SPAWN POSITION' )
 			for plyid = 0,4 do
 				if PlayerResource:IsValidPlayer(plyid) then
 					-- lock player camera
@@ -472,7 +470,7 @@ end
 -----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_BossInit( dt )
 	
-	tPrint( ' initing boss' )
+	tPrint( 'BOSSFIGHT: INIT' )
 	
 	-- respawn/reset all heroes
 	self:ResetAllHeroes()
@@ -491,12 +489,12 @@ function WardenGameMode:_thinkState_BossInit( dt )
 	
 	local bossOrigin = self.CurrentBossData.unit:GetOrigin()
 	if math.abs(bossOrigin.x) < 50 and math.abs(bossOrigin.y) < 50 then
-		tPrint(' boss reset to start position')
+		tPrint('BOSSFIGHT:BEGIN TO RESET BOSS')
 		self.CurrentBossData.unit:Stop()
 		-- active all heroes
 		self:ActiveAllHero()
 		-- enter state boss waiting
-		tPrint(' boss is now waiting! \n')
+		tPrint('BOSSFIGHT:BOSS IS NOW WAITING\n')
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossWaiting' )
 	end
 end
@@ -506,7 +504,7 @@ function WardenGameMode:_thinkState_BossWaiting( dt )
 	
 	-- if the boss take any damage, then active it
 	if self:CheckBossActivated( boss ) then
-		tPrint( ' boss fight start at'..GameRules:GetGameTime() )
+		tPrint( 'BOSSFIGHT:START AT:'..GameRules:GetGameTime() )
 		-- apply boss ai
 		boss:SetContextThink('boss_think'..self.CurrentBossData.unit,self.CurrentBossData.boss_think,0.25)
 		-- change think state to boss fighting
@@ -529,26 +527,26 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 	
 	-- check boss killed
 	if self:CheckBossKilled(boss) then
-		tPrint(' boss killed')
+		tPrint('BOSSFIGHT:BOSS WAS KILLED')
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossSpawn' )
 		
 	end
 	
 	-- check whether boss needs to init
 	if self:CheckBossNeedToInit(boss) then
-		tPrint(' initing boss' )
+		tPrint('BOSSFIGHT:INITING BOSS' )
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
 	end
 	-- check phase increase
 	if self:ChechBossFightPhaseIncrease(boss, phase, phases.phases, self.CurrentBossData.PhaseFightTime ) then
 		phase = phase + 1
-		tPrint(' phase increased, current phase:'..phase)
+		tPrint('BOSSFIGHT:PHASE INCREASED TO:'..phase)
 	end
 	
 	-- check whether the boss is crazy
 	if self.CurrentBossData.crazytime then
 		if self.CurrentBossData.BossFightTime > self.CurrentBossData.crazytime then
-			tPrint(' boss become crazy at:'..GameRules:GetGameTime())
+			tPrint('BOSSFIGHT:BOSS BECOME CRAZY AT:'..GameRules:GetGameTime())
 			self.CurrentBossData.crazy = true
 		end
 	end
@@ -569,7 +567,7 @@ end
 -----------------------------------------------------------------------------------
 function WardenGameMode:CheckBossNeedToInit(boss)
 	if distance(boss:GetOrigin(), Vector(0,0,0)) > 2000 then
-		tPrint(' out of boss fight battle field, init boss')
+		tPrint('BOSSFIGHT:OUT OF BATTLE FIELD, INITING BOSS')
 		return true
 	end
 	local heroAlive = 0
@@ -580,7 +578,7 @@ function WardenGameMode:CheckBossNeedToInit(boss)
 		end
 	end
 	if heroAlive == 0 then
-		tPrint(' no hero alive,init boss')
+		tPrint('BOSSFIGHT:ALL HEROES ARE DEAD, INITING BOSS')
 		return true
 	end
 	return false
@@ -729,8 +727,7 @@ function WardenGameMode:OnPlayerConnect( keys )
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerConnectFull( keys )
-	tPrint('on player connect full')
-	PrintTable(keys)
+	tPrint('PLAYER CONNECTED')
 	if self.vPlayerData == nil then self.vPlayerData = {} end
 
 	local playerIndex = keys.index + 1
@@ -742,11 +739,11 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 			if TEAM_SIZE_RADIANT > TEAM_SIZE_DIRE then
 				ply:SetTeam(DOTA_TEAM_BADGUYS)
 				TEAM_SIZE_DIRE = TEAM_SIZE_DIRE + 1
-				tPrint('player '..plyid..'assigned to team dire')
+				tPrint('ASSIGNPLAYER:ASSIGN '..plyid..'TO DIRE')
 			else
 				ply:SetTeam(DOTA_TEAM_GOODGUYS)
 				TEAM_SIZE_RADIANT = TEAM_SIZE_RADIANT + 1
-				tPrint('player '..plyid..'assigned to team radiant')
+				tPrint('ASSIGNPLAYER:ASSIGN '..plyid..'TO RADIANT')
 			end
 		end
 	
@@ -755,14 +752,11 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 		end
 		
 		local assignedHero = CreateHeroForPlayer('npc_dota_hero_dragon_knight', ply)
-		tPrint('done assign hero')
 		self:InitHero(assignedHero)
-		tPrint('done init hero')
 		self.vPlayerData[plyid] = {
 			hero = assignedHero,
 			steamid = PlayerResource:GetSteamAccountID(plyid)
 		}
-	tPrint('done auto assign player')
 	end
 end
 -----------------------------------------------------------------------------------
@@ -773,11 +767,9 @@ function WardenGameMode:InitHero(hero)
 		hero:HeroLevelUp(false)
 		level = hero:GetLevel()
 	end
-	tPrint('hero level set')
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_NORMAL','ability_warden_normal_empty')
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_STORE', 'ability_warden_store_empty' )
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_ENABLE','ability_warden_enable_empty')
-	tPrint('done init hero ability')
 	-- set ability points
 	hero:SetAbilityPoints(0)
 
@@ -796,15 +788,15 @@ function WardenGameMode:OnPlayerSay( keys )
 	PrintTable(keys)
 	local text = keys.text
 	if string.find( text , 'test' ) then
-		tPrint( ' DEBUG: switch to debug mode')
+		tPrint( 'DEBUG: switch to debug mode')
 		DEBUG_MODE = true
 	end
 	if string.find(text , 'spawn') then
-		tPrint( ' DEBUG: order spawn accepted')
+		tPrint( 'DEBUG: order spawn accepted')
 		self:SpawnTestUnits()
 	end
 	if string.find(text , 'respawnhero') then
-		tPrint( ' DEBUG: reset all heroes')
+		tPrint( 'DEBUG: reset all heroes')
 		self:ResetAllHeroes()
 		self:ActiveAllHero()
 	end
@@ -815,7 +807,7 @@ end
 function WardenGameMode:SpawnTestUnits()
 	
 	for i=1,10 do
-		tPrint(' spawning test units')
+		tPrint('DEBUG: spawning test units')
 		local unit = CreateUnitByName('npc_dota_neutral_blue_dragonspawn_overseer',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
 		unit:AddNewModifier(nil,nil,'modifier_rooted',{})
 	end

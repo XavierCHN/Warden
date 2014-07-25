@@ -1,6 +1,4 @@
-tPrint('executing addon_game_mode.lua')
+tPrint(' EXECUTING addon_game_Mode.lua')
 
 WardenGameMode:Init()
 ElementThinker:Init()
-
-tPrint('done executing addon_game_mode.lua')

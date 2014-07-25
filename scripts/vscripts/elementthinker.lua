@@ -130,10 +130,8 @@ function ElementThinker:GetResultAbility(hero , plyid)
 	for i = 1,#self.Elements[hero] do
 		resultAbility = resultAbility..string.sub(self.Elements[hero][i],-1,-1)
 	end
-    tPrint(' attempt to get result ability of:'..resultAbility)
 	for _,v in pairs(ALL_ABILITIES) do
 		if resultAbility == v then
-			tPrint(' avilable ability found'..resultAbility)
 			return resultAbility
 		end
 	end
@@ -232,13 +230,10 @@ function ElementThinker:OnAbilityCast(keys)
 	local abilityCasted = keys.abilityname
 
 	if abilityCasted == ElementThinker.StoredAbility[caster] then
-		tPrint(' [ElementThinker] ability casted, stored ability'..abilityCasted)
 		ElementThinker:StoredAbilityCasted(caster,plyid,abilityCasted)
 	elseif abilityCasted == ElementThinker.NormalAbility[caster] then
-		tPrint(' [ElementThinker] ability casted, normal ability'..abilityCasted)
 		ElementThinker:NormalAbilityCasted(caster,plyid,abilityCasted)
 	else
-		tPrint(' [ElementThinker] ability casted, other ability'..abilityCasted)
 	end
 end
 ------------------------------------------------------------------------------------------------------

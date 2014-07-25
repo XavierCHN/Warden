@@ -1,9 +1,10 @@
-ADDON_PREFIX = '[WARDEN]'
+ADDON_PREFIX = '[WARDEN]※'
 
 DEBUG_MODE = true
 
 InitLogFile('log/log_warden.txt','log_init\n')
-AppendToLogFile('log/log_warden.txt','---------------------------------------\n')
+AppendToLogFile('log/log_warden.txt',
+    'INIT LOG FILE\n----------------------------------\n\n')
 
 function tPrint(msg)
     if not DEBUG_MODE then return end
@@ -13,8 +14,8 @@ function tPrint(msg)
     print(ADDON_PREFIX..tMsg)
     AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
 end
-
-tPrint('addon_init.lua')
+tPrint( 'Hello World!' )
+tPrint('EXECUTING: addon_init.lua')
 
 local function loadModule(name)
     local status, err = pcall(function()
@@ -41,9 +42,6 @@ end
 loadModule('util')
 loadModule('warden')
 loadModule('elementthinker')
---loadModule('abilityhook')
 
---load boss
+--load boss regist and ai files
 loadModule( 'boss/boss_invoker' )
-
-tPrint('done loading addon_init.lua')
