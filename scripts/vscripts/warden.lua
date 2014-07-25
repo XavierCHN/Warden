@@ -154,7 +154,8 @@ function WardenGameMode:Init()
 	ListenToGameEvent('player_connect', Dynamic_Wrap(WardenGameMode, 'OnPlayerConnect'), self)
 	ListenToGameEvent('player_disconnect', Dynamic_Wrap(WardenGameMode, 'OnPlayerDisconnect'), self)
 	ListenToGameEvent('player_say', Dynamic_Wrap(WardenGameMode, 'OnPlayerSay'), self)
-	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(ElementThinker, 'OnAbilityUsed'),self)
+
+	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(WardenGameMode, 'OnAbilityUsed'),self)
 
 	self:RegisterCommands()
 
@@ -164,6 +165,10 @@ function WardenGameMode:Init()
 	self.vPlayerNames = {}
 
 	self.bStatePlaying = false
+
+	tPrint( ' begin to precache unit' )
+	PrecacheUnitByName('npc_precache_everything')
+	tPrint( ' done precache unit')
 
 	tPrint('done init warden game mode \n\n')
 
@@ -262,9 +267,9 @@ function WardenGameMode:_thinkState_PreGame( dt )
 	GameRules:SendCustomMessage('<font color="#3498db">Pratice in next '..GAMETIME_PRATICEGAME..' seconds</font>', 0, 0)
 	
 	-- if pvp mode then enter pvp think states
-	if LOBBY_TYPE = "PVP" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' ) end
+	if LOBBY_TYPE == "PVP" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' ) end
 	-- if pve mode then enter pve think states
-	if LOBBY_TYPE = "PVE" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_BossSpawn' ) end
+	if LOBBY_TYPE == "PVE" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_BossSpawn' ) end
 end
 -----------------------------------------------------------------------------------
 -- ENDREGION : GAME THINK
@@ -542,7 +547,7 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 	
 	-- check whether the boss is crazy
 	if self.CurrentBossData.crazytime then
-		if self.CurrentBossData.BossFightTime > self.CurrentBossData.crazytime
+		if self.CurrentBossData.BossFightTime > self.CurrentBossData.crazytime then
 			tPrint(' boss become crazy at:'..GameRules:GetGameTime())
 			self.CurrentBossData.crazy = true
 		end
@@ -559,7 +564,7 @@ end
 -- REGION : PVE ASSISTANCE FUNCTIONS
 -----------------------------------------------------------------------------------
 local function distance(a,b)
-	return (math.sqrt((a.x-b.x)*(a.x-b.x))+(a.y-b.y)*(a.y-b.y)) )
+	return ( math.sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)))
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:CheckBossNeedToInit(boss)
@@ -788,6 +793,31 @@ function WardenGameMode:OnPlayerDisconnect( keys )
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerSay( keys )
+	PrintTable(keys)
+	local text = keys.text
+	if string.find( text , 'test' ) then
+		tPrint( ' DEBUG: switch to debug mode')
+		DEBUG_MODE = true
+	end
+	if string.find(text , 'spawn') then
+		tPrint( ' DEBUG: order spawn accepted')
+		self:SpawnTestUnits()
+	end
+	if string.find(text , 'respawnhero') then
+		tPrint( ' DEBUG: reset all heroes')
+		self:ResetAllHeroes()
+		self:ActiveAllHero()
+	end
+end
+function WardenGameMode:OnAbilityUsed( keys )
+	ElementThinker:OnAbilityCast(keys)
+end
+function WardenGameMode:SpawnTestUnits()
+	
+	for i=1,10 do
+		tPrint(' spawning test units')
+		local unit = CreateUnitByName('npc_dota_neutral_blue_dragonspawn_overseer',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
+	end
 end
 -----------------------------------------------------------------------------------
 -- ENDREGION : GAME EVENT HOOKS

@@ -4,10 +4,12 @@ DEBUG_MODE = true
 
 InitLogFile('log/log_warden.txt','log_init\n')
 AppendToLogFile('log/log_warden.txt','---------------------------------------\n')
+
 function tPrint(msg)
     if not DEBUG_MODE then return end
+    if not msg then return end
     local tMsg = msg
-    if not type(msg) == 'string' then tMsg = tostring(msg) end
+    if not type(tMsg) == 'string' then tMsg = tostring(tMsg) end
     print(ADDON_PREFIX..tMsg)
     AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
 end
@@ -40,5 +42,8 @@ loadModule('util')
 loadModule('warden')
 loadModule('elementthinker')
 --loadModule('abilityhook')
+
+--load boss
+loadModule( 'boss/boss_invoker' )
 
 tPrint('done loading addon_init.lua')

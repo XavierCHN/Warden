@@ -213,24 +213,23 @@ function ElementThinker:NormalAbilityCasted(hero , plyid , ability)
         self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', self:GetSubAbility(ability))
     else
         self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', 'ability_warden_normal_empty')
+        self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable_empty')
     end
 end
 ------------------------------------------------------------------------------------------------------
 function OnElement(keys)
-    PrintTable( keys )
-
   	local caster = EntIndexToHScript(keys.caster_entindex)
   	local plyid = caster:GetPlayerID()
   	local newElement = keys.Element
 
-     tPrint(' On Element '..newElement )
   	ElementThinker:RefreshAbility(caster,plyid,newElement)
 end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:OnAbilityCast(keys)
-	local caster = EntIndexToHScript(keys.caster_entindex)
+	local player = EntIndexToHScript(keys.player)
+    local caster = player:GetAssignedHero()
 	local plyid = caster:GetPlayerID()
-	local abilityCasted = keys.Ability
+	local abilityCasted = keys.abilityname
 
 	if abilityCasted == ElementThinker.StoredAbility[caster] then
 		tPrint(' [ElementThinker] ability casted, stored ability'..abilityCasted)

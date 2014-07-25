@@ -15,18 +15,13 @@
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+
 	    "OnSpellStart"
 	    {
 	    	"ApplyModifier"
 	    	{
 	    		"Target"					"CASTER"
 	    		"ModifierName"				"modifier_warden_q"
-	    	}
-	    	"ApplyModifier"
-	    	{
-	    		"Target"					"CASTER"
-	    		"ModifierName"				"modifier_warden_q_fx"
 	    	}
 	    	"RunScript"
 	    	{
@@ -41,28 +36,7 @@
 	    	{
 	    		"IsHidden"					"0"
 	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
-	    	}
-	    	"modifier_warden_q_fx"
-	    	{
-	    		"Duration"					"0.5"
-	    		"OnCreated"
-	    		{
-	    			"AttachEffect"
-	    			{
-	    				//todo
-						"Target" "TARGET"
-						"ControlPointEntities"
-						{
-							// Lol
-							"TARGET"		"attach_hitloc"
-							"TARGET"		"attach_hitloc"
-							"TARGET"		"attach_hitloc"
-							"TARGET"		"attach_hitloc"
-						}
-						"EffectName"		"skeletonking_hellfireblast_explosion"
-						"EffectAttachType"	"start_at_customorigin"
-	    			}
-	    		}
+	    		"TextureName"				"ability_warden_q"
 	    	}
 	    }
 	}
@@ -99,7 +73,9 @@
 	    	{
 	    		"IsHidden"					"0"
 	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    		"TextureName"				"ability_warden_w"
 	    	}
+
 	    }
 	}
 	"ability_warden_e"//5097
@@ -135,6 +111,7 @@
 	    	{
 	    		"IsHidden"					"0"
 	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    		"TextureName"				"ability_warden_e"
 	    	}
 	    }
 	}
@@ -219,45 +196,24 @@
 	    	//"AbilityCastAnimation"      		"pudge_meat_hook_start"
 		"precache"
 		{
-			"particlefile"				"particles/units/heroes/hero_bounty_hunter.pcf"
-			"soundfile"				"scripts/game_sounds_heroes/game_sound_bounty_hunter.txt"
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
 		}
 		"OnSpellStart"
 		{
 			"LinearProjectile"
 			{
-				"EffectName"			"bounty_hunter_suriken_toss"
-				"MoveSpeed"			"%speed"
+				"EffectName"			"invoker_deafening_blast"
+				"MoveSpeed"				"%speed"
 				"StartPosition"			"attach_attack1"
+				"FixedDistance"			"%length"
 				"StartRadius"			"%collision_radius"
-				"EndRadius"			"%collision_radius"
+				"EndRadius"				"%collision_radius"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				//"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-				"HasFrontalCone"		"1"
-				"ProvidesVision"		"0"
-				//"VisionRadius"		"300"
-			}
-			"DelayAction"
-			{
-				"Delay" 		"0.4"
-				"Action"
-				{
-					"LinearProjectile"
-					{
-						"EffectName"			"bounty_hunter_suriken_toss"
-						"MoveSpeed"			"%speed"
-						"StartPosition"			"attach_attack1"
-						"StartRadius"			"%collision_radius"
-						"EndRadius"			"%collision_radius"
-						"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-						//"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-						"HasFrontalCone"		"1"
-						"ProvidesVision"		"0"
-						//"VisionRadius"		"300"
-					}
-				}
+				"HasFrontalCone"		"0"
+				"ProvidesVision"		"1"
+				"VisionRadius"			"300"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -296,7 +252,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"500"
+				"speed"					"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"length"				"1000"
 			}
 		}
 	}
@@ -309,11 +270,11 @@
 	"ability_warden_result_qeqe"//5108
 	{
 		"ID"					"5108"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-		"BaseClass"				"item_force_staff"
+		"BaseClass"						"mirana_leap"
 		"AbilityTextureName"			"ability_warden_result_qeqe"
+		"MaxLevel"						"1"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -325,19 +286,19 @@
 		"precache"
 		{
 			"particlefile"				"particles/units/heroes/hero_ember_spirit.pcf"
-			"soundfile"				"scripts/game_sounds_heroes/game_sound_centaur.txt"
+			"soundfile"					"scripts/game_sounds_heroes/game_sound_centaur.txt"
 		}
 		
 		"OnSpellStart"
 		{
 			"ApplyModifier"
 			{
-				"Target"			"CASTER"
+				"Target"				"CASTER"
 				"ModifierName"			"modifier_warden_result_qeqe"
 			}
 			"FireSound"
 			{
-				"Target"			"CASTER"
+				"Target"				"CASTER"
 				"EffectName"			"Hero_Centaur.Stampede.Cast"
 			}
 		}
@@ -346,13 +307,18 @@
 		{
 			"modifier_warden_result_qeqe"
 			{
+				"IsHidden"			"0"
 				"Duration"			"%duration"
-				"AttachEffect"
+				"OnCreated"
 				{
-					"Target"	"CASTER"
-					"EffectName"	"ember_spirit_flameGuard"
-					"AttachType"	"follow_origin"
+					"AttachEffect"
+					{
+						"Target"		"CASTER"
+						"EffectName"	"ember_spirit_flameGuard"
+						"AttachType"	"follow_overhead"
+					}
 				}
+
 				"ThinkInterval"		"0.1"
 				"OnIntervalThink"
 				{
@@ -391,32 +357,47 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"0"
+				"leap_distance"			"800"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"		"0"
+				"var_type"				"FIELD_FLOAT"
+				"leap_speed"			"1200.0"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"push_length"			"800"
+				"var_type"				"FIELD_FLOAT"
+				"leap_acceleration"		"0.0"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300"
+				"leap_radius"		"0"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus"	"0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus_as"	"0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300"
+			}
+			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"radius"			"150.0"
 			}
-			"06"
+			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"duration"			"0.7"
+				"duration"			"10"
 			}
 		}
 	}

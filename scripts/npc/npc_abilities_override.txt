@@ -107,7 +107,7 @@
 	"item_recipe_cyclone"			"REMOVE"
 	"item_cyclone"			"REMOVE"
 	"item_recipe_force_staff"			"REMOVE"
-	"item_force_staff"			"REMOVE"
+	//"item_force_staff"			"REMOVE"
 	"item_recipe_dagon"			"REMOVE"
 	"item_recipe_dagon_2"			"REMOVE"
 	"item_recipe_dagon_3"			"REMOVE"
