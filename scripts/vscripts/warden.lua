@@ -154,6 +154,7 @@ function WardenGameMode:Init()
 	ListenToGameEvent('player_connect', Dynamic_Wrap(WardenGameMode, 'OnPlayerConnect'), self)
 	ListenToGameEvent('player_disconnect', Dynamic_Wrap(WardenGameMode, 'OnPlayerDisconnect'), self)
 	ListenToGameEvent('player_say', Dynamic_Wrap(WardenGameMode, 'OnPlayerSay'), self)
+	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(ElementThinker, 'OnAbilityUsed'),self)
 
 	self:RegisterCommands()
 
