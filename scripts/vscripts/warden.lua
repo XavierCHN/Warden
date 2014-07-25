@@ -2,7 +2,7 @@ WARDEN_ADDON_VERSION = 'APLHA 0.1'
 tPrint('executing warden.lua')
 
 USE_LOBBY = false
-LOBBY_TYPE = "PVE" --
+--LOBBY_TYPE = "PVE" 
 LOBBY_TYPE = "PVP"
 -----------------------------------------------------------------------------------
 --GOLD CONSTANT--
@@ -94,7 +94,7 @@ ALL_ABILITY_MAP = {
 BOSS_MAP = {
 	[1] = {
 		name = 'npc_warden_boss_invoker',
-		crazytime = 600
+		crazytime = 600,
 		phases = {
 			[1] = {
 				phase_change_type = 'time_based',
@@ -359,27 +359,39 @@ function WardenGameMode:_thinkState_PostGame( dt )
 
 end
 -----------------------------------------------------------------------------------
+function WardenGameMode:_thinkState_BossFightWins( dt )
+	GameRules:SetSafeToLeave( true )
+	GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
+end
+-----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_BossSpawn( dt )
+	
+	-- if all boss killed, you win
 	if #BOSS_MAP < 1 then
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossFightWins' )
 		return
 	end
 	
+	-- init lock camera to boss spawn position
 	if self.BossSpawnTime == nil then 
 		self.BossSpawnTime = 5
 		local dummy = CreateUnitByName( 'npc_warden_camera_dummy', Vector( 0, 0, 0), false, nil, nil, DOTA_TEAM_BADGUYS )
 		--lock player camera
 		if self.cameraLock == nil then
 			self.cameraLock = 1
-			tPrint( ' lock camera to the boss spawn' )
-			for plyid = 0,9 do
+			tPrint( ' lock camera to the boss spawn position' )
+			for plyid = 0,4 do
 				if PlayerResource:IsValidPlayer(plyid) then
 					PlayerResource:SetCameraTarget( plyid, dummy )
 				end
 			end
 		end
 	end
+	
+	-- count the timer
 	self.BossSpawnTime = math.max( 0, self.BossSpawnTime - dt )
+	
+	-- after camera locked, soawn the boss
 	if self.BossSpawnTime < 3 then
 		self.CurrentBossData = BOSS_MAP[1]
 		table.remove( BOSS_MAP, 1 )
@@ -387,8 +399,10 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 		local boss = CreateUnitByName(bossname,Vector(0,0,0),true,nil,nil,DOTA_TEAM_BADGUYS)
 		self.CurrentBossData.unit = boss
 	end
+	
+	-- unlock player camera
 	if self.BossSpawnTime < 2 then
-		for plyid = 0,9 do
+		for plyid = 0,4 do
 			if PlayerResource:IsValidPlayer(plyid) then
 				local hero = self.vPlayerData[plyid].hero
 				PlayerResource:SetCameraTarget( plyid ,hero)
@@ -396,12 +410,14 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 			end
 		end
 	end
+	
+	-- finish boss spawn
 	if self.BossSpawnTime <= 0 then
-		for plyid = 0,9 do
+		for plyid = 0,4 do
 			if PlayerResource:IsValidPlayer(plyid) then
 				PlayerResource:SetCameraTarget(plyid, nil )
 			end
-	end
+		end
 		
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
 		self.BossSpawnTime = nil
@@ -418,6 +434,7 @@ function WardenGameMode:_thinkState_BossInit( dt )
 	self.CurrentBossData.unit:SetHealth( self.CurrentBossData.unit:GetMaxHealth() )
 	self.CurrentBossData.unit:SetMana( self.CurrentBossData.unit:GetMaxMana() )
 	self.CurrentBossData.unit:SetOrigin(Vector(0,0,0)
+	self.CurrentBossData.unit:Stop
 	self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossWaiting' )
 end
 -----------------------------------------------------------------------------------
@@ -437,20 +454,24 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 	self.CurrentBossData.PhaseFightTime = self.CurrentBossData.PhaseFightTime + dt
 	self.CurrentBossData.BossFightTime = self.CurrentBossData.BossFightTime + dt
 	
+	-- check boss killed
+	if self:CheckBossKilled(boss) then
+		tPrint(' boss killed')
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossSpawn' )
+	end
+	
+	-- check whether boss needs to init
+	if self:CheckBossNeedToInit(boss) then
+		tPrint(' initing boss' )
+		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
+	end
+	-- check phase increase
 	if self:ChechBossFightPhaseIncrease(boss, phase, phases.phases, self.CurrentBossData.PhaseFightTime ) then
 		phase = phase + 1
 		tPrint(' phase increased, current phase:'..phase)
 	end
 	
-	if self:CheckBossNeedToInit(boss) then
-		tPrint(' initing boss' )
-		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
-	end
-	
-	if self:CheckBossKilled(boss) then
-		tPrint(' boss killed')
-		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossSpawn' )
-	end
+	-- check whether the boss is crazy
 	if self.CurrentBossData.crazytime then
 		if self.CurrentBossData.BossFightTime > self.CurrentBossData.crazytime
 			tPrint(' boss become crazy at:'..GameRules:GetGameTime())
@@ -483,7 +504,6 @@ function WardenGameMode:CheckBossNeedToInit(boss)
 	end
 	return false
 end
------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------
 function WardenGameMode:GetPahse()
 	if self.CurrentBossData ~= nil then
