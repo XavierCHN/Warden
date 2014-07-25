@@ -19,7 +19,18 @@ RegistBoss(
   	
   }
 })
+BOSS_INVOKER_ABILITY_MAP = {
+  -- phase 1 abilities
+  [1] = {
+    },
+  -- phase 2 abilities
+  [2] = {
+    },
+  -- phase 3 abilities
+  [3] = {
+    }
 
+}
 if InvokerThink == nil then
   InvokerThink = {}
 end
@@ -42,7 +53,40 @@ function BossInvokerThink()
     tPrint( ' ERROR: think entity not found' )
     return
   end
-  local thinkPhase = WardenGameMmode:GetPhase()
-  
-  -- TODO BOSS INVOKER AI
+  local thinkPhase = WardenGameMode:GetPhase()
+  local thinkCrazy = WardenGameMode:GetCrazy()
+  InvokerThink:ThinkState(thinkEntity,thinkPhase,thinkCrazy)
+end
+
+function InvokerThink:ThinkState(boss,phase,crazy)
+  if phase > #WardenGameMode.CurrentBossData.phases then return end
+  if crazy then
+    -- DO SOME CRAZY THING
+  end
+  local ability = self:GetCVastableAbility(boss,phase)
+  if ability then
+    local target = self:GetAbilityTarget(boss,ability)
+    boss:CastAbilityOnTarget(ability,target)
+  end
+end
+
+function InvokerThink:GetAbiltiyTarget(boss,ability)
+  local allPlayers = WardenGameMode.vPlayerData
+  for _,v in pairs(allPlayers) do
+    local hero = v.hero
+    if hero:IsAlive() then
+      -- TODO THINK ABOUT TAUNTS
+      return hero
+    end
+  end
+end
+
+function InvokerThink:GetCastableAbiltiy(boss,phase)
+  for k,v in pairs(BOSS_INVOKER_ABILITY_MAP[phase]) do
+    local ability = boss:FindAbilityByName(v)
+    if ability:IsFullyCastable() then
+      return ability
+    end
+  end
+  return nil
 end
