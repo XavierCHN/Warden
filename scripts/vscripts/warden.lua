@@ -526,7 +526,7 @@ function WardenGameMode:CheckBossActivated( boss )
 	return false
 end
 -----------------------------------------------------------------------------------
-function WardenGameMode:CHeckBossFightPhaseIncrease( boss, phase, phasedata , phasefighttime)
+function WardenGameMode:CheckBossFightPhaseIncrease( boss, phase, phasedata , phasefighttime)
 	local changetype = phasedata[phase].phase_change_type
 	if chagetype == 'time_based' then
 		if phasefighttime > phasedata[phase].phase_duration then
@@ -646,9 +646,11 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 				tPrint('player '..plyid..'assigned to team radiant')
 			end
 		end
+	
 		if not USE_LOBBY and LOBBY_TYPE == 'PVE' and plyid == -1 then
 			ply:SetTeam(DOTA_TEAM_GOODGUYS)
 		end
+		
 		local assignedHero = CreateHeroForPlayer('npc_dota_hero_dragon_knight', ply)
 		tPrint('done assign hero')
 		self:InitHero(assignedHero)
