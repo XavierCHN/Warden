@@ -1,26 +1,22 @@
-RegistBoss({
+RegistBoss(
+{
   name = 'npc_warden_boss_invoker',
   crazytime = 600,
   boss_think = 'BossInvokerThink',
   phases = {
-    [1] = {
-  		name = 'npc_warden_boss_invoker',
-  		crazytime = 600,
-  		phases = {
-  			[1] = {
-  				phase_change_type = 'time_based',
-  				phase_duration = 120
-  			},
-  			[2] = {
-  				phase_change_type = 'health_percentage_based',
-  				health_threshold = 80
-  			},
-  			[3] = {
-  				phase_change_type = 'health_number_based',
-  				health_threshold = 20000
-  			}
-  		}
+  	[1] = {
+  		phase_change_type = 'time_based',
+  		phase_duration = 120
+  	},
+  	[2] = {
+  		phase_change_type = 'health_percentage_based',
+  		health_threshold = 80
+  	},
+  	[3] = {
+  		phase_change_type = 'health_number_based',
+  		health_threshold = 20000
   	}
+  	
   }
 })
 
@@ -43,8 +39,10 @@ function BossInvokerThink()
   
   local thinkEntity = WardenGameMode:GetThinkEntity()
   if not thinkEntity then
-    tPrint()
+    tPrint( ' ERROR: think entity not found' )
+    return
   end
-  local thinkPhase = WardenGameMmode()
+  local thinkPhase = WardenGameMmode:GetPhase()
   
+  -- TODO BOSS INVOKER AI
 end
