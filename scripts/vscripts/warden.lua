@@ -112,6 +112,9 @@ BOSS_MAP = {
 	}
 }
 -----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+-- ENDREGION : CONSTANTS
+-----------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------
 -- create game mode var
@@ -179,6 +182,9 @@ function WardenGameMode:Init()
 	tPrint('done init warden game mode \n\n')
 
 end
+
+-----------------------------------------------------------------------------------
+-- REGION : REGIST CONSOLE COMMANDS
 -----------------------------------------------------------------------------------
 -- regist console commands
 function WardenGameMode:RegisterCommands()
@@ -230,6 +236,13 @@ function WardenGameMode:RegisterCommands()
 	end, 'Forcefully End The Round', FCVAR_CHEAT)
 end
 -----------------------------------------------------------------------------------
+-- ENDREGION : REGIST CONSOLE COMMANDS
+-----------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------
+-- REGION :GAME THINK
+-----------------------------------------------------------------------------------
 -- Overall Think function. Is called every 0.25 seconds.
 function WardenGameMode:Think()
 
@@ -247,18 +260,34 @@ end
 -----------------------------------------------------------------------------------
 -- pregame time think
 function WardenGameMode:_thinkState_PreGame( dt )
+	
+	-- if pre game time passed
 	if GameRules:State_Get() <= DOTA_GAMERULES_STATE_PRE_GAME then
 		return
 	end
+	
+	-- tell out addon message
 	tPrint(' GAME THINK ENDS PRE GAME')
 	GameRules:SendCustomMessage('<font color="#3498db">WARDEN GAME MODE</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#ecf0f1">Created by: XavierCHN</font>', 0, 0)
 	GameRules:SendCustomMessage('<font color="#ecf0f1">github.com/XavierCHN/Warden</font>', 0, 0)
+	
+	-- tell pratice tip
 	GameRules:SendCustomMessage('<font color="#3498db">Pratice in next '..GAMETIME_PRATICEGAME..' seconds</font>', 0, 0)
-
+	
+	-- if pvp mode then enter pvp think states
 	if LOBBY_TYPE = "PVP" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' ) end
+	-- if pve mode then enter pve think states
 	if LOBBY_TYPE = "PVE" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_BossSpawn' ) end
 end
+-----------------------------------------------------------------------------------
+-- ENDREGION : GAME THINK
+-----------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------
+-- REGION : PVP GAME STATE FUNCTIONS
 -----------------------------------------------------------------------------------
 -- time for player to pratice game mode
 function WardenGameMode:_thinkState_Pratice( dt )
@@ -299,9 +328,12 @@ function WardenGameMode:_thinkState_PreRound( dt )
 		self:ResetAllHeroes()
 
 	end
+	
+	-- count the timer
 	self.PreTimeLeft = math.max (0, self.PreTimeLeft - dt)
-	if self.PreTimeLeft > 0 then
-	else
+	
+	-- if pregame time runs out
+	if self.PreTimeLeft <= 0 then
 
 		-- reset all units
 		self:ResetAllHeroes()
@@ -315,33 +347,39 @@ function WardenGameMode:_thinkState_PreRound( dt )
 
 		-- change the think state
 		self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_InRound' )
-
+		
+		-- init pre game time
 		self.PreTimeLeft = nil
 	end
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_InRound( dt )
 	
+	-- try to get round winner
 	ROUND_WINNER = self:CheckRoundWinner()
 
 	if ROUND_WINNER ~= nil then
+		-- if max rounds
 		if ROUND_NUMBER > ROUNDS_TOTAL - 1 then
 			self.thinkState = Dynamic_Wrap( FreezetagGameMode, '_thinkState_PostGame' )
 		else
-
+			-- tell out the winner
 			GameRules:SendCustomMessage('ROUND '..ROUND_NUMBER..' WINNER: '..ROUND_WINNER, 0, 0)
+			
+			-- store the round winner
 			if ROUND_WINNER == 'RADIANT' then
 				ROUNDS_WIN_RADIANT = ROUNDS_WIND_RADIANT + 1
 			else
 				ROUNDS_WIN_DIRE = ROUNDS_WIN_DIRE + 1
 			end
-
+			
+			-- update score
 			self:UpdateScoreBar(ROUNDS_WIN_RADIANT, ROUNDS_WIN_DIRE)
+			-- modify gold
 			self:ModifyTeamGold(ROUND_WINNER)
-
+			-- reset game think to pre round
 			self.thinkState = Dynamic_Wrap( FreezetagGameMode, '_thinkState_PreRound' )
 		end
-		return
 	end
 
 end
@@ -358,6 +396,13 @@ function WardenGameMode:_thinkState_PostGame( dt )
 	GameRules:SetGameWinner( GAME_WINNER )
 
 end
+-----------------------------------------------------------------------------------
+-- ENDREGION : PVP GAME STATE FUNCTIONS
+-----------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------
+-- REGION : PVP THINK STATE FUNCTIONS
 -----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_BossFightWins( dt )
 	GameRules:SetSafeToLeave( true )
@@ -382,6 +427,7 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 			tPrint( ' lock camera to the boss spawn position' )
 			for plyid = 0,4 do
 				if PlayerResource:IsValidPlayer(plyid) then
+					-- lock player camera
 					PlayerResource:SetCameraTarget( plyid, dummy )
 				end
 			end
@@ -393,8 +439,14 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 	
 	-- after camera locked, soawn the boss
 	if self.BossSpawnTime < 3 then
+		
+		-- catch the boss data
 		self.CurrentBossData = BOSS_MAP[1]
+		
+		-- remove from all boss map
 		table.remove( BOSS_MAP, 1 )
+		
+		-- spawn the boss and catch the unit
 		local bossname = self.CurrentBossData.name
 		local boss = CreateUnitByName(bossname,Vector(0,0,0),true,nil,nil,DOTA_TEAM_BADGUYS)
 		self.CurrentBossData.unit = boss
@@ -405,6 +457,7 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 		for plyid = 0,4 do
 			if PlayerResource:IsValidPlayer(plyid) then
 				local hero = self.vPlayerData[plyid].hero
+				-- lock player camera back to hero
 				PlayerResource:SetCameraTarget( plyid ,hero)
 				dummy:Destroy()
 			end
@@ -415,10 +468,12 @@ function WardenGameMode:_thinkState_BossSpawn( dt )
 	if self.BossSpawnTime <= 0 then
 		for plyid = 0,4 do
 			if PlayerResource:IsValidPlayer(plyid) then
+				-- unlock player camera
 				PlayerResource:SetCameraTarget(plyid, nil )
 			end
 		end
 		
+		-- change think state to boss init
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
 		self.BossSpawnTime = nil
 	end
@@ -432,9 +487,9 @@ function WardenGameMode:_thinkState_BossInit( dt )
 	self:ResetAllHeroes()
 	
 	-- reset current boss data
-	self.CurrentBossData.PhaseFightTime = 0
-	self.CurrentBossData.BossFightTime = 0
 	self.CurrentBossData.phase = 1
+	self.CurrentBossData.PhaseFightTime[self.CurrentBossData.unit] = {}
+	self.CurrentBossData.BossFightTime[self.CurrentBossData.unit] = 0
 	
 	--reset boss health and mana
 	self.CurrentBossData.unit:SetHealth( self.CurrentBossData.unit:GetMaxHealth() )
@@ -457,6 +512,8 @@ end
 -----------------------------------------------------------------------------------
 function WardenGameMode:_thinkState_BossWaiting( dt )
 	local boss = self.CurrentBossData.unit
+	
+	-- if the boss take any damage, then active it
 	if self:CheckBossActivated( boss ) then
 		tPrint( ' boss fight start at'..GameRules:GetGameTime() )
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossFighting' )
@@ -468,13 +525,19 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 	local phase = self.CurrentBossData.phase
 	local phases = self.CurrentBossData.phases
 	
-	self.CurrentBossData.PhaseFightTime = self.CurrentBossData.PhaseFightTime + dt
-	self.CurrentBossData.BossFightTime = self.CurrentBossData.BossFightTime + dt
+	if self.CurrentBossData.PhaseFightTime[boss][phase] == nil then
+		self.CurrentBossData.PhaseFightTime[boss][phase] = 0
+	end
+	
+	-- counts the phase fight time and boss fight time
+	self.CurrentBossData.PhaseFightTime[boss][phase] = self.CurrentBossData.PhaseFightTime[boss][phase] + dt
+	self.CurrentBossData.BossFightTime[boss] = self.CurrentBossData.BossFightTime[boss] + dt
 	
 	-- check boss killed
 	if self:CheckBossKilled(boss) then
 		tPrint(' boss killed')
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossSpawn' )
+		
 	end
 	
 	-- check whether boss needs to init
@@ -498,6 +561,13 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 
 	self.CurrentBossData.phase = phase
 end
+-----------------------------------------------------------------------------------
+-- ENDREGION : PVP THINK STATE FUNCTIONS
+-----------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------
+-- REGION : PVE ASSISTANCE FUNCTIONS
 -----------------------------------------------------------------------------------
 local function distance(a,b)
 	return (math.sqrt((a.x-b.x)*(a.x-b.x))+(a.y-b.y)*(a.y-b.y)) )
@@ -560,6 +630,14 @@ function WardenGameMode:CheckBossFightPhaseIncrease( boss, phase, phasedata , ph
 	end
 	return false
 end
+-----------------------------------------------------------------------------------
+-- ENDREGION : PVE ASSISTANCE FUNCTIONS
+-----------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------
+-- REGION : PVP ASSISTANCE FUNCTIONS
 -----------------------------------------------------------------------------------
 function WardenGameMode:CheckRoundWinner()
 	local RADIANT_ALIVE_HERO_COUNT = 0
@@ -638,6 +716,13 @@ function WardenGameMode:ModifyTeamGold(winner)
 	end
 end
 -----------------------------------------------------------------------------------
+-- ENDREGION : PVP ASSISTANCE FUNCTIONS
+-----------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------
+-- REGION : GAME EVENT HOOKS
+-----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerConnect( keys )
 	
 end
@@ -708,4 +793,6 @@ end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerSay( keys )
 end
+-----------------------------------------------------------------------------------
+-- ENDREGION : GAME EVENT HOOKS
 -----------------------------------------------------------------------------------
