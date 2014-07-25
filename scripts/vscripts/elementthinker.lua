@@ -227,15 +227,19 @@ function OnElement(keys)
   	ElementThinker:RefreshAbility(caster,plyid,newElement)
 end
 ------------------------------------------------------------------------------------------------------
-function OnAbilityCast(keys)
+function ElementThinker:OnAbilityCast(keys)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local plyid = caster:GetPlayerID()
 	local abilityCasted = keys.Ability
 
 	if abilityCasted == ElementThinker.StoredAbility[caster] then
+		tPrint(' [ElementThinker] ability casted, stored ability'..abilityCasted)
 		ElementThinker:StoredAbilityCasted(caster,plyid,abilityCasted)
-	else
+	elseif abilityCasted == ElementThinker.NormalAbility[caster] then
+		tPrint(' [ElementThinker] ability casted, normal ability'..abilityCasted)
 		ElementThinker:NormalAbilityCasted(caster,plyid,abilityCasted)
+	else
+		tPrint(' [ElementThinker] ability casted, other ability'..abilityCasted)
 	end
 end
 ------------------------------------------------------------------------------------------------------
