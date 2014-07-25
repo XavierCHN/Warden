@@ -688,20 +688,9 @@ function WardenGameMode:InitHero(hero)
 		level = hero:GetLevel()
 	end
 	tPrint('hero level set')
-	for _,ability in pairs(ALL_ABILITY_MAP) do
-		if hero:HasAbility(ability) then
-			hero:RemoveAbility(ability)
-		end
-	end
-	-- add all init ability and set level
-	for _,ability in pairs(INIT_ABILITY_MAP) do
-		hero:AddAbility(ability)
-	end
-	
-	for _,ability in pairs(INIT_ABILITY_MAP) do
-		local ab = hero:FindAbilityByName(ability)
-		if ab then ab:SetLevel(1) end
-	end
+	ElementThinker:RebuildAllAbilities(hero,'CHANGE_NORMAL','ability_warden_normal_empty')
+	ElementThinker:RebuildAllAbilities(hero,'CHANGE_STORE', 'ability_warden_store_empty' )
+	ElementThinker:RebuildAllAbilities(hero,'CHANGE_ENABLE','ability_warden_enable_empty')
 	tPrint('done init hero ability')
 	-- set ability points
 	hero:SetAbilityPoints(0)
