@@ -817,6 +817,7 @@ function WardenGameMode:SpawnTestUnits()
 	for i=1,10 do
 		tPrint(' spawning test units')
 		local unit = CreateUnitByName('npc_dota_neutral_blue_dragonspawn_overseer',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
+		unit:AddNewModifier(nil,nil,'modifier_rooted',{})
 	end
 end
 -----------------------------------------------------------------------------------

@@ -270,3 +270,4 @@
       //"soundfile"         "scripts/game_sounds_custom.txt"
     }
 }
+}

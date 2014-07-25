@@ -15,6 +15,13 @@
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
+	    "AbilityCastAnimation"				"attack_alt1"
+
+	    "precache"
+	    {
+	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+	    	"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+	    }
 
 	    "OnSpellStart"
 	    {
@@ -23,6 +30,17 @@
 	    		"Target"					"CASTER"
 	    		"ModifierName"				"modifier_warden_q"
 	    	}
+	    	"FireSound"
+	    	{
+	    		"EffectName"				"Hero_DragonKnight.Attack"
+	    		"Target"					"CASTER"
+	    	}
+	    	"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
 	    	"RunScript"
 	    	{
 	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
@@ -52,7 +70,14 @@
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "AbilityCastAnimation"				"shieldbash"
+
+	    "precache"
+	    {
+	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+	    	"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+	    }
+
 	    "OnSpellStart"
 	    {
 	    	"ApplyModifier"
@@ -60,6 +85,17 @@
 	    		"Target"					"CASTER"
 	    		"ModifierName"				"modifier_warden_w"
 	    	}
+	    	"FireSound"
+	    	{
+	    		"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+	    		"Target"					"CASTER"
+	    	}
+	    	"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
 	    	"RunScript"
 	    	{
 	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
@@ -91,6 +127,13 @@
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
 	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+
+	    "precache"
+	    {
+	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+	    	"particlefile"					"particles/units/heroes/hero_sven.pcf"
+	    }
+
 	    "OnSpellStart"
 	    {
 	    	"ApplyModifier"
@@ -190,10 +233,11 @@
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 		"MaxLevel"          				"1"
 
-	    	"AbilityManaCost"         			"24"
-	    	"AbilityCastPoint"        			"0.0"
-	    	"AbilityCooldown"         			"0.0"
-	    	//"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+		
 		"precache"
 		{
 			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
@@ -218,12 +262,7 @@
 		}
 		"OnProjectileHitUnit"
 		{
-			"DeleteOnHit"					"true"
-			"FireSound"
-			{
-				"EffectName"				"Hero_BountyHunter.Shuriken.Impact"
-				"Target"				"TARGET"
-			}
+			"DeleteOnHit"					"false"
 			"Damage"
 			{
 				"Target"				"TARGET"
@@ -247,7 +286,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"collision_radius"			"30"
+				"collision_radius"			"130"
 			}
 			"03"
 			{
@@ -262,6 +301,7 @@
 		}
 	}
 	//"ability_warden_result_qe"//5102
+
 	//"ability_warden_result_qw"//5103
 	//"ability_warden_result_qeq"//5104
 	//"ability_warden_result_qwe"//5105
