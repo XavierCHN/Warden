@@ -501,6 +501,9 @@ function WardenGameMode:_thinkState_BossWaiting( dt )
 	-- if the boss take any damage, then active it
 	if self:CheckBossActivated( boss ) then
 		tPrint( ' boss fight start at'..GameRules:GetGameTime() )
+		-- apply boss ai
+		boss:SetContextThink('boss_think'..self.CurrentBossData.unit,self.CurrentBossData.boss_think,0.25)
+		-- change think state to boss fighting
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossFighting' )
 	end
 end
@@ -580,6 +583,13 @@ end
 function WardenGameMode:GetPahse()
 	if self.CurrentBossData ~= nil then
 		return self.CurrentBossData.phase
+	end
+	return nil
+end
+-----------------------------------------------------------------------------------
+function WardenGameMode:GetThinkEntity()
+	if self.CurrentBossData.unit then
+		return self.CurrentBossData.unit
 	end
 	return nil
 end
