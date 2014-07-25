@@ -306,7 +306,120 @@
 	//"ability_warden_result_qwe"//5105
 	//"ability_warden_result_qwq"//5106
 	//"ability_warden_result_qweq"//5107
-	//"ability_warden_result_qeqe"//5108
+	"ability_warden_result_qeqe"//5108
+	{
+		"ID"					"5108"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"BaseClass"				"item_force_staff"
+		"AbilityTextureName"			"ability_warden_result_qeqe"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"48"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_ember_spirit.pcf"
+			"soundfile"				"scripts/game_sounds_heroes/game_sound_centaur.txt"
+		}
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"			"modifier_warden_result_qeqe"
+			}
+			"FireSound"
+			{
+				"Target"			"CASTER"
+				"EffectName"			"Hero_Centaur.Stampede.Cast"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_warden_result_qeqe"
+			{
+				"Duration"			"%duration"
+				"AttachEffect"
+				{
+					"Target"	"CASTER"
+					"EffectName"	"ember_spirit_flameGuard"
+					"AttachType"	"follow_origin"
+				}
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"
+						{
+							"Center"		"CASTER"
+							"Radius"		"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+						"Type" 		"DAMAGE_TYPE_PHYSICAL"
+						"Damage"	"%damage"
+					}
+					"Knockback"
+					{
+						"Target"
+						{
+							"Center"		"CASTER"
+							"Radius"		"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+						"Center"	"CASTER"
+						"Duration"	"0.75"
+						"Distance"	"%radius + 25"
+						"Height"	"0"
+					}
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"		"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"push_length"			"800"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"150.0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.7"
+			}
+		}
+	}
 	//"ability_warden_result_qwqw"//5109
 	//"ability_warden_result_qwqeq"//5110
 	//"ability_warden_result_qewqe"//5111
