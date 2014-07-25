@@ -151,17 +151,6 @@
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
 	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
-
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-	    	{
-	    		"ScriptFile"	"scripts/vscripts/elementthinker.lua"
-	    		"Ability"		"ability_warden_normal_empty"
-	    		"Function"		"OnAbilityCast"
-
-	    	}
-	    }
 	}
 	"ability_warden_store_empty"//5099
 	{
@@ -176,16 +165,6 @@
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
 	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-	    	{
-	    		"ScriptFile"	"scripts/vscripts/elementthinker.lua"
-	    		"Ability"		"ability_warden_store_empty"
-	    		"Function"		"OnAbilityCast"
-
-	    	}
-	    }
 	}
 	"ability_warden_enable_empty"//5100
 	{
@@ -231,24 +210,95 @@
 
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_result_qq"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 		"MaxLevel"          				"1"
 
-	    "AbilityManaCost"         			"24"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
-
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-	    	{
-	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
-	    		"Ability"					"ability_warden_result_qq"
-	    		"Function"					"OnAbilityCast"
-
-	    	}
-	    }
+	    	"AbilityManaCost"         			"24"
+	    	"AbilityCastPoint"        			"0.0"
+	    	"AbilityCooldown"         			"0.0"
+	    	//"AbilityCastAnimation"      		"pudge_meat_hook_start"
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_bounty_hunter.pcf"
+			"soundfile"				"scripts/game_sounds_heroes/game_sound_bounty_hunter.txt"
+		}
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+			{
+				"EffectName"			"bounty_hunter_suriken_toss"
+				"MoveSpeed"			"%speed"
+				"StartPosition"			"attach_attack1"
+				"StartRadius"			"%collision_radius"
+				"EndRadius"			"%collision_radius"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				//"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+				"HasFrontalCone"		"1"
+				"ProvidesVision"		"0"
+				//"VisionRadius"		"300"
+			}
+			"DelayAction"
+			{
+				"Delay" 		"0.4"
+				"Action"
+				{
+					"LinearProjectile"
+					{
+						"EffectName"			"bounty_hunter_suriken_toss"
+						"MoveSpeed"			"%speed"
+						"StartPosition"			"attach_attack1"
+						"StartRadius"			"%collision_radius"
+						"EndRadius"			"%collision_radius"
+						"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						//"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+						"HasFrontalCone"		"1"
+						"ProvidesVision"		"0"
+						//"VisionRadius"		"300"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"					"true"
+			"FireSound"
+			{
+				"EffectName"				"Hero_BountyHunter.Shuriken.Impact"
+				"Target"				"TARGET"
+			}
+			"Damage"
+			{
+				"Target"				"TARGET"
+				"Damage"				"%damage"
+				"Type"					"DAMAGE_TYPE_MAGICAL"
+			}
+			"FireEffect"
+			{
+				"EffectName"				"bounty_hunter_suriken_impact"
+				"EffectAttachType"			"attach_hitloc"
+				"Target"				"TARGET"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"95"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collision_radius"			"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"500"
+			}
+		}
 	}
 	//"ability_warden_result_qe"//5102
 	//"ability_warden_result_qw"//5103
