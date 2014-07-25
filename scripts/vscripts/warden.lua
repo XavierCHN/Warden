@@ -464,6 +464,8 @@ function WardenGameMode:_thinkState_BossFighting( dt )
 	if self:CheckBossNeedToInit(boss) then
 		tPrint(' initing boss' )
 		self.thinkState = Dynamic_Wrap( WardenGameMode , '_thinkState_BossInit' )
+		self:ResetAllHeroes()
+		self:ActiveAllHero()
 	end
 	-- check phase increase
 	if self:ChechBossFightPhaseIncrease(boss, phase, phases.phases, self.CurrentBossData.PhaseFightTime ) then
