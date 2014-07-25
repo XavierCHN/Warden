@@ -1,0 +1,16 @@
+"DOTAUnits"
+{
+  "Version"                         "1"
+  "npc_warden_boss_invoker"
+  {
+    "BaseClass"                     "npc_dota_neutrals"
+    "Model"                         "models/units/heroes/hero_invoker.mdl"
+    
+    "ability1"                      "ability_boss_invoker_defening_blast"
+    
+    "ability17"                     "ability_boss_all_vision"
+    
+    "VisionDayTimeRange"            "9000"
+    "VisionNightTimeRange"          "9000"
+  }
+}
