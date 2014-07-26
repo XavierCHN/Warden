@@ -254,6 +254,10 @@ end
 -- Overall Think function. Is called every 0.25 seconds.
 function WardenGameMode:Think()
 
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
+		return
+	end
+
 	-- Track game time, since the dt passed in to think is actually wall-clock time not simulation time.
 	local now = GameRules:GetGameTime()
 	if WardenGameMode.t0 == nil then
