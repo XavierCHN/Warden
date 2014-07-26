@@ -130,8 +130,8 @@
 
 	    "precache"
 	    {
-	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
-	    	"particlefile"					"particles/units/heroes/hero_sven.pcf"
+	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+	    	"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
 	    }
 
 	    "OnSpellStart"
@@ -141,6 +141,17 @@
 	    		"Target"					"CASTER"
 	    		"ModifierName"				"modifier_warden_e"
 	    	}
+	    	"FireSound"
+	    	{
+	    		"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+	    		"Target"					"CASTER"
+	    	}
+	    	"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
 	    	"RunScript"
 	    	{
 	    		"ScriptFile"				"scripts/vscripts/elementthinker.lua"
@@ -247,6 +258,7 @@
 		{
 			"LinearProjectile"
 			{
+				"Target"				"POINT"
 				"EffectName"			"invoker_deafening_blast"
 				"MoveSpeed"				"%speed"
 				"StartPosition"			"attach_attack1"
@@ -262,7 +274,7 @@
 		}
 		"OnProjectileHitUnit"
 		{
-			"DeleteOnHit"					"false"
+			"DeleteOnHit"					"0"
 			"Damage"
 			{
 				"Target"				"TARGET"
@@ -273,7 +285,7 @@
 			{
 				"EffectName"				"bounty_hunter_suriken_impact"
 				"EffectAttachType"			"attach_hitloc"
-				"Target"				"TARGET"
+				"Target"					"TARGET"
 			}
 		}
 		"AbilitySpecial"
@@ -302,7 +314,63 @@
 	}
 	//"ability_warden_result_qe"//5102
 
-	//"ability_warden_result_qw"//5103
+	"ability_warden_result_qw"//5103
+	{
+		"ID"								"5103"
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qw"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastRange"					"500"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_skywrath_mage.pcf"
+			"particlefile"				"particles/units/heroes/hero_riki.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_skywrath_mage.txt"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target" "TARGET"
+				"MoveSpeed" "1250"
+				"EffectName" "skywrath_mage_arcane_bolt"
+			}
+			//"RunScript"
+			//{
+			//	"ScriptFile"			"scripts/vscripts/elementthinker.lua"
+			//	"dummy_ability"			"ability_warden_result_qw_dummy"
+			//	"dummy_type"			"unit_target"
+			//	"Target"				"TARGET"
+			//	"Function"				"FireDummyAbility"
+			//}
+		}
+		"OnProjectileHitUnit"
+		{
+			"Damage"
+			{
+				"Target" 	"TARGET"
+				"Type" 		"DAMAGE_TYPE_PURE"
+				"Damage" 	"%damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"115"
+			}
+		}
+	}
 	//"ability_warden_result_qeq"//5104
 	//"ability_warden_result_qwe"//5105
 	//"ability_warden_result_qwq"//5106
@@ -322,76 +390,6 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0.0"
 		"AbilityManaCost"				"48"
-		
-		"precache"
-		{
-			"particlefile"				"particles/units/heroes/hero_ember_spirit.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sound_centaur.txt"
-		}
-		
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_warden_result_qeqe"
-			}
-			"FireSound"
-			{
-				"Target"				"CASTER"
-				"EffectName"			"Hero_Centaur.Stampede.Cast"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_warden_result_qeqe"
-			{
-				"IsHidden"			"0"
-				"Duration"			"%duration"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"		"CASTER"
-						"EffectName"	"ember_spirit_flameGuard"
-						"AttachType"	"follow_overhead"
-					}
-				}
-
-				"ThinkInterval"		"0.1"
-				"OnIntervalThink"
-				{
-					"Damage"
-					{
-						"Target"
-						{
-							"Center"		"CASTER"
-							"Radius"		"%radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
-						}
-						"Type" 		"DAMAGE_TYPE_PHYSICAL"
-						"Damage"	"%damage"
-					}
-					"Knockback"
-					{
-						"Target"
-						{
-							"Center"		"CASTER"
-							"Radius"		"%radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
-						}
-						"Center"	"CASTER"
-						"Duration"	"0.75"
-						"Distance"	"%radius + 25"
-						"Height"	"0"
-					}
-				}
-			}
-		}
-		
 		"AbilitySpecial"
 		{
 			"01"
@@ -445,6 +443,122 @@
 	//"ability_warden_result_qwqeq"//5110
 	//"ability_warden_result_qewqe"//5111
 
+	"ability_warden_result_qq_sub1"//5112 // TO TEST SUB ABILITY FUNCTION
+	{
+		"ID"								"5112"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qq"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
+		}
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+			{
+				"Target"				"POINT"
+				"EffectName"			"invoker_deafening_blast"
+				"MoveSpeed"				"%speed"
+				"StartPosition"			"attach_attack1"
+				"FixedDistance"			"%length"
+				"StartRadius"			"%collision_radius"
+				"EndRadius"				"%collision_radius"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"HasFrontalCone"		"0"
+				"ProvidesVision"		"1"
+				"VisionRadius"			"300"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"					"0"
+			"Damage"
+			{
+				"Target"				"TARGET"
+				"Damage"				"%damage"
+				"Type"					"DAMAGE_TYPE_MAGICAL"
+			}
+			"FireEffect"
+			{
+				"EffectName"				"bounty_hunter_suriken_impact"
+				"EffectAttachType"			"attach_hitloc"
+				"Target"					"TARGET"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"95"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collision_radius"			"130"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"length"				"1000"
+			}
+		}
+	}
+	"ability_warden_result_qeqe_dummy"//5113 // TO TEST DUMMY ABILITY FUNCTIONS
+	{
+		"ID"					"5113"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"ability_warden_result_qeqe"
+		"MaxLevel"						"1"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_ember_spirit.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sound_centaur.txt"
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_Centaur.Stampede.Cast"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"1"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dummy_type"		"4"
+			}
+		}
+	}
 	//"ability_warden_result_ew"//5121
 	//"ability_warden_result_eq"//5122
 	//"ability_warden_result_ee"//5123

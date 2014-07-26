@@ -8,9 +8,9 @@
 		"Ability1"				"ability_warden_q"
 		"Ability2"				"ability_warden_w"
 		"Ability3"				"ability_warden_e"
-		"Ability4"				"ability_warden_empty"
+		"Ability4"				"ability_warden_normal_empty"
 		"Ability5"				"ability_warden_store_empty"
-		"Ability6"				"ability_warden_store"
+		"Ability6"				"ability_warden_enable_empty"
 
 
 

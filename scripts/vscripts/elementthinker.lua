@@ -1,4 +1,4 @@
-tPrint(' EXECUTING: elementthinker.lua')
+tPrint('EXECUTING: elementthinker.lua')
 
 if ElementThinker == nil then
 	ElementThinker = {}
@@ -41,12 +41,15 @@ ALL_ABILITIES = {
 	"ability_warden_result_wqwqw",
 	"ability_warden_result_wewew"
 }
-
+------------------------------------------------------------------------------------------------------
 local SUB_ABILITIES = {
+    ['ability_warden_result_qq'] = 'ability_warden_result_qq_sub1'
 }
-local DUMMY_ABILITIES = {
-}
+------------------------------------------------------------------------------------------------------
 
+local DUMMY_ABILITIES = {
+    ['ability_warden_result_qeqe'] = 'ability_warden_result_qeqe_dummy'
+}
 ------------------------------------------------------------------------------------------------------
 -- element thinker new
 function ElementThinker:new(o)
@@ -64,17 +67,17 @@ function ElementThinker:Init()
 end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:GetSubAbility( ability )
-  if SUB_ABILITIES[ability] then
-   return SUB_ABILITIES[ability]
-  end
-  return nil
+    if SUB_ABILITIES[ability] then
+        return SUB_ABILITIES[ability]
+    end
+    return nil
 end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:GetDummyAbility( ability )
-  if DUMMY_ABILITIES[ability] then
-    return DUMMY_ABILITIES[ability]
-  end
-  return nil
+    if DUMMY_ABILITIES[ability] then
+        return DUMMY_ABILITIES[ability]
+    end
+    return nil
 end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:RebuildAllAbilities( hero , changeFlag , toChangeAbility )
@@ -109,13 +112,7 @@ function ElementThinker:RebuildAllAbilities( hero , changeFlag , toChangeAbility
     self.StoredAbility[hero] = ability_map[5]
     self.EnableAbility[hero] = ability_map[6]
 end
-------------------------------------------------------------------------------------------------------------------
--- if an ability has an dummy ability , fire it
-function ElementThinker:FireDummyAbility(keys, ability )
-  if ElementThinker:GetDummyAbility( ability ) then
-    -- TODO
-  end
-end
+
 ------------------------------------------------------------------------------------------------------
 -- return ability according to modifiers
 -- the result ability is 'ability_warden_qqqqq'
@@ -194,25 +191,75 @@ function ElementThinker:StoreAbility(hero,plyid)
         self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable_empty')
     end
 end
+------------------------------------------------------------------------------------------------------------------
+-- if an ability has an dummy ability , fire it
+function ElementThinker:FireDummyAbility(caster,ability,keys)
+
+    if not caster:FindAbilityByName(ability) then
+        caster:AddAbility(ability)
+    end
+
+    local ABILITY = caster:FindAbilityByName(ability)
+
+    local dummy_type = ABILITY:GetSpecialValueFor('dummy_type')
+
+    if not dummy_type then 
+        tPrint('ERROR: dummy type not defined in ability'.. ability)
+    end
+
+    if dummy_type == 1 then -- SELF TARGET
+        tPrint('self target dummy ability debug')
+        PrintTable(keys)
+        caster:CastAbilityOnTarget(caster,ABILITY,0)
+    elseif dummy_type == 2 then -- UNIT TARGET
+        tPrint('unit target dummy ability debug')
+        PrintTable(keys)
+        local target = keys.target_entities[1]
+        if target then
+            caster:CastAbilityOnTarget(target,ABILITY,0)
+        end
+    elseif dummy_type == 3 then -- POINT TARGET
+        tPrint('point target dummy ability debug')
+        PrintTable(keys)
+        local targetPos = keys.target_points[1]
+        if targetPos then
+            caster:CastAbilityOnPosition(targetPos,ABILITY,0)
+        end
+    elseif dummy_type == 4 then -- NO TARGET
+        tPrint('no target dummy ability debug')
+        PrintTable(keys)
+        caster:CastAbilityNoTarget(ABILITY,0)
+    end
+end
 ------------------------------------------------------------------------------------------------------
-function ElementThinker:StoredAbilityCasted(hero , plyid , ability)
+function ElementThinker:StoredAbilityCasted(hero , plyid , ability , keys)
     self:ClearAllModifiers(hero,plyid)
 	if self:GetSubAbility(ability) then
         self:RebuildAllAbilities( hero, 'CHANGE_STORE', self:GetSubAbility(ability))
     else
         self:RebuildAllAbilities( hero, 'CHANGE_STORE', 'ability_warden_store_empty')
     end
+
+    if self:GetDummyAbility(ability) then
+        self:FireDummyAbility(hero,self:GetDummyAbility(ability),keys)
+    end
+
 end
 ------------------------------------------------------------------------------------------------------
-function ElementThinker:NormalAbilityCasted(hero , plyid , ability)
+function ElementThinker:NormalAbilityCasted(hero , plyid , ability , keys)
 	self:ClearAllModifiers(hero,plyid)
-	
+	tPrint('DEBUG: normal ability casted'..ability)
     if self:GetSubAbility(ability) then
         self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', self:GetSubAbility(ability))
     else
         self:RebuildAllAbilities( hero, 'CHANGE_NORMAL', 'ability_warden_normal_empty')
         self:RebuildAllAbilities( hero, 'CHANGE_ENABLE', 'ability_warden_enable_empty')
     end
+
+    if self:GetDummyAbility(ability) then
+        self:FireDummyAbility(hero,self:GetDummyAbility(ability),keys)
+    end
+
 end
 ------------------------------------------------------------------------------------------------------
 function OnElement(keys)
@@ -230,9 +277,9 @@ function ElementThinker:OnAbilityCast(keys)
 	local abilityCasted = keys.abilityname
 
 	if abilityCasted == ElementThinker.StoredAbility[caster] then
-		ElementThinker:StoredAbilityCasted(caster,plyid,abilityCasted)
+		ElementThinker:StoredAbilityCasted(caster,plyid,abilityCasted,keys)
 	elseif abilityCasted == ElementThinker.NormalAbility[caster] then
-		ElementThinker:NormalAbilityCasted(caster,plyid,abilityCasted)
+		ElementThinker:NormalAbilityCasted(caster,plyid,abilityCasted,keys)
 	else
 	end
 end
@@ -248,4 +295,3 @@ function OnAbilityStore(keys)
 	end
 	ElementThinker:StoreAbility(caster,plyid)
 end
-

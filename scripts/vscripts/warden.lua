@@ -257,12 +257,11 @@ function WardenGameMode:_thinkState_PreGame( dt )
 	
 	-- tell out addon message
 	tPrint('GAME THINK ENDS PRE GAME')
-	GameRules:SendCustomMessage('<font color="#3498db">WARDEN GAME MODE</font>', 0, 0)
-	GameRules:SendCustomMessage('<font color="#ecf0f1">Created by: XavierCHN</font>', 0, 0)
-	GameRules:SendCustomMessage('<font color="#ecf0f1">github.com/XavierCHN/Warden</font>', 0, 0)
+	GameRules:SendCustomMessage('<font color="#3498db">#game_mode_name</font>', 0, 0)
+	GameRules:SendCustomMessage('<font color="#ecf0f1">#author_message</font>', 0, 0)
 	
 	-- tell pratice tip
-	GameRules:SendCustomMessage('<font color="#3498db">Pratice in next '..GAMETIME_PRATICEGAME..' seconds</font>', 0, 0)
+	GameRules:SendCustomMessage('#pratice_in_next_60_seconds', 0, 0)
 	
 	-- if pvp mode then enter pvp think states
 	if LOBBY_TYPE == "PVP" then self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_Pratice' ) end
@@ -294,6 +293,9 @@ function WardenGameMode:_thinkState_Pratice( dt )
 		-- TODO Move onto next stage of game.
 		tPrint('GAME THINK ENTERING PREGAME')
 
+		-- tell the message
+		GameRules:SendCustomMessage('#pratice_time_is_over',0,0)
+
 		-- enter state playing 
 		self.bStatePlaying = true
 
@@ -315,6 +317,8 @@ function WardenGameMode:_thinkState_PreRound( dt )
 
 		-- Respawns everyone, thus placing them at the spawn points.apply root and silenced modifier
 		self:ResetAllHeroes()
+
+		GameRules:SendCustomMessage('#round_start_in_30_seconds',0,0)
 
 	end
 	
@@ -691,7 +695,9 @@ function WardenGameMode:ActiveAllHero()
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:ModifyTeamGold(winner)
-	for plyid = 0 , 9  do
+	--TODO
+	--[[
+	for plyid = 1 , 10  do
 		local player = PlayerResource:GetPlayer(plyid)
 		local hero = player:GetAssignedHero()
 		local team = player:GetTeam()
@@ -712,7 +718,7 @@ function WardenGameMode:ModifyTeamGold(winner)
 				hero:ModifyGold( GOLD_PER_WINNER , GOLD_WINNER_UNRELIABLE , 1)
 			end
 		end
-	end
+	end]]
 end
 -----------------------------------------------------------------------------------
 -- ENDREGION : PVP ASSISTANCE FUNCTIONS
