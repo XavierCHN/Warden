@@ -82,6 +82,9 @@ end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:RebuildAllAbilities( hero , changeFlag , toChangeAbility )
     local ability_map = {
+        [1] = 'ability_warden_q',
+        [2] = 'ability_warden_w',
+        [3] = 'ability_warden_e',
         [4] = self.NormalAbility[hero] or 'ability_warden_normal_empty',
         [5] = self.StoredAbility[hero] or 'ability_warden_store_empty',
         [6] = self.EnableAbility[hero] or 'ability_warden_enable_empty'
@@ -212,7 +215,6 @@ function ElementThinker:FireDummyAbility(caster,ability,keys)
         caster:CastAbilityOnTarget(caster,ABILITY,0)
     elseif dummy_type == 2 then -- UNIT TARGET
         tPrint('unit target dummy ability debug')
-        PrintTable(G_ABILITY_KEYS[caster])
         local target = G_ABILITY_KEYS[caster].target
         if target then
             caster:CastAbilityOnTarget(target,ABILITY,0)

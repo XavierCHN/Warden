@@ -832,7 +832,6 @@ function WardenGameMode:OnPlayerDisconnect( keys )
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnPlayerSay( keys )
-	PrintTable(keys)
 	local text = keys.text
 	if string.find( text , 'test' ) then
 		tPrint( 'DEBUG: switch to debug mode')
