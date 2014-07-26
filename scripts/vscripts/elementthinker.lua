@@ -205,6 +205,7 @@ function ElementThinker:FireDummyAbility(caster,ability,keys)
 
     if not dummy_type then 
         tPrint('ERROR: dummy type not defined in ability'.. ability)
+        return
     end
 
     if dummy_type == 1 then -- SELF TARGET
@@ -229,6 +230,11 @@ function ElementThinker:FireDummyAbility(caster,ability,keys)
         tPrint('no target dummy ability debug')
         PrintTable(keys)
         caster:CastAbilityNoTarget(ABILITY,0)
+    end
+
+    caster:RemoveAbility(ability)
+    if self:GetDummyAbility(ability) then
+        self:FireDummyAbility(caster,ability,keys)
     end
 end
 ------------------------------------------------------------------------------------------------------
