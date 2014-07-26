@@ -46,7 +46,6 @@ local SUB_ABILITIES = {
     ['ability_warden_result_qq'] = 'ability_warden_result_qq_sub1'
 }
 ------------------------------------------------------------------------------------------------------
-
 local DUMMY_ABILITIES = {
     ['ability_warden_result_qeqe'] = 'ability_warden_result_qeqe_dummy',
     ['empty']                      = 'empty'
@@ -83,9 +82,6 @@ end
 ------------------------------------------------------------------------------------------------------------------
 function ElementThinker:RebuildAllAbilities( hero , changeFlag , toChangeAbility )
     local ability_map = {
-        [1] = 'ability_warden_q',
-        [2] = 'ability_warden_w',
-        [3] = 'ability_warden_e',
         [4] = self.NormalAbility[hero] or 'ability_warden_normal_empty',
         [5] = self.StoredAbility[hero] or 'ability_warden_store_empty',
         [6] = self.EnableAbility[hero] or 'ability_warden_enable_empty'
