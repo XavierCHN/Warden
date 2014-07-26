@@ -814,8 +814,9 @@ function WardenGameMode:InitHero(hero)
 		level = hero:GetLevel()
 	end
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_NORMAL','ability_warden_normal_empty')
-	ElementThinker:RebuildAllAbilities(hero,'CHANGE_STORE', 'ability_warden_store_empty' )
+	ElementThinker:RebuildAllAbilities(hero,'CHANGE_STORE' ,'ability_warden_store_empty' )
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_ENABLE','ability_warden_enable_empty')
+	ElementThinker:ClearAllModifiers(hero,0)
 	-- set ability points
 	hero:SetAbilityPoints(0)
 
