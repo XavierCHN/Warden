@@ -295,3 +295,18 @@ function OnAbilityStore(keys)
 	end
 	ElementThinker:StoreAbility(caster,plyid)
 end
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+-- TEST FUNCTIONS
+--------------------------------------------------------------------------------------------
+function TEST_START(keys)
+    tPrint('TEST START CALLED')
+end
+function TEST_LOOP(keys)
+    tPrint('TEST LOOP CALLED')
+end

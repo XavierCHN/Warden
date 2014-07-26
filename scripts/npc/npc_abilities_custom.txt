@@ -247,68 +247,92 @@
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		
 		"precache"
 		{
 			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+			"particlefile"				"particles/units/heroes/hero_magnataur.pcf"
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
 		}
 		"OnSpellStart"
 		{
 			"LinearProjectile"
 			{
-				"Target"				"POINT"
-				"EffectName"			"invoker_deafening_blast"
+				"EffectName"			"magnataur_shockwave"
 				"MoveSpeed"				"%speed"
-				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"%length"
-				"StartRadius"			"%collision_radius"
-				"EndRadius"				"%collision_radius"
+				"StartRadius"			"%radius"
+				"EndRadius"				"%radius"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
-				"ProvidesVision"		"1"
-				"VisionRadius"			"300"
+				"StartPosition"			"attach_attack1"
+				"FixedDistance"			"2000"
+			}
+			"FireSound"
+			{
+				"EffectName"			"Hero_DrowRanger.FrostArrows"
+				"Target"				"CASTER"
 			}
 		}
+		
 		"OnProjectileHitUnit"
 		{
-			"DeleteOnHit"					"0"
+			"DeleteOnHit"				"1"
+			
+			"Knockback"
+			{
+				"Target"		"TARGET"
+				"Center"		"CASTER"
+				"Duration"		"0.1"
+				"Distance"		"100"
+				"Height"		"50"
+				"ShouldStun"	"0"
+			}
+			
+			//"Knockback"
+			//{
+				//"Target" "TARGET"
+				//"Center" "CASTER"
+				//"Duration" "0.5"
+				//"Distance" "?50 350"
+				//"Height" "?50 350"
+			//}
+
 			"Damage"
 			{
 				"Target"				"TARGET"
 				"Damage"				"%damage"
-				"Type"					"DAMAGE_TYPE_MAGICAL"
-			}
-			"FireEffect"
-			{
-				"EffectName"				"bounty_hunter_suriken_impact"
-				"EffectAttachType"			"attach_hitloc"
-				"Target"					"TARGET"
+				"Type"					"DAMAGE_TYPE_PURE"
 			}
 		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"95"
+				"speed"					"1500"
 			}
+			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"collision_radius"			"130"
+				"damage"				"75 100 125 150"
 			}
+			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"800"
+				"radius"				"100"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"length"				"1000"
+				"recharge_time"			"2"
 			}
 		}
 	}

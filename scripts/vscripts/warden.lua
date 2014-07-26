@@ -159,7 +159,7 @@ function WardenGameMode:Init()
 
 	self:RegisterCommands()
 
-	GameMode:SetContextThink("FreezetagThink", Dynamic_Wrap( WardenGameMode, 'Think' ), 0.25 )
+	GameMode:SetContextThink("WardenGameModeThink", Dynamic_Wrap( WardenGameMode, 'Think' ), 0.25 )
 
 	self.vPlayerData = {}
 	self.vPlayerNames = {}
@@ -188,6 +188,25 @@ function WardenGameMode:RegisterCommands()
 			end
 		end,
 		'fill the server with fake clients',FCVAR_CHEAT)
+	Convars:RegisterCommand('fake',function()
+            SendToServerConsole('dota_create_fake_clients')
+            for i=0, 9 do
+	            -- Check if this player is a fake one
+	            if PlayerResource:IsFakeClient(i) then
+	                -- Grab player instance
+	                local ply = PlayerResource:GetPlayer(i)
+
+	                -- Make sure we actually found a player instance
+	                if ply then
+	                    self:OnPlayerConnectFull({
+	                        userid = 0,
+	                        index = ply:entindex()-1
+	                	})
+	            	end
+	            end
+	        end
+    	end, 
+    'Connects and assigns fake Players.', 0)
 	Convars:RegisterCommand('WARDEN_CHANGE_TIME', function( name, time )
 		if time then
 			GameRules:SetTimeOfDay( tonumber(time) )
@@ -354,7 +373,7 @@ function WardenGameMode:_thinkState_InRound( dt )
 	if ROUND_WINNER ~= nil then
 		-- if max rounds
 		if ROUND_NUMBER > ROUNDS_TOTAL - 1 then
-			self.thinkState = Dynamic_Wrap( FreezetagGameMode, '_thinkState_PostGame' )
+			self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_PostGame' )
 		else
 			-- tell out the winner
 			GameRules:SendCustomMessage('ROUND '..ROUND_NUMBER..' WINNER: '..ROUND_WINNER, 0, 0)
@@ -371,7 +390,7 @@ function WardenGameMode:_thinkState_InRound( dt )
 			-- modify gold
 			self:ModifyTeamGold(ROUND_WINNER)
 			-- reset game think to pre round
-			self.thinkState = Dynamic_Wrap( FreezetagGameMode, '_thinkState_PreRound' )
+			self.thinkState = Dynamic_Wrap( WardenGameMode, '_thinkState_PreRound' )
 		end
 	end
 
@@ -765,6 +784,27 @@ function WardenGameMode:OnPlayerConnectFull( keys )
 		}
 	end
 end
+
+function WardenGameMode:OnAssignBots(keys)
+	local entIndex = keys.index + 1
+	local ply = EntIndexToHScript( entIndex )
+
+	if ply:GetAssignedHero() == nil then
+		if ply:GetTeam() == 2 then
+			CreateHeroForPlayer('npc_dota_hero_dragon_knight', ply)
+			TEAMSIZE_RADIANT = TEAMSIZE_RADIANT + 1
+		elseif ply:GetTeam() == 3 then
+			CreateHeroForPlayer('npc_dota_hero_dragon_knight', ply)
+			TEAMSIZE_DIRE = TEAMSIZE_DIRE + 1
+		end
+
+		local plyID = ply:GetPlayerID()
+		-- Saving Player to vPlayerData for logging, and other purposes.
+		local Player = ply
+		self.vPlayerData[Player] = {
+			}
+	end
+end
 -----------------------------------------------------------------------------------
 function WardenGameMode:InitHero(hero)
 	-- level up the hero to 25
@@ -814,7 +854,7 @@ function WardenGameMode:SpawnTestUnits()
 	
 	for i=1,10 do
 		tPrint('DEBUG: spawning test units')
-		local unit = CreateUnitByName('npc_dota_neutral_blue_dragonspawn_overseer',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
+		local unit = CreateUnitByName('npc_dota_necronomicon_warrior_2',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
 		unit:AddNewModifier(nil,nil,'modifier_rooted',{})
 	end
 end
