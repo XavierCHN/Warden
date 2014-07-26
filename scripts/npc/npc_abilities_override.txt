@@ -2,7 +2,83 @@
 //DotaAbilitiesOverrideFile
 "DOTAAbilities"
 {
+
 	"Version"		"1"
+	//WARDEN ABILITY OVERRIDE
+	"beastmaster_primal_roar"
+	{
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0.0"		
+		"AbilityCastRange"				"2000"
+		"AbilityModifierSupportValue"	"0.6"	// Applies multiple modifiers
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"150"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"side_damage"				"75"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_radius"				"200"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_movement_speed_pct"	"-25"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_attack_speed_pct"		"-25"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"push_distance"				"120"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"push_duration"				"0.3"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"2.0"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range_scepter"		"750"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"0.0"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dummy_type"				"2"
+			}
+		}
+	}
+
+
 	//=============================================
 	//removeallitemsfromtheshop
 	//=============================================

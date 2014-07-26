@@ -48,7 +48,8 @@ local SUB_ABILITIES = {
 ------------------------------------------------------------------------------------------------------
 
 local DUMMY_ABILITIES = {
-    ['ability_warden_result_qeqe'] = 'ability_warden_result_qeqe_dummy'
+    ['ability_warden_result_qeqe'] = 'ability_warden_result_qeqe_dummy',
+    ['empty']                      = 'empty'
 }
 ------------------------------------------------------------------------------------------------------
 -- element thinker new
@@ -208,27 +209,26 @@ function ElementThinker:FireDummyAbility(caster,ability,keys)
         return
     end
 
+    ABILITY:SetLevel(1)
+
     if dummy_type == 1 then -- SELF TARGET
         tPrint('self target dummy ability debug')
-        PrintTable(keys)
         caster:CastAbilityOnTarget(caster,ABILITY,0)
     elseif dummy_type == 2 then -- UNIT TARGET
         tPrint('unit target dummy ability debug')
-        PrintTable(keys)
-        local target = keys.target_entities[1]
+        PrintTable(G_ABILITY_KEYS[caster])
+        local target = G_ABILITY_KEYS[caster].target
         if target then
             caster:CastAbilityOnTarget(target,ABILITY,0)
         end
     elseif dummy_type == 3 then -- POINT TARGET
         tPrint('point target dummy ability debug')
-        PrintTable(keys)
-        local targetPos = keys.target_points[1]
+        local targetPos = G_ABILITY_KEYS[caster].target_points[1]
         if targetPos then
             caster:CastAbilityOnPosition(targetPos,ABILITY,0)
         end
     elseif dummy_type == 4 then -- NO TARGET
         tPrint('no target dummy ability debug')
-        PrintTable(keys)
         caster:CastAbilityNoTarget(ABILITY,0)
     end
 
@@ -301,7 +301,12 @@ function OnAbilityStore(keys)
 	end
 	ElementThinker:StoreAbility(caster,plyid)
 end
-
+--------------------------------------------------------------------------------------------
+G_ABILITY_KEYS = {}
+function SendKeysIn(keys)
+    local caster = EntIndexToHScript(keys.caster_entindex)
+    G_ABILITY_KEYS[caster] = keys
+end
 
 
 
