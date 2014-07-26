@@ -122,13 +122,73 @@
 
 	    "precache"
 	    {
-	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_beast_master.txt"
-	    	"particlefile"					"particles/units/heroes/hero_beast_master.pcf"
+	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_beastmaster.txt"
+	    	"particlefile"					"particles/units/heroes/hero_beastmaster.pcf"
 	    }
 
 	    "OnSpellStart"
 	    {
-	    	"FireSound"					
+	    	"FireSound"
+	    	{
+	    		"Target"					"CASTER"
+	    		"EffectName"				"Hero_Beastmaster.Primal_Roar"
+	    	}
+	    	"FireEffect"
+	    	{
+	    		"EffectName"				"beastmaster_primal_roar"
+	    		"Target" "TARGET"
+				"ControlPointEntities"
+				{
+					"CASTER"		"attach_overhead"
+					"TARGET"		"attach_hitloc"
+				}
+				"EffectAttachType"	"start_at_customorigin"
+	    	}
+	    	"Damage"
+			{
+				"Type"		"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%damage"
+				"Target"	"TARGET"
+			}
+			"Random"
+			{
+				"Chance" "%chance"
+				"PseudoRandom" "DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
+				"OnSuccess"
+				{
+					"Knockback"
+					{
+						"Target"				"TARGET"	
+						"Center"				"CASTER"
+						"Distance"				"%knock_back_length"
+						"Height"				"50"
+						"Duration"				"0.3"
+					}
+				}
+			}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"damage"		"150"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"		"FIELD_FLOAT"
+	    		"radius"		"300.0"
+	    	}
+	    	"03"
+	    	{
+	    		"var_type"		"FIELD_FLOAT"
+	    		"knock_back_length"	"375"
+	    	}
+	    	"05"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"chance"		"25"
+	    	}
 	    }
 	}
 
