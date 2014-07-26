@@ -679,10 +679,10 @@ function WardenGameMode:CheckRoundWinner()
 	end
 
 	if RADIANT_ALIVE_HERO_COUNT <= 0 then
-		return 'RADIANT'
+		return 'DIRE'
 	end
 	if DIRE_ALIVE_HERO_COUNT <= 0 then
-		return 'DIRE'
+		return 'RADIANT'
 	end
 	return nil
 end
