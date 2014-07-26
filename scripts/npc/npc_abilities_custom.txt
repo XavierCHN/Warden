@@ -3,6 +3,459 @@
 "DOTAAbilities"
 {
 	"Version"		"1"
+	
+	"ability_warden_result_qq"//5101
+	{
+		"ID"								"5101"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qq"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    "AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+			"particlefile"				"particles/units/heroes/hero_magnataur.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
+		}
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+			{
+				"EffectName"			"magnataur_shockwave"
+				"MoveSpeed"				"%speed"
+				"StartRadius"			"%radius"
+				"EndRadius"				"%radius"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
+				"HasFrontalCone"		"0"
+				"StartPosition"			"attach_attack1"
+				"FixedDistance"			"2000"
+			}
+			"FireSound"
+			{
+				"EffectName"			"Hero_DrowRanger.FrostArrows"
+				"Target"				"CASTER"
+			}
+		}
+		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"				"1"
+			
+			"Knockback"
+			{
+				"Target"		"TARGET"
+				"Center"		"CASTER"
+				"Duration"		"0.1"
+				"Distance"		"100"
+				"Height"		"50"
+				"ShouldStun"	"0"
+			}
+			
+			//"Knockback"
+			//{
+				//"Target" "TARGET"
+				//"Center" "CASTER"
+				//"Duration" "0.5"
+				//"Distance" "?50 350"
+				//"Height" "?50 350"
+			//}
+
+			"Damage"
+			{
+				"Target"				"TARGET"
+				"Damage"				"%damage"
+				"Type"					"DAMAGE_TYPE_PURE"
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1500"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"75 100 125 150"
+			}
+			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"recharge_time"			"2"
+			}
+		}
+	}
+	//"ability_warden_result_qe"//5102
+
+	"ability_warden_result_qw"//5103
+	{
+		"ID"								"5103"
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qw"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastRange"					"500"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_skywrath_mage.pcf"
+			"particlefile"				"particles/units/heroes/hero_riki.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_skywrath_mage.txt"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target" "TARGET"
+				"MoveSpeed" "1250"
+				"EffectName" "skywrath_mage_arcane_bolt"
+			}
+			//"RunScript"
+			//{
+			//	"ScriptFile"			"scripts/vscripts/elementthinker.lua"
+			//	"dummy_ability"			"ability_warden_result_qw_dummy"
+			//	"dummy_type"			"unit_target"
+			//	"Target"				"TARGET"
+			//	"Function"				"FireDummyAbility"
+			//}
+		}
+		"OnProjectileHitUnit"
+		{
+			"Damage"
+			{
+				"Target" 	"TARGET"
+				"Type" 		"DAMAGE_TYPE_PURE"
+				"Damage" 	"%damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"115"
+			}
+		}
+	}
+	//"ability_warden_result_qeq"//5104
+	//"ability_warden_result_qwe"//5105
+	//"ability_warden_result_qwq"//5106
+	//"ability_warden_result_qweq"//5107
+	"ability_warden_result_qeqe"//5108
+	{
+		"ID"					"5108"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"BaseClass"						"mirana_leap"
+		"AbilityTextureName"			"ability_warden_result_qeqe"
+		"MaxLevel"						"1"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"48"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"leap_distance"			"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_speed"			"1200.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_acceleration"		"0.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_radius"		"0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus"	"0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus_as"	"0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"120.0"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.55"
+			}
+		}
+	}
+	//"ability_warden_result_qwqw"//5109
+	//"ability_warden_result_qwqeq"//5110
+	//"ability_warden_result_qewqe"//5111
+
+	"ability_warden_result_qq_sub1"//5112 // TO TEST SUB ABILITY FUNCTION
+	{
+		"ID"								"5112"
+
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qq"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
+		}
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+			{
+				"Target"				"POINT"
+				"EffectName"			"invoker_deafening_blast"
+				"MoveSpeed"				"%speed"
+				"StartPosition"			"attach_attack1"
+				"FixedDistance"			"%length"
+				"StartRadius"			"%collision_radius"
+				"EndRadius"				"%collision_radius"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"HasFrontalCone"		"0"
+				"ProvidesVision"		"1"
+				"VisionRadius"			"300"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"					"0"
+			"Damage"
+			{
+				"Target"				"TARGET"
+				"Damage"				"%damage"
+				"Type"					"DAMAGE_TYPE_MAGICAL"
+			}
+			"FireEffect"
+			{
+				"EffectName"				"bounty_hunter_suriken_impact"
+				"EffectAttachType"			"attach_hitloc"
+				"Target"					"TARGET"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"95"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collision_radius"			"130"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"length"				"1000"
+			}
+		}
+	}
+	"ability_warden_result_qeqe_dummy"//5113 // TO TEST DUMMY ABILITY FUNCTIONS
+	{
+		"ID"					"5113"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"ability_warden_result_qeqe"
+		"MaxLevel"						"1"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_brewmaster.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_centaur.txt"
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_Centaur.Stampede.Cast"
+			}
+			"FireEffect"
+			{
+				"Target"		"CASTER"
+				"EffectAttachType" "follow_origin"
+				"EffectName"	"brewmaster_primal_split_explosion"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_warden_qeqe_dummy"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_qeqe_dummy"
+			{
+				"IsHidden"			"0"
+				"TextureName"		"ability_warden_result_qeqe"
+				"ThinkInterval"		"0.05"
+				"Duration"			"0.55"
+				"OnIntervalThink"
+				{
+					"Knockback"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"120"
+							"Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+						"Center"	"CASTER"
+						"Duration"	"0.3"
+						"Distance"	"145"
+						"Height"	"50"
+					}
+					"Damage"
+					{
+						"Type"					"DAMAGE_TYPE_MAGICAL"
+						"Damage"				"200"
+						"Target"
+						{
+							"Center"			"CASTER"
+							"Radius"			"120"
+							"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"FireEffect"
+					{
+						"Target"		"CASTER"
+						"EffectAttachType" "follow_origin"
+						"EffectName"	"brewmaster_pulverize"
+					}
+					"Knockback"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"120"
+							"Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+						"Center"	"CASTER"
+						"Duration"	"0.4"
+						"Distance"	"20"
+						"Height"	"250"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/elementthinker.lua"
+						"Function"		"TEST_START"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"1"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dummy_type"		"4"
+			}
+		}
+	}
+	//"ability_warden_result_ew"//5121
+	//"ability_warden_result_eq"//5122
+	//"ability_warden_result_ee"//5123
+	//"ability_warden_result_eqw"//5124
+	//"ability_warden_result_ewe"//5125
+	//"ability_warden_result_eqe"//5126
+	//"ability_warden_result_ewew"//5127
+	//"ability_warden_result_eqwe"//5128
+	//"ability_warden_result_eqeq"//5129
+	//"ability_warden_result_eqwew"//5130
+	//"ability_warden_result_ewewe"//5131
+
+	//"ability_warden_result_ww"//5141
+	//"ability_warden_result_we"//5142
+	//"ability_warden_result_wq"//5143
+	//"ability_warden_result_wqe"//5144
+	//"ability_warden_result_wqw"//5145
+	//"ability_warden_result_wew"//5146
+	//"ability_warden_result_wqew"//5147
+	//"ability_warden_result_wqwq"//5148
+	//"ability_warden_result_wewe"//5149
+	//"ability_warden_result_wqwqw"//5150
+	//"ability_warden_result_wewew"//5151
+
+
+
 	"ability_warden_q"//5095
 	{
 		"ID"								"5095"
@@ -234,376 +687,4 @@
 	    	}
 	    }
 	}
-
-	"ability_warden_result_qq"//5101
-	{
-		"ID"								"5101"
-
-		"BaseClass"							"ability_datadriven"
-		"AbilityTextureName"				"ability_warden_result_qq"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
-		"MaxLevel"          				"1"
-
-	    "AbilityManaCost"         			"24"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
-	    "AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		
-		"precache"
-		{
-			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
-			"particlefile"				"particles/units/heroes/hero_magnataur.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
-		}
-		"OnSpellStart"
-		{
-			"LinearProjectile"
-			{
-				"EffectName"			"magnataur_shockwave"
-				"MoveSpeed"				"%speed"
-				"StartRadius"			"%radius"
-				"EndRadius"				"%radius"
-				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
-				"HasFrontalCone"		"0"
-				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"2000"
-			}
-			"FireSound"
-			{
-				"EffectName"			"Hero_DrowRanger.FrostArrows"
-				"Target"				"CASTER"
-			}
-		}
-		
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"				"1"
-			
-			"Knockback"
-			{
-				"Target"		"TARGET"
-				"Center"		"CASTER"
-				"Duration"		"0.1"
-				"Distance"		"100"
-				"Height"		"50"
-				"ShouldStun"	"0"
-			}
-			
-			//"Knockback"
-			//{
-				//"Target" "TARGET"
-				//"Center" "CASTER"
-				//"Duration" "0.5"
-				//"Distance" "?50 350"
-				//"Height" "?50 350"
-			//}
-
-			"Damage"
-			{
-				"Target"				"TARGET"
-				"Damage"				"%damage"
-				"Type"					"DAMAGE_TYPE_PURE"
-			}
-		}
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1500"
-			}
-			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"75 100 125 150"
-			}
-			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"2"
-			}
-		}
-	}
-	//"ability_warden_result_qe"//5102
-
-	"ability_warden_result_qw"//5103
-	{
-		"ID"								"5103"
-		"BaseClass"							"ability_datadriven"
-		"AbilityTextureName"				"ability_warden_result_qw"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"MaxLevel"          				"1"
-
-	    "AbilityManaCost"         			"24"
-	    "AbilityCastRange"					"500"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
-		
-		"precache"
-		{
-			"particlefile"				"particles/units/heroes/hero_skywrath_mage.pcf"
-			"particlefile"				"particles/units/heroes/hero_riki.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_skywrath_mage.txt"
-		}
-		"OnSpellStart"
-		{
-			"TrackingProjectile"
-			{
-				"Target" "TARGET"
-				"MoveSpeed" "1250"
-				"EffectName" "skywrath_mage_arcane_bolt"
-			}
-			//"RunScript"
-			//{
-			//	"ScriptFile"			"scripts/vscripts/elementthinker.lua"
-			//	"dummy_ability"			"ability_warden_result_qw_dummy"
-			//	"dummy_type"			"unit_target"
-			//	"Target"				"TARGET"
-			//	"Function"				"FireDummyAbility"
-			//}
-		}
-		"OnProjectileHitUnit"
-		{
-			"Damage"
-			{
-				"Target" 	"TARGET"
-				"Type" 		"DAMAGE_TYPE_PURE"
-				"Damage" 	"%damage"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"115"
-			}
-		}
-	}
-	//"ability_warden_result_qeq"//5104
-	//"ability_warden_result_qwe"//5105
-	//"ability_warden_result_qwq"//5106
-	//"ability_warden_result_qweq"//5107
-	"ability_warden_result_qeqe"//5108
-	{
-		"ID"					"5108"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"BaseClass"						"mirana_leap"
-		"AbilityTextureName"			"ability_warden_result_qeqe"
-		"MaxLevel"						"1"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.0"
-		"AbilityManaCost"				"48"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_distance"			"800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"leap_speed"			"1200.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"leap_acceleration"		"0.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_radius"		"0"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus"	"0"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus_as"	"0"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"300"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"			"150.0"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"10"
-			}
-		}
-	}
-	//"ability_warden_result_qwqw"//5109
-	//"ability_warden_result_qwqeq"//5110
-	//"ability_warden_result_qewqe"//5111
-
-	"ability_warden_result_qq_sub1"//5112 // TO TEST SUB ABILITY FUNCTION
-	{
-		"ID"								"5112"
-
-		"BaseClass"							"ability_datadriven"
-		"AbilityTextureName"				"ability_warden_result_qq"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
-		"MaxLevel"          				"1"
-
-	    "AbilityManaCost"         			"24"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
-		
-		"precache"
-		{
-			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
-		}
-		"OnSpellStart"
-		{
-			"LinearProjectile"
-			{
-				"Target"				"POINT"
-				"EffectName"			"invoker_deafening_blast"
-				"MoveSpeed"				"%speed"
-				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"%length"
-				"StartRadius"			"%collision_radius"
-				"EndRadius"				"%collision_radius"
-				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"HasFrontalCone"		"0"
-				"ProvidesVision"		"1"
-				"VisionRadius"			"300"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"					"0"
-			"Damage"
-			{
-				"Target"				"TARGET"
-				"Damage"				"%damage"
-				"Type"					"DAMAGE_TYPE_MAGICAL"
-			}
-			"FireEffect"
-			{
-				"EffectName"				"bounty_hunter_suriken_impact"
-				"EffectAttachType"			"attach_hitloc"
-				"Target"					"TARGET"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"95"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collision_radius"			"130"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"800"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1000"
-			}
-		}
-	}
-	"ability_warden_result_qeqe_dummy"//5113 // TO TEST DUMMY ABILITY FUNCTIONS
-	{
-		"ID"					"5113"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"BaseClass"						"ability_datadriven"
-		"AbilityTextureName"			"ability_warden_result_qeqe"
-		"MaxLevel"						"1"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.0"
-		"AbilityManaCost"				"0"
-		
-		"precache"
-		{
-			"particlefile"				"particles/units/heroes/hero_ember_spirit.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sound_centaur.txt"
-		}
-		
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"Target"				"CASTER"
-				"EffectName"			"Hero_Centaur.Stampede.Cast"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"1"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"dummy_type"		"4"
-			}
-		}
-	}
-	//"ability_warden_result_ew"//5121
-	//"ability_warden_result_eq"//5122
-	//"ability_warden_result_ee"//5123
-	//"ability_warden_result_eqw"//5124
-	//"ability_warden_result_ewe"//5125
-	//"ability_warden_result_eqe"//5126
-	//"ability_warden_result_ewew"//5127
-	//"ability_warden_result_eqwe"//5128
-	//"ability_warden_result_eqeq"//5129
-	//"ability_warden_result_eqwew"//5130
-	//"ability_warden_result_ewewe"//5131
-
-	//"ability_warden_result_ww"//5141
-	//"ability_warden_result_we"//5142
-	//"ability_warden_result_wq"//5143
-	//"ability_warden_result_wqe"//5144
-	//"ability_warden_result_wqw"//5145
-	//"ability_warden_result_wew"//5146
-	//"ability_warden_result_wqew"//5147
-	//"ability_warden_result_wqwq"//5148
-	//"ability_warden_result_wewe"//5149
-	//"ability_warden_result_wqwqw"//5150
-	//"ability_warden_result_wewew"//5151
 }
