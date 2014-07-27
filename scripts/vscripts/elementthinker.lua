@@ -53,7 +53,7 @@ local DUMMY_ABILITIES = {
     ['ability_warden_result_qeqe'] = 'ability_warden_result_qeqe_dummy',
     ['ability_warden_result_qwq']  = 'ability_warden_result_qwq_dummy',
     ['ability_warden_result_qwq_sub1']  = 'ability_warden_result_qwq_dummy',
-    ['ability_warden_result_qwq_sub2']  = 'ability_warden_result_qwq_dummy',
+    ['ability_warden_result_qwq_sub2']  = 'ability_warden_result_qwq_dummy3',
     ['empty']                      = 'empty'
 }
 ------------------------------------------------------------------------------------------------------

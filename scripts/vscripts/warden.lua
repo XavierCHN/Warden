@@ -18,7 +18,7 @@ GOLD_WINNER_RELIABLE = false
 -----------------------------------------------------------------------------------
 GAMETIME_PREGAME = 10
 GAMETIME_POSTGAME = 50
-GAMETIME_PRATICEGAME = 60
+GAMETIME_PRATICEGAME = 6000
 GAMETIME_AFTER_PRATICE = 10
 GAMETIME_PRE_ROUND = 30
 -----------------------------------------------------------------------------------
@@ -189,13 +189,11 @@ function WardenGameMode:RegisterCommands()
 		end,
 		'fill the server with fake clients',FCVAR_CHEAT)
 	Convars:RegisterCommand('fake',function()
-            SendToServerConsole('dota_create_fake_clients')
             for i=0, 9 do
 	            -- Check if this player is a fake one
 	            if PlayerResource:IsFakeClient(i) then
 	                -- Grab player instance
 	                local ply = PlayerResource:GetPlayer(i)
-
 	                -- Make sure we actually found a player instance
 	                if ply then
 	                    self:OnPlayerConnectFull({

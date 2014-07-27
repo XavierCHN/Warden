@@ -22,12 +22,12 @@
 		"AttackDamageMax"			"95"										// Damage range max.
 
 		//"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"		"0"										// Base strength
-		"AttributeStrengthGain"		"0"										// Strength bonus per level.
-		"AttributeBaseIntelligence"	"0"										// Base intelligence
-		"AttributeIntelligenceGain"	"0"										// Intelligence bonus per level.
-		"AttributeBaseAgility"		"0"										// Base agility
-		"AttributeAgilityGain"		"0"										// Agility bonus per level.
+		"AttributeBaseStrength"		"20"										// Base strength
+		"AttributeStrengthGain"		"3"										// Strength bonus per level.
+		"AttributeBaseIntelligence"	"25"										// Base intelligence
+		"AttributeIntelligenceGain"	"2"										// Intelligence bonus per level.
+		"AttributeBaseAgility"		"30"										// Base agility
+		"AttributeAgilityGain"		"4"										// Agility bonus per level.
 
 		"BountyXP"					"0"									// Experience earn.
 		"BountyGoldMin"				"0"										// Gold earned min.
@@ -40,7 +40,7 @@
 		"StatusHealth"				"2048"									// Base health.
 		"StatusHealthRegen"			"2.0"									// Health regeneration rate.
 		"StatusMana"				"1096"										// Base mana.
-		"StatusManaRegen"			"122.01"									// Mana regeneration rate.
+		"StatusManaRegen"			"0.0"									// Mana regeneration rate.
 
 		"VisionNighttimeRange"		"1800"									// Range of vision at night time.
 	}
