@@ -384,7 +384,7 @@ function WardenGameMode:_thinkState_InRound( dt )
 			
 			-- store the round winner
 			if ROUND_WINNER == 'RADIANT' then
-				ROUNDS_WIN_RADIANT = ROUNDS_WIND_RADIANT + 1
+				ROUNDS_WIN_RADIANT = ROUNDS_WIN_RADIANT + 1
 			else
 				ROUNDS_WIN_DIRE = ROUNDS_WIN_DIRE + 1
 			end

@@ -41,6 +41,7 @@
 			"modifier_warden_result_qq"
 			{
 				"IsHidden"				"0"
+				"TextureName"			"ability_warden_result_qq"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -208,7 +209,6 @@
 	    	}
 	    }
 	}
-
 	"ability_warden_result_qw"//5103
 	{
 		"ID"								"5103"
@@ -220,41 +220,68 @@
 		"MaxLevel"          				"1"
 
 	    "AbilityManaCost"         			"24"
-	    "AbilityCastRange"					"500"
+	    "AbilityCastRange"					"300"
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
 	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
 		
 		"precache"
 		{
-			"particlefile"				"particles/units/heroes/hero_skywrath_mage.pcf"
-			"particlefile"				"particles/units/heroes/hero_riki.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_skywrath_mage.txt"
+			"particlefile"					"particles/units/heroes/hero_dragon_knight.pcf"
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_sven.txt"
 		}
 		"OnSpellStart"
 		{
-			"TrackingProjectile"
+			"FireEffect"
 			{
-				"Target" "TARGET"
-				"MoveSpeed" "1250"
-				"EffectName" "skywrath_mage_arcane_bolt"
+				"EffectName"			"dragon_knight_dragon_tail_dragonform"
+				"Target" 				"TARGET"
+				"ControlPointEntities"
+				{
+					"CASTER"			"attack_attack2"
+					"CASTER"			"attack_attack2"
+					"TARGET"			"attach_hitloc"
+					"TARGET"			"attach_hitloc"
+				}
+				"EffectAttachType"		"start_at_customorigin"
 			}
-			//"RunScript"
-			//{
-			//	"ScriptFile"			"scripts/vscripts/elementthinker.lua"
-			//	"dummy_ability"			"ability_warden_result_qw_dummy"
-			//	"dummy_type"			"unit_target"
-			//	"Target"				"TARGET"
-			//	"Function"				"FireDummyAbility"
-			//}
-		}
-		"OnProjectileHitUnit"
-		{
+			"FireEffect"
+			{
+				"EffectName"			"dragon_knight_breathe_fire_launch"
+				"Target" 				"TARGET"
+				"ControlPointEntities"
+				{
+					"TARGET"			"attach_hitloc"
+					"TARGET"			"attach_hitloc"
+					"CASTER"			"follow_origin"
+					"CASTER"			"follow_origin"
+				}
+				"EffectAttachType"		"start_at_customorigin"
+			}
+			// TODO this sound is wired
+			"FireSound"
+			{
+				"EffectName"			"Hero_Sven.StormBoltImpact"
+				"Target"				"TARGET"
+			}
 			"Damage"
 			{
-				"Target" 	"TARGET"
-				"Type" 		"DAMAGE_TYPE_PURE"
-				"Damage" 	"%damage"
+				"Target"				"TARGET"
+				"Damage"				"%damage"
+				"Type"					"DAMAGE_TYPE_MAGICAL"
+			}
+			"Random"
+			{
+				"Chance" 				"%chance"
+				"PseudoRandom" 			"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
+				"OnSuccess"
+				{
+					"Stun"
+					{
+						"Duration"		"%stun_duration"
+						"Target" 		"TARGET"
+					}						
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -263,6 +290,16 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"115"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance"				"25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"			"1.5"
 			}
 		}
 	}
@@ -375,6 +412,7 @@
 			"modifier_warden_result_qq_sub1"
 			{
 				"IsHidden"				"0"
+				"TextureName"			"ability_warden_result_qq"
 				"OnCreated"
 				{
 					"AttachEffect"
