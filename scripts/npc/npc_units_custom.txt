@@ -214,7 +214,7 @@
       //"particlefile"        "particles/units/heroes/hero_life_stealer.pcf"
       //"particlefile"        "particles/units/heroes/hero_dark_seer.pcf"
       //"particlefile"        "particles/units/heroes/hero_clinkz.pcf"
-      //"particlefile"        "particles/units/heroes/hero_omniknight.pcf"
+      "particlefile"        "particles/units/heroes/hero_omniknight.pcf"
       //"particlefile"        "particles/units/heroes/hero_enchantress.pcf"
       //"particlefile"        "particles/units/heroes/hero_huskar.pcf"
       //"particlefile"        "particles/units/heroes/hero_night_stalker.pcf"

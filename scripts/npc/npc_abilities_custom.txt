@@ -1415,7 +1415,62 @@
 			}
 		}
 	}
-	//"ability_warden_result_ew"//5121
+	"ability_warden_result_ew"//5121
+	{
+		"ID"			"5121"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"ability_warden_result_ew"
+		"MaxLevel"						"1"
+		
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.7"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"48"
+
+		"AbilityCastAnimation"			"victory"
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_ominiknight.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"
+				{
+					"Center"			"CASTER"
+					"Radius"			"200"
+					"Teams" 		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+					"Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+				}
+				"ModifierName"			"modifier_warden_result_ew"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_result_ew"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"omniknight_guardian_angel_ally"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				"Duration" 					"5"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"20"
+				}
+			}
+		}
+	}
 	//"ability_warden_result_eq"//5122
 	//"ability_warden_result_ee"//5123
 	//"ability_warden_result_eqw"//5124
