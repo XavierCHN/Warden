@@ -43,11 +43,17 @@ ALL_ABILITIES = {
 }
 ------------------------------------------------------------------------------------------------------
 local SUB_ABILITIES = {
-    ['ability_warden_result_qq'] = 'ability_warden_result_qq_sub1'
+    ['ability_warden_result_qq']   = 'ability_warden_result_qq_sub1',
+    ['ability_warden_result_qwq']  = 'ability_warden_result_qwq_sub1',
+    ['ability_warden_result_qwq_sub1']  = 'ability_warden_result_qwq_sub2',
+    ['empty']                      = 'empty'
 }
 ------------------------------------------------------------------------------------------------------
 local DUMMY_ABILITIES = {
     ['ability_warden_result_qeqe'] = 'ability_warden_result_qeqe_dummy',
+    ['ability_warden_result_qwq']  = 'ability_warden_result_qwq_dummy',
+    ['ability_warden_result_qwq_sub1']  = 'ability_warden_result_qwq_dummy',
+    ['ability_warden_result_qwq_sub2']  = 'ability_warden_result_qwq_dummy',
     ['empty']                      = 'empty'
 }
 ------------------------------------------------------------------------------------------------------

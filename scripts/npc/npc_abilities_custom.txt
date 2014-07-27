@@ -128,15 +128,17 @@
 		"ID"				"5102"
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_result_qe"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"MaxLevel"          				"1"
 
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastRange"					"500"
-	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCastPoint"        			"0.2"
 	    "AbilityCooldown"         			"0.0"
+
+	    "AbilityCastAnimation"				"dragonbreath"
 
 	    "precache"
 	    {
@@ -214,16 +216,16 @@
 		"ID"								"5103"
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_result_qw"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"MaxLevel"          				"1"
 
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastRange"					"300"
-	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCastPoint"        			"0.2"
 	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    //"AbilityCastAnimation"      		"shieldbash"
 		
 		"precache"
 		{
@@ -305,7 +307,71 @@
 	}
 	//"ability_warden_result_qeq"//5104
 	//"ability_warden_result_qwe"//5105
-	//"ability_warden_result_qwq"//5106
+	"ability_warden_result_qwq"//5106
+	{
+		"ID"				"5106"
+
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"BaseClass"						"mirana_leap"
+		"AbilityTextureName"			"ability_warden_result_qwq"
+		"MaxLevel"						"1"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"48"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"leap_distance"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_speed"			"1200.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_acceleration"		"15000.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_radius"		"0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus"	"0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus_as"	"0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"120.0"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.55"
+			}
+		}
+	}
 	//"ability_warden_result_qweq"//5107
 	"ability_warden_result_qeqe"//5108
 	{
@@ -372,7 +438,114 @@
 		}
 	}
 	//"ability_warden_result_qwqw"//5109
-	//"ability_warden_result_qwqeq"//5110
+	"ability_warden_result_qwqeq"//5110
+	{
+		"ID"								"5110"
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ability_warden_result_qwqeq"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT_AOE"
+		"MaxLevel"          				"1"
+
+	    "AbilityManaCost"         			"24"
+	    "AbilityCastRange"					"300"
+	    "AbilityCastPoint"        			"0.0"
+	    "AbilityCooldown"         			"0.0"
+	    "AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+
+	    "precache"
+	    {
+	    	"particlefile"					"particles/units/heroes/hero_dragon_knight.pcf"
+	    	"particlefile"					"particles/units/heroes/hero_zuus.pcf"
+	    	"soundfile"						"scripts/game_sounds_heroes/game_sounds_sven.txt"
+	    }
+
+	    "OnSpellStart"
+	    {
+	    	"CreateThinker"
+	    	{
+	    		"ModifierName"			"modifier_warden_result_qwqeq_field"
+				"Target"				"POINT"
+	    	}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_Sven.GodsStrength"
+				"Target"			"CASTER"	
+			}
+			"FireEffect"
+			{
+				"EffectName"		"dragon_knight_transform_red"
+				"Target"			"POINT"
+			}
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_warden_result_qwqeq_field"
+	    	{
+	    		"ThinkInterval"			"%tick_time"
+	    		"Duration"				"%duration"
+	    		"OnIntervalThink"
+	    		{
+	    		//	"FireSound"
+	    		//	{
+	    		//		"EffectName"		"Hero_Sven.GodsStrength"
+				//		"Target"			"CASTER"
+	    		//	}
+	    		//	"FireEffect"
+	    		//	{
+	    		//		"TargetPoint" "POINT"
+				//		"EffectName" "zuus_lightning_bolt"
+				//		"EffectAttachType" "world_origin"
+	    		//		"ControlPoints"
+	    		//		{
+	    		//			"00"	"200 0 100"
+	    		//			"01"	"200 0 100"
+	    		//			"03"	"0 0 100"
+	    		//			"08"	"0 0 100"
+	    		//			"09"	"0 0 100"
+	    		//			"10"	"0 0 100"
+	    		//			"11"	"0 0 100"
+	    		//		}
+	    		//	}
+	    			"Damage"
+					{
+						"Target"
+						{
+							"Center"		"POINT"
+							"Radius"		"%area_of_effect"
+							"Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+						"Type"					"DAMAGE_TYPE_MAGICAL"
+						"Damage"				"tick_damage"
+					}
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{	
+	    		"var_type"					"FIELD_INTEGER"
+	    		"area_of_effect"			"500"
+	    	}
+	    	"02"
+	    	{
+	    		"vartype"					"FIELD_FLOAT"
+	    		"duration"					"10.0"
+	    	}
+	    	"03"
+	    	{
+	    		"var_type"					"FIELD_FLOAT"
+	    		"tick_time"					"2"
+	    	}
+	    	"04"
+	    	{
+	    		"var_type"					"FIELD_FLOAT"
+	    		"tick_damage"				"120"
+	    	}
+	    }
+	}
 	//"ability_warden_result_qewqe"//5111
 
 	"ability_warden_result_qq_sub1"//5112 // TO TEST SUB ABILITY FUNCTION
@@ -611,6 +784,188 @@
 			}
 		}
 	}
+	"ability_warden_result_qwq_sub1"//5114
+	{
+		"ID"		"5114"
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"BaseClass"						"mirana_leap"
+		"AbilityTextureName"			"ability_warden_result_qwq"
+		"MaxLevel"						"1"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"48"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"leap_distance"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_speed"			"1200.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_acceleration"		"15000.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_radius"		"0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus"	"0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus_as"	"0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"120.0"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.55"
+			}
+		}
+	}
+	"ability_warden_result_qwq_sub2"//5115
+	{
+		"ID"		"5115"
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"BaseClass"						"mirana_leap"
+		"AbilityTextureName"			"ability_warden_result_qwq"
+		"MaxLevel"						"1"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"48"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"leap_distance"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_speed"			"1200.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"leap_acceleration"		"15000.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_radius"		"0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus"	"0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"leap_speedbonus_as"	"0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"120.0"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.55"
+			}
+		}
+	}
+	"ability_warden_result_qwq_dummy"//5116
+	{
+		"ID"						"5116"
+
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+
+		"MaxLevel"						"1"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_juggernaut.pcf"
+			//"soundfile"					""
+		}
+
+		"OnSpellStart"
+		{
+			"DelayedAction"
+			{
+				"Delay"					"0.2"
+				"Action"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"scripts/vscripts/elementthinker"
+						"Function"			"TEST_START"
+					}
+					"FireEffect"
+					{
+						"EffectName"			"jugg_crit_blur"
+						"EffectAttachType"		"follow_attack1"
+						"Target"				"CASTER"
+					}
+				}
+				
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dummy_type"		"4"
+			}
+		}
+	}
 
 	//"ability_warden_result_ew"//5121
 	//"ability_warden_result_eq"//5122
@@ -644,14 +999,15 @@
 
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_q"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"          				"1"
 		"HotKeyOverride"					"Q"
 
 	    "AbilityManaCost"         			"24"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
-	    "AbilityCastAnimation"				"attack_alt1"
+	    "AbilityCastPoint"        			"0.2"
+	    "AbilityCooldown"         			"0.8"
+	    "AbilitySharedCooldown"				"warden_elements"
+	    "AbilityCastAnimation"				"attack"
 
 	    "precache"
 	    {
@@ -692,6 +1048,42 @@
 	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
 	    		"TextureName"				"ability_warden_q"
 	    	}
+	    	"modifier_warden_q_fx"
+	    	{
+	    		"IsHidden"					"0"
+	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    		"TextureName"				"ability_warden_q_bonus"
+	    		"Duration"					"%duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attack_speed_bonus"
+	    			"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"		"%damage_out_percent"
+	    			"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"		"%base_attack_time"
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"duration"			"6"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"attack_speed_bonus"	"20"
+	    	}
+	    	"03"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"damage_out_percent"	"5"
+	    	}
+	    	"04"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"base_attack_time"	"-2"
+	    	}
 	    }
 	}
 	"ability_warden_w"//5096
@@ -700,13 +1092,14 @@
 
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_w"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"          				"1"
 		"HotKeyOverride"					"W"
 
 	    "AbilityManaCost"         			"24"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
+	    "AbilityCastPoint"        			"0.2"
+	    "AbilityCooldown"         			"0.8"
+	    "AbilitySharedCooldown"				"warden_elements"
 	    "AbilityCastAnimation"				"shieldbash"
 
 	    "precache"
@@ -721,6 +1114,11 @@
 	    	{
 	    		"Target"					"CASTER"
 	    		"ModifierName"				"modifier_warden_w"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"				"modifier_warden_w_fx"
+	    		"Target"					"CASTER"
 	    	}
 	    	"FireSound"
 	    	{
@@ -748,7 +1146,42 @@
 	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
 	    		"TextureName"				"ability_warden_w"
 	    	}
-
+	    	"modifier_warden_w_fx"
+	    	{
+	    		"IsHidden"					"1"
+	    		"Duration"					"%duration"
+	    		"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    		"TextureName"				"modifier_warden_w_bonus"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+	    			"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magical_resist"
+	    			"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%streng_bonus"
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"					"FIELD_INTEGER"
+	    		"duration"					"6"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"					"FIELD_INTEGER"
+	    		"armor_bonus"				"2"
+	    	}
+	    	"03"
+	    	{
+	    		"var_type"					"FIELD_INTEGER"
+	    		"magical_resist"			"2"
+	    	}
+	    	"04"
+	    	{
+	    		"var_type"					"FIELD_INTEGER"
+	    		"streng_bonus"				"2"
+	    	}
 	    }
 	}
 	"ability_warden_e"//5097
@@ -757,14 +1190,15 @@
 
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_e"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"          				"1"
 		"HotKeyOverride"					"E"
 
 	    "AbilityManaCost"         			"24"
-	    "AbilityCastPoint"        			"0.0"
-	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "AbilityCastPoint"        			"0.2"
+	    "AbilityCooldown"         			"0.8"
+	    "AbilitySharedCooldown"				"warden_elements"
+	    //"AbilityCastAnimation"      		"dragonbreath"
 
 	    "precache"
 	    {
