@@ -1,11 +1,15 @@
 ADDON_PREFIX = '[WARDEN] '
 
-DEBUG_MODE = true
-
-InitLogFile('log/log_warden.txt','log_init\n')
-AppendToLogFile('log/log_warden.txt',
+DEBUG_MODE = false
+-- if its a developer , enter debug mode for them
+if Convars:GetFloat( 'developer' ) == 1 then
+    DEBUG_MODE = true
+    InitLogFile('log/log_warden.txt','log_init\n')
+    AppendToLogFile('log/log_warden.txt',
     'INIT LOG FILE\n----------------------------------\n\n')
+end
 
+-- print test message in debug mode
 function tPrint(msg)
     if not DEBUG_MODE then return end
     if not msg then return end
@@ -14,7 +18,9 @@ function tPrint(msg)
     print(ADDON_PREFIX..tMsg)
     AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
 end
-tPrint( 'Hello World!' )
+
+print( '[WARDEN] Hello World!' )
+
 tPrint( 'EXECUTING: addon_init.lua')
 
 local function loadModule(name)
@@ -39,6 +45,7 @@ function Dynamic_Wrap( mt, name )
     end
 end
 
+-- load main lua scripts
 loadModule('util')
 loadModule('warden')
 loadModule('elementthinker')
