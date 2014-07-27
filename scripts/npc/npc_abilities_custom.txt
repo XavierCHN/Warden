@@ -10,7 +10,7 @@
 
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_result_qq"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"          				"1"
 
 	    "AbilityManaCost"         			"24"
@@ -20,88 +20,105 @@
 		
 		"precache"
 		{
-			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
-			"particlefile"				"particles/units/heroes/hero_magnataur.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
+			"particlefile"				"particles/units/heroes/hero_legion_commander.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
 		}
-		"OnSpellStart"
+		"Modifiers"
 		{
-			"LinearProjectile"
+			"modifier_warden_result_qq_dummy"
 			{
-				"EffectName"			"magnataur_shockwave"
-				"MoveSpeed"				"%speed"
-				"StartRadius"			"%radius"
-				"EndRadius"				"%radius"
-				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
-				"HasFrontalCone"		"0"
-				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"2000"
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"		"modifier_warden_result_qq"
+						"Target"			"CASTER"
+					}
+				}
 			}
-			"FireSound"
+			"modifier_warden_result_qq"
 			{
-				"EffectName"			"Hero_DrowRanger.FrostArrows"
-				"Target"				"CASTER"
+				"IsHidden"				"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"legion_commander_duel_buff"
+						"EffectAttachType"	"attach_attack1"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%move_speed_bonus"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%attack_damage_bonus"
+				}
+				"OnAttackLanded"
+				{
+					"FireSound"
+					{
+						"EffectName"		"Hero_LegionCommander.Courage"
+						"Target"			"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"		"legion_commander_courage_hit"
+						"Target"			"CASTER"
+						"EffectAttachType"	"attach_attack1"
+					}
+					"FireEffect"
+					{
+						"EffectName"		"legion_commander_courage_tgt"
+						"Target"			"TARGET"
+						"EffectAttachType"	"attach_hitloc"
+					}
+					"SpendMana"
+					{
+						"Mana"	"%AbilityManaCost"
+					}
+					"RemoveModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_warden_result_qq"
+					}
+					"RemoveModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_warden_result_qq_dummy"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"scripts/vscripts/elementthinker.lua"
+						"Target"			"TARGET"
+						"abilityname"		"ability_warden_result_qq"
+						"Function"			"PassiveAbilityCasted"
+					}
+				}
 			}
 		}
-		
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"				"1"
-			
-			"Knockback"
-			{
-				"Target"		"TARGET"
-				"Center"		"CASTER"
-				"Duration"		"0.1"
-				"Distance"		"100"
-				"Height"		"50"
-				"ShouldStun"	"0"
-			}
-			
-			//"Knockback"
-			//{
-				//"Target" "TARGET"
-				//"Center" "CASTER"
-				//"Duration" "0.5"
-				//"Distance" "?50 350"
-				//"Height" "?50 350"
-			//}
-
-			"Damage"
-			{
-				"Target"				"TARGET"
-				"Damage"				"%damage"
-				"Type"					"DAMAGE_TYPE_PURE"
-			}
-		}
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1500"
+				"var_type"			"FIELD_INTEGER"
+				"move_speed_bonus"	"30"
 			}
-			
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"75 100 125 150"
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_bonus"	"30"
 			}
-			
-			"03"
+			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"100"
+				"var_type"			"FIELD_INTEGER"
+				"move_speed_bonus_sub"	"50"
 			}
-			"04"
+			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"2"
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_bonus_sub"	"50"
 			}
 		}
 	}
@@ -327,74 +344,115 @@
 
 		"BaseClass"							"ability_datadriven"
 		"AbilityTextureName"				"ability_warden_result_qq"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"          				"1"
 
 	    "AbilityManaCost"         			"24"
 	    "AbilityCastPoint"        			"0.0"
 	    "AbilityCooldown"         			"0.0"
-	    //"AbilityCastAnimation"      		"pudge_meat_hook_start"
+	    "AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		
 		"precache"
 		{
-			"particlefile"				"particles/units/heroes/hero_invoker.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_bounty_hunter.txt"
+			"particlefile"				"particles/units/heroes/hero_legion_commander.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
 		}
-		"OnSpellStart"
+		"Modifiers"
 		{
-			"LinearProjectile"
+			"modifier_warden_result_qq_sub1_dummy"
 			{
-				"Target"				"POINT"
-				"EffectName"			"invoker_deafening_blast"
-				"MoveSpeed"				"%speed"
-				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"%length"
-				"StartRadius"			"%collision_radius"
-				"EndRadius"				"%collision_radius"
-				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"HasFrontalCone"		"0"
-				"ProvidesVision"		"1"
-				"VisionRadius"			"300"
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"		"modifier_warden_result_qq_sub1"
+						"Target"			"CASTER"
+					}
+				}
 			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"					"0"
-			"Damage"
+			"modifier_warden_result_qq_sub1"
 			{
-				"Target"				"TARGET"
-				"Damage"				"%damage"
-				"Type"					"DAMAGE_TYPE_MAGICAL"
-			}
-			"FireEffect"
-			{
-				"EffectName"				"bounty_hunter_suriken_impact"
-				"EffectAttachType"			"attach_hitloc"
-				"Target"					"TARGET"
+				"IsHidden"				"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"legion_commander_duel_buff"
+						"EffectAttachType"	"attach_attack1"
+					}
+				}
+				"SpendMana"
+				{
+					"Mana"	"%AbilityManaCost"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%move_speed_bonus_sub"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%attack_damage_bonus_sub"
+				}
+				"OnAttackLanded"
+				{
+					"FireSound"
+					{
+						"EffectName"		"Hero_LegionCommander.Courage"
+						"Target"			"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"		"legion_commander_courage_hit"
+						"Target"			"CASTER"
+						"EffectAttachType"	"attach_attack1"
+					}
+					"FireEffect"
+					{
+						"EffectName"		"legion_commander_courage_tgt"
+						"Target"			"TARGET"
+						"EffectAttachType"	"attach_hitloc"
+					}
+					"RemoveModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_warden_result_qq_sub1"
+					}
+					"RemoveModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_warden_result_qq_sub1_dummy"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"scripts/vscripts/elementthinker.lua"
+						"Target"			"TARGET"
+						"abilityname"		"ability_warden_result_qq_sub1"
+						"Function"			"PassiveAbilityCasted"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"95"
+				"var_type"			"FIELD_INTEGER"
+				"move_speed_bonus"	"30"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"collision_radius"			"130"
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_bonus"	"30"
 			}
-			"03"
+			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"800"
+				"var_type"			"FIELD_INTEGER"
+				"move_speed_bonus_sub"	"50"
 			}
-			"04"
+			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1000"
+				"var_type"			"FIELD_INTEGER"
+				"attack_damage_bonus_sub"	"50"
 			}
 		}
 	}

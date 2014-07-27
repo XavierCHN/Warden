@@ -277,6 +277,8 @@ end
 function ElementThinker:OnAbilityCast(keys)
 	local player = EntIndexToHScript(keys.player)
     local caster = player:GetAssignedHero()
+    tPrint('-------------HOOK---------')
+    PrintTable(caster)
 	local plyid = caster:GetPlayerID()
 	local abilityCasted = keys.abilityname
 
@@ -305,7 +307,20 @@ function SendKeysIn(keys)
     local caster = EntIndexToHScript(keys.caster_entindex)
     G_ABILITY_KEYS[caster] = keys
 end
-
+--------------------------------------------------------------------------------------------
+function PassiveAbilityCasted(keys)
+    local caster = EntIndexToHScript(keys.caster_entindex)
+    tPrint('-------------PASSIVE---------')
+    PrintTable(caster)
+    local abilityCasted = keys.abilityname
+    local plyid = caster:GetPlayerID()
+    if abilityCasted == ElementThinker.StoredAbility[caster] then
+        ElementThinker:StoredAbilityCasted(caster,plyid,abilityCasted,keys)
+    elseif abilityCasted == ElementThinker.NormalAbility[caster] then
+        ElementThinker:NormalAbilityCasted(caster,plyid,abilityCasted,keys)
+    else
+    end
+end
 
 
 
