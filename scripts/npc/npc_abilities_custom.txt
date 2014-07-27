@@ -1459,11 +1459,20 @@
 					{
 						"Target"			"TARGET"
 						"EffectName"		"omniknight_guardian_angel_ally"
+						//"EffectName"		"omniknight_guardian_angel_wings"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
 				"Duration" 					"5"
-
+				"ThinkInterval"				"1"
+				"OnIntervalThink"
+				{
+					"Heal"
+					{
+						"Target"		"TARGET"
+						"HealAmount"	"200"
+					}
+				}	
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"20"
