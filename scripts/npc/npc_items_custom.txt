@@ -1,3 +1,1809 @@
 "DOTAAbilities"
 {
+	//=================
+	// Q MULTIPLE
+	//=================
+	//QE===============
+	"item_recipe_warden_qe2"//1701
+	{
+		"ID"							"1701"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_qe2"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_qe1"
+		}
+	}
+	"item_recipe_warden_qe3"//1702
+	{
+		"ID"							"1702"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_qe3"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_qe2"
+		}
+	}
+	"item_warden_qe1"//1703
+	{
+		"ID"							"1703"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_qe1"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "750"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "1"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.Attack"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_qe2"//1704
+	{
+		"ID"							"1704"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_qe2"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "1600"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "2"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.Attack"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_qe3"//1705
+	{
+		"ID"							"1705"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_qe3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "2450"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "3"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.Attack"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	//QW===============
+	"item_recipe_warden_qw2"//1711
+	{
+		"ID"							"1711"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_qw2"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_qw1"
+		}
+	}
+	"item_recipe_warden_qw3"//1712
+	{
+		"ID"							"1712"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_qw3"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_qw2"
+		}
+	}
+	"item_warden_qw1"//1713
+	{
+		"ID"							"1713"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_qw1"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "750"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "1"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.Attack"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_qw2"//1714
+	{
+		"ID"							"1714"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_qw2"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "1600"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "2"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.Attack"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_qw3"//1715
+	{
+		"ID"							"1715"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_qw3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "2450"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "3"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_ember_spirit.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.Attack"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"ember_spirit_searing_chains_cast"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+
+	//=================
+	// W MULTIPLE
+	//=================
+	//WQ===============
+	"item_recipe_warden_wq2"//1721
+	{
+		"ID"							"1721"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_wq2"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_wq1"
+		}
+	}
+	"item_recipe_warden_wq3"//1722
+	{
+		"ID"							"1722"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_wq3"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_wq2"
+		}
+	}
+	"item_warden_wq1"//1723
+	{
+		"ID"							"1723"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_wq1"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "750"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "1"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_wq2"//1724
+	{
+		"ID"							"1724"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_wq2"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "1600"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "2"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_wq3"//1725
+	{
+		"ID"							"1725"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_wq3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "2450"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "3"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	//WE===============
+	"item_recipe_warden_we2"//1731
+	{
+		"ID"							"1731"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_we2"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_we1"
+		}
+	}
+	"item_recipe_warden_we3"//1732
+	{
+		"ID"							"1732"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_we3"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_we3"
+		}
+	}
+	"item_warden_we1"//1733
+	{
+		"ID"							"1733"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_we1"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "750"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "1"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_we2"//1734
+	{
+		"ID"							"1734"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_we2"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "1600"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "2"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_we3"//1735
+	{
+		"ID"							"1735"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_we3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "2450"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "3"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_dragon_knight.txt"
+			"particlefile"					"particles/units/heroes/hero_medusa.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_DragonKnight.ProjectileImpact"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"medusa_mana_shield_shatter"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	//=================
+	// E MULTIPLE
+	//=================
+	//EQ===============
+	"item_recipe_warden_eq2"//1741
+	{
+		"ID"							"1741"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_eq2"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_eq1"
+		}
+	}
+	"item_recipe_warden_eq3"//1742
+	{
+		"ID"							"1742"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_eq3"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_eq2"
+		}
+	}
+	"item_warden_eq1"//1743
+	{
+		"ID"							"1743"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_eq1"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "750"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "1"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+			"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_eq2"//1744
+	{
+		"ID"							"1744"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_eq2"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "1600"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "2"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+			"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_eq3"//1745
+	{
+		"ID"							"1745"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_eq3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "2450"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "3"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+			"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_q"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"q"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	//EW===============
+	"item_recipe_warden_ew2"//1751
+	{
+		"ID"							"1751"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_ew2"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_ew1"
+		}
+	}
+	"item_recipe_warden_ew3"//1752
+	{
+		"ID"							"1752"
+		"Model"						 "models/props_gameplay/recipe.mdl"
+		"BaseClass"					 "item_recipe_arcane_boots"
+		"ItemCost"					  "850"  
+		"ItemShopTags"				  ""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_warden_ew3"
+		"ItemRequirements"
+		{
+			"01"						"item_warden_ew2"
+		}
+	}
+	"item_warden_ew1"//1753
+	{
+		"ID"							"1753"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_ew1"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "0"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "1"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+			"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_ew2"//1754
+	{
+		"ID"							"1754"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_ew2"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "1600"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "2"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+			"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+	"item_warden_ew3"//1755
+	{
+		"ID"							"1755"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_ew3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "25 15 10"
+		"ItemCost"					  "2450"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+		
+		"MaxUpgradeLevel"			   "3"
+		"ItemBaseLevel"				 "3"
+
+		"precache"
+		{
+			"soundfile"						"scripts/game_sounds_heroes/game_sounds_legion_commander.txt"
+			"particlefile"					"particles/units/heroes/hero_legion_commander.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_e"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_warden_w"
+			}
+			"FireSound"
+			{
+				"EffectName"				"Hero_LegionCommander.Overwhelming.Location"
+				"Target"					"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target" 					"CASTER"
+				"EffectName" 				"legion_duel"
+				"EffectAttachType" 			"attach_attack1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"e"
+				"Function"					"OnElement"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"scripts/vscripts/elementthinker.lua"
+				"Element"					"w"
+				"Function"					"OnElement"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warden_q"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_q"
+			}
+			"modifier_warden_w"
+			{
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_w"
+			}
+			"modifier_warden_e"
+			{	
+				"IsHidden"					"0"
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"				"ability_warden_e"
+			}
+		}
+	}
+
+	"item_warden_cancel_last_modifier"//1760
+	{
+		"ID"							"1755"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					 "item_datadriven"
+		"AbilityTextureName"			"item_warden_ew3"
+		"AbilityCastPoint"			  "0"
+		"AbilityCooldown"			   "0"
+		"ItemCost"					  "1500"
+		"ItemInitialCharges"			"0"
+		
+		"ItemKillable"				  "0"
+		"ItemDroppable"				 "1"
+		"ItemSellable"				  "1"
+		"ItemRequiresCharges"		   "0"
+		"ItemShopTags"				  "consumable"
+		"ItemQuality"				   "consumable"
+		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"					  "1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elementthinker.lua"
+				"Function"				"OnItemCancelLastModifier"
+			}
+		}
+	}
+	//"item_warden_hidden_spear"//1761
+	//"item_warden_invisible"//1762
+
+	//"item_warden_attitude_powerful"//1770//姿势：勇猛，增加伤害，减少防御
+	//"item_warden_attitude_determination"//1771//姿势：决心，增加生命恢复，增加防御
+	//"item_warden_attitude_always_ready_to_fight"//1771//姿势：蓄势待发，增加回蓝，少量防御
+
 }
