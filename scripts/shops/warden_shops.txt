@@ -1,0 +1,65 @@
+"dota_shops"
+{
+	"consumables"
+	{
+	  "item"          "item_warden_qe1"
+	  "item"          "item_warden_qw1"
+	  "item"          "item_warden_wq1"
+	  "item"          "item_warden_we1"
+	  "item"          "item_warden_eq1"
+	  "item"          "item_warden_ew1"
+	}
+	"attributes"
+	{
+	  "item"          "item_warden_cancel_last_modifier"
+	  //"item"          "item_warden_hidden_spear"
+	  //"item"          "item_warden_invisible"
+	  //"item"          "item_warden_we1"
+	  //"item"          "item_warden_eq1"
+	  //"item"          "item_warden_attitude_powerful"
+	}
+
+	"misc"
+	{
+
+	}	
+
+	// Level 1 - Green Recipes
+	"basics"
+	{
+	}
+
+	// Level 2 - Blue Recipes
+	"support"
+	{
+	}
+
+	"magics"			
+	{
+	}
+
+	// Level 3 - Purple Recipes	
+	"defense"
+	{
+	}
+
+	"weapons"
+	{
+	}
+
+	// Level 4 - Orange / Orb / Artifacts				
+	"artifacts"
+	{	
+	}
+
+	"sideshop1"
+	{
+	}
+
+	"sideshop2"
+	{
+	}
+
+	"secretshop"
+	{							
+	}
