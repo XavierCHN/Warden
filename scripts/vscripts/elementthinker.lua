@@ -138,7 +138,7 @@ function ElementThinker:GetResultAbility(hero , plyid)
 			return resultAbility
 		end
 	end
-	return 'ability_warden_normal_empty'
+	return nil
 end
 ------------------------------------------------------------------------------------------------------
 -- clear all modifiers from hero
@@ -155,9 +155,16 @@ function ElementThinker:ClearAllModifiers(hero , plyid)
 end
 ------------------------------------------------------------------------------------------------------
 -- remove the first element from hero
-function ElementThinker:RemoveFirstModifier(hero , plyid)
-	hero:RemoveModifierByName(self.Elements[hero][1])
-	table.remove(self.Elements[hero],1)
+function ElementThinker:RemoveLastModifier(hero , plyid)
+	for k,v in pairs(self.Elements[hero]) do
+        hero:RemoveModifierByName(v)
+    end
+    table.remove(self.Elements[hero],#self.Elements[hero])
+    for k,v in ipairs(self.Elements[hero]) do
+        local element = string.sub(v,-1,-1)
+        local ability = 'ability_warden_'..element
+        hero:AddNewModifier(hero,ABILITY,'modifier_warden_'..element,{})
+    end
 end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:RefreshAbility(hero , plyid , newelement)
@@ -165,13 +172,13 @@ function ElementThinker:RefreshAbility(hero , plyid , newelement)
     self.Elements[hero] = self.Elements[hero] or {}
 	table.insert(self.Elements[hero],newElement)
 	if #self.Elements[hero] > 5 then
-		self:RemoveFirstModifier(hero , plyid)
+		self:RemoveLastModifier(hero , plyid)
 	end
 	
 	local resultAbility = self:GetResultAbility(hero , plyid)
 	-- unable to have same ability
 	if resultAbility == self.StoredAbility[hero] then
-		resultAbility = 'ability_warden_normal_empty'
+		resultAbility = nil
 	end
 	
     if resultAbility then
