@@ -34,27 +34,27 @@
 	}
 	"item_warden_qe1"//1703
 	{
-		"ID"							"1703"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"					 "item_datadriven"
-		"AbilityTextureName"			"item_warden_qe1"
-		"AbilityCastPoint"			  "0"
-		"AbilityCooldown"			   "25 15 10"
-		"ItemCost"					  "750"
-		"ItemInitialCharges"			"0"
-		
-		"ItemKillable"				  "0"
-		"ItemDroppable"				 "1"
-		"ItemSellable"				  "1"
-		"ItemRequiresCharges"		   "0"
-		"ItemShopTags"				  "consumable"
-		"ItemQuality"				   "consumable"
-		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
-		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"					  "1"
-		
-		"MaxUpgradeLevel"			   "3"
-		"ItemBaseLevel"				 "1"
+		"ID"                            "1705"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "BaseClass"                     "item_datadriven"
+        "AbilityTextureName"            "item_warden_qe1"
+        "AbilityCastPoint"              "0"
+        "AbilityCooldown"               "10"
+        "ItemCost"                      "750"
+        "ItemInitialCharges"            "0"
+        
+        "ItemKillable"                  "0"
+        "ItemDroppable"                 "1"
+        "ItemSellable"                  "1"
+        "ItemRequiresCharges"           "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "SideShop"                      "1"
+        
+        "MaxUpgradeLevel"               "3"
+        "ItemBaseLevel"                 "1"
 
 		"precache"
 		{
