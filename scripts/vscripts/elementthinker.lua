@@ -155,16 +155,9 @@ function ElementThinker:ClearAllModifiers(hero , plyid)
 end
 ------------------------------------------------------------------------------------------------------
 -- remove the first element from hero
-function ElementThinker:RemoveLastModifier(hero , plyid)
-	for k,v in pairs(self.Elements[hero]) do
-        hero:RemoveModifierByName(v)
-    end
-    table.remove(self.Elements[hero],#self.Elements[hero])
-    for k,v in ipairs(self.Elements[hero]) do
-        local element = string.sub(v,-1,-1)
-        local ability = 'ability_warden_'..element
-        hero:AddNewModifier(hero,ABILITY,'modifier_warden_'..element,{})
-    end
+function ElementThinker:RemoveFirstModifier(hero , plyid)
+    hero:RemoveModifierByName(self.Elements[hero][1])
+    table.remove(self.Elements[hero],1)
 end
 ------------------------------------------------------------------------------------------------------
 function ElementThinker:RefreshAbility(hero , plyid , newelement)
@@ -172,7 +165,7 @@ function ElementThinker:RefreshAbility(hero , plyid , newelement)
     self.Elements[hero] = self.Elements[hero] or {}
 	table.insert(self.Elements[hero],newElement)
 	if #self.Elements[hero] > 5 then
-		self:RemoveLastModifier(hero , plyid)
+		self:RemoveFirstModifier(hero , plyid)
 	end
 	
 	local resultAbility = self:GetResultAbility(hero , plyid)

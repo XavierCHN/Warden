@@ -1257,24 +1257,6 @@
 						"EffectAttachType" 		"follow_origin"
 						"EffectName"			"centaur_warstomp"
 					}
-					"FireEffect"
-					{
-						"Target"				"CASTER"
-						"EffectAttachType" 		"follow_origin"
-						"EffectName"			"centaur_warstomp"
-					}
-					"FireEffect"
-					{
-						"Target"				"CASTER"
-						"EffectAttachType" 		"follow_origin"
-						"EffectName"			"centaur_warstomp"
-					}
-					"FireEffect"
-					{
-						"EffectName"		"phoenix_supernova_reborn_cratershock"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"CASTER"
-					}
 					"Knockback"
 					{
 						"Target"
