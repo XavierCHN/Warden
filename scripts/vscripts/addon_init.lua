@@ -18,6 +18,17 @@ function tPrint(msg)
     print(ADDON_PREFIX..tMsg)
     AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
 end
+function tPrintTable( tbl )
+    if not tbl then return end
+    if not type(tbl) == 'table' then return end
+    for k,v in pairs(tbl) do
+        tPrint(tostring(k)..' : '..tostring(v))
+    end
+end
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
 
 print( '[WARDEN] Hello World!' )
 
