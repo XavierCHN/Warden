@@ -9,8 +9,9 @@ function ThreatSystem:new(o)
 end
 
 function ThreatSystem:NewThreat( unit , target )
+	self.Aggro = self.Aggro or {}
 	self.Aggro[target] = self.Aggro[target] or {}
-	self.Aggro[target][unit] = 0
+	self.Aggro[target][unit] = self.Aggro[target][unit] or 0
 end
 
 function ThreatSystem:AddAggro( unit , target , amount)
@@ -83,16 +84,14 @@ function AddAggro( keys )
 		tPrint( 'Aggro Unit Not Defined in ability' )
 		return
 	end
+	--TODO , COLLET KEYS
 	local target = keys.target_entindex or WardenGameMode.CurrentBossData.unit or 'empty'
 	target = EntIndexToHScript(target)
 	local unit = keys.caster_entindex or keys.attacker or 'empty'
 	unit = EntIndexToHScript(unit)
 	local amount = keys.amount or 0
 
-	if not ThreatSystem.Aggro[target][unit] then
-		ThreatSystem:NewThreat( unit , target )
-	end
-
+	ThreatSystem:NewThreat( unit , target )
 	ThreatSystem:AddAggro( unit, target , amount )
 end
 
@@ -104,9 +103,6 @@ function ReduceAggro( keys )
 	unit = EntIndexToHScript(unit)
 	local amount = keys.amount or 0
 
-	if not ThreatSystem.Aggro[target][unit] then
-		ThreatSystem:NewThreat( unit , target )
-	end
-
+	ThreatSystem:NewThreat( unit , target )
 	ThreatSystem:ReduceAggro( unit, target , amount )
 end
