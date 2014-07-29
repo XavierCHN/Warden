@@ -8,6 +8,7 @@
 	  "item"          "item_warden_we1"
 	  "item"          "item_warden_eq1"
 	  "item"          "item_warden_ew1"
+	  "item"		"item_force_staff"
 	}
 	"attributes"
 	{

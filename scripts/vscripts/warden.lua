@@ -158,9 +158,8 @@ function WardenGameMode:Init()
 	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(WardenGameMode, 'OnAbilityUsed'),self)
 
 
-	--player_hurt
-	--entity_hurt
 	ListenToGameEvent('entity_hurt', Dynamic_Wrap(WardenGameMode, 'OnEntityHurt'),self)
+
 
 	self:RegisterCommands()
 
@@ -175,11 +174,6 @@ function WardenGameMode:Init()
 
 	tPrint(' DONE: WARDENGAMEMODE INIT \n\n')
 
-	if Panel then tPrint('panel') end
-	if IPanel then tPrint('ipanel') end
-	if VPanel then tPrint('vpanel') end
-	if CDOTAPanel then tPrint('cdotapanel') end
-	if VPANEL then tPrint('VPANEL') end
 
 end
 
@@ -859,6 +853,11 @@ function WardenGameMode:OnPlayerSay( keys )
 		self:ResetAllHeroes()
 		self:ActiveAllHero()
 	end
+	if string.find(text , 'geiwoqian') then
+		for i = 0,9 do
+            PlayerResource:SpendGold(i,-10000,0)
+		end
+	end
 end
 function WardenGameMode:OnAbilityUsed( keys )
 	ElementThinker:OnAbilityCast(keys)
@@ -881,15 +880,12 @@ function WardenGameMode:OnEntityHurt(keys)
 	local attacker = EntIndexToHScript(keys.entindex_attacker)
 	self.Health = self.Health or {}
 	self.Health[attacked] = self.Health[attacked] or 0
-
 	local dmgbit = 0
-	
 	if self.Health[attacked] == 0 then
 		dmgbit = attacked:GetMaxHealth() -  attacked:GetHealth()
 	else
 		dmgbit =self.Health[attacked] -  attacked:GetHealth()
 	end
 	self.Health[attacked] =  attacked:GetHealth()
-
 	tPrint('DEBUG : DMG = '..tostring(dmgbit))
 end
