@@ -57,7 +57,7 @@ function Dynamic_Wrap( mt, name )
 end
 
 -- load main lua scripts
-loadModule('util')
+--loadModule('util')
 loadModule('warden')
 loadModule('elementthinker')
 

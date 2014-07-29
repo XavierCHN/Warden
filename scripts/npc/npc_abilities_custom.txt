@@ -327,7 +327,7 @@
 			"particlefile"				"particles/units/heroes/hero_doom_bringer.pcf"
 			"particlefile"				"particles/units/heroes/hero_witch_doctor.pcf"
 			"particlefile"				"particles/units/heroes/hero_brewmaster.pcf"
-			"soundfile"					"scripts/game_sounds_heroes/game_sounds_doom_binger.txt"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_doombringer.txt"
 		}
 
 		"OnSpellStart"
@@ -954,11 +954,6 @@
 						"Duration"	"0.4"
 						"Distance"	"20"
 						"Height"	"250"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/elementthinker.lua"
-						"Function"		"TEST_START"
 					}
 				}
 			}

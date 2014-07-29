@@ -149,13 +149,18 @@ function WardenGameMode:Init()
 	-- Setup game Hooks
 	ListenToGameEvent('dota_item_picked_up', Dynamic_Wrap(WardenGameMode, 'OnItemPickUp'), self)
 	ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(WardenGameMode, 'OnItemPurchased'), self)
-	ListenToGameEvent('onItemDropped', Dynamic_Wrap(WardenGameMode, 'OnItemDropDown'), self)
+	--ListenToGameEvent('onItemDropped', Dynamic_Wrap(WardenGameMode, 'OnItemDropDown'), self)
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(WardenGameMode, 'OnPlayerConnectFull'), self)
 	ListenToGameEvent('player_connect', Dynamic_Wrap(WardenGameMode, 'OnPlayerConnect'), self)
 	ListenToGameEvent('player_disconnect', Dynamic_Wrap(WardenGameMode, 'OnPlayerDisconnect'), self)
 	ListenToGameEvent('player_say', Dynamic_Wrap(WardenGameMode, 'OnPlayerSay'), self)
 
 	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(WardenGameMode, 'OnAbilityUsed'),self)
+
+
+	--player_hurt
+	--entity_hurt
+	ListenToGameEvent('entity_hurt', Dynamic_Wrap(WardenGameMode, 'OnEntityHurt'),self)
 
 	self:RegisterCommands()
 
@@ -169,6 +174,12 @@ function WardenGameMode:Init()
 	PrecacheUnitByName('npc_precache_everything')
 
 	tPrint(' DONE: WARDENGAMEMODE INIT \n\n')
+
+	if Panel then tPrint('panel') end
+	if IPanel then tPrint('ipanel') end
+	if VPanel then tPrint('vpanel') end
+	if CDOTAPanel then tPrint('cdotapanel') end
+	if VPANEL then tPrint('VPANEL') end
 
 end
 
@@ -863,3 +874,22 @@ end
 -----------------------------------------------------------------------------------
 -- ENDREGION : GAME EVENT HOOKS
 -----------------------------------------------------------------------------------
+function WardenGameMode:OnEntityHurt(keys)
+	tPrint('DEBUG:OnEntityHurt')
+	tPrintTable(keys)
+	local attacked = EntIndexToHScript(keys.entindex_killed )
+	local attacker = EntIndexToHScript(keys.entindex_attacker)
+	self.Health = self.Health or {}
+	self.Health[attacked] = self.Health[attacked] or 0
+
+	local dmgbit = 0
+	
+	if self.Health[attacked] == 0 then
+		dmgbit = attacked:GetMaxHealth() -  attacked:GetHealth()
+	else
+		dmgbit =self.Health[attacked] -  attacked:GetHealth()
+	end
+	self.Health[attacked] =  attacked:GetHealth()
+
+	tPrint('DEBUG : DMG = '..tostring(dmgbit))
+end
