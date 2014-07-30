@@ -1801,6 +1801,162 @@
 	}
 	//"item_warden_hidden_spear"//1761
 	//"item_warden_invisible"//1762
+	"item_warden_book_of_strength"//1763
+	{
+		"ID"						"1763"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					"item_datadriven"
+		"AbilityTextureName"				"item_warden_book_of_strength"
+		"ItemKillable"					"0"
+
+		"AbilityCastPoint"				"0.0"
+		
+		"ItemCost"					"600"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"				"1"
+		"ItemPurchasable"				"1"
+		
+		"OnSpellStart"
+		{
+			"SpendCharge"
+			{}
+			"ApplyModifier"
+			{
+				"ModifierName"			"modifier_warden_book_of_str_bonus"
+				"Target"			"CASTER"
+			}
+			//"FireEffect"
+			//"FireSound"
+		}
+		"Modifiers"
+		{
+			"modifier_warden_book_of_str_bonus"
+			{
+				"IsHidden"			"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_str"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_str"			"7"
+			}
+		}
+	}
+	"item_warden_book_of_intellect"//1764
+	{
+		"ID"						"1764"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					"item_datadriven"
+		"AbilityTextureName"				"item_warden_book_of_intellect"
+		"ItemKillable"					"0"
+
+		"AbilityCastPoint"				"0.0"
+		
+		"ItemCost"					"600"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"				"1"
+		"ItemPurchasable"				"1"
+		
+		"OnSpellStart"
+		{
+			"SpendCharge"
+			{}
+			"ApplyModifier"
+			{
+				"ModifierName"			"modifier_warden_book_of_int_bonus"
+				"Target"			"CASTER"
+			}
+			//"FireEffect"
+			//"FireSound"
+		}
+		"Modifiers"
+		{
+			"modifier_warden_book_of_int_bonus"
+			{
+				"IsHidden"			"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_int"			"12"
+			}
+		}
+	}
+	"item_warden_book_of_agility"//1765
+	{
+		"ID"						"1765"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					"item_datadriven"
+		"AbilityTextureName"				"item_warden_book_of_agility"
+		"ItemKillable"					"0"
+
+		"AbilityCastPoint"				"0.0"
+		
+		"ItemCost"					"600"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"				"1"
+		"ItemPurchasable"				"1"
+		
+		"OnSpellStart"
+		{
+			"SpendCharge"
+			{}
+			"ApplyModifier"
+			{
+				"ModifierName"			"modifier_warden_book_of_agi_bonus"
+				"Target"			"CASTER"
+			}
+			//"FireEffect"
+			//"FireSound"
+		}
+		"Modifiers"
+		{
+			"modifier_warden_book_of_agi_bonus"
+			{
+				"IsHidden"			"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%bonus_agi"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_agi"			"10"
+			}
+		}
+	}
 
 	//"item_warden_attitude_powerful"//1770//姿势：勇猛，增加伤害，减少防御
 	//"item_warden_attitude_determination"//1771//姿势：决心，增加生命恢复，增加防御
