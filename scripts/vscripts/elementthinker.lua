@@ -323,7 +323,44 @@ function PassiveAbilityCasted(keys)
     else
     end
 end
-
+--------------------------------------------------------------------------------------------
+function OnItemAttitudeChange(keys)
+    tPrintTable(keys)
+    local caster = EntIndexToHScript(keys.caster_entindex)
+    local attitude = keys.Attitude
+    
+    if attitude == 'DETERMINATION' then -- item_warden_attitude_determination
+        for i = 0,5 do
+            local item = caster:GetItemInSlot(i)
+            if item then
+                if item:GetName() == 'item_warden_attitude_determination' then
+                    UTIL_RemoveImmediate(item)
+                    caster:AddItem(CreateItem('item_warden_attitude_always_ready_to_fight',caster,caster))
+                end
+            end
+        end
+    elseif attitude == 'ALWAYSREADY' then -- item_warden_attitude_always_ready_to_fight
+        for i = 0,5 do
+            local item = caster:GetItemInSlot(i)
+            if item then
+                if item:GetName() == 'item_warden_attitude_always_ready_to_fight' then
+                    UTIL_RemoveImmediate(item)
+                    caster:AddItem(CreateItem('item_warden_attitude_powerful',caster,caster))
+                end
+            end
+        end
+    elseif attitude == 'POWERFUL' then -- item_warden_attitude_powerful
+        for i = 0,5 do
+            local item = caster:GetItemInSlot(i)
+            if item then
+                if item:GetName() == 'item_warden_attitude_powerful' then
+                    UTIL_RemoveImmediate(item)
+                    caster:AddItem(CreateItem('item_warden_attitude_determination',caster,caster))
+                end
+            end
+        end
+    end
+end
 
 
 

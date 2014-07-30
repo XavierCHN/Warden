@@ -2,27 +2,23 @@
 {
 	"consumables"
 	{
-	  "item"          "item_warden_qe1"
-	  "item"          "item_warden_qw1"
-	  "item"          "item_warden_wq1"
-	  "item"          "item_warden_we1"
-	  "item"          "item_warden_eq1"
-	  "item"          "item_warden_ew1"
-	  "item"		"item_force_staff"
+	  	"item"          "item_warden_qe1"
+	  	"item"          "item_warden_qw1"
+	  	"item"          "item_warden_wq1"
+	  	"item"          "item_warden_we1"
+	  	"item"          "item_warden_eq1"
+	  	"item"          "item_warden_ew1"
 	}
 	"attributes"
 	{
-	  "item"          "item_warden_cancel_last_modifier"
-	  //"item"          "item_warden_hidden_spear"
-	  //"item"          "item_warden_invisible"
-	  //"item"          "item_warden_we1"
-	  //"item"          "item_warden_eq1"
-	  //"item"          "item_warden_attitude_powerful"
+	  	"item"			"item_warden_book_of_agility"
+		"item"			"item_warden_book_of_intellect"
+		"item"			"item_warden_book_of_strength"
 	}
 
 	"misc"
 	{
-
+		"item"			"item_warden_attitude_determination"
 	}	
 
 	// Level 1 - Green Recipes
@@ -64,3 +60,4 @@
 	"secretshop"
 	{							
 	}
+}

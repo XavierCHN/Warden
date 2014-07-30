@@ -1768,37 +1768,6 @@
 			}
 		}
 	}
-
-	"item_warden_cancel_last_modifier"//1760
-	{
-		"ID"							"1755"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"					 "item_datadriven"
-		"AbilityTextureName"			"item_warden_ew3"
-		"AbilityCastPoint"			  "0"
-		"AbilityCooldown"			   "0"
-		"ItemCost"					  "1500"
-		"ItemInitialCharges"			"0"
-		
-		"ItemKillable"				  "0"
-		"ItemDroppable"				 "1"
-		"ItemSellable"				  "1"
-		"ItemRequiresCharges"		   "0"
-		"ItemShopTags"				  "consumable"
-		"ItemQuality"				   "consumable"
-		"ItemShareability"			  "ITEM_NOT_SHAREABLE"
-		"ItemDeclarations"			  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"					  "1"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"scripts/vscripts/elementthinker.lua"
-				"Function"				"OnItemCancelLastModifier"
-			}
-		}
-	}
 	//"item_warden_hidden_spear"//1761
 	//"item_warden_invisible"//1762
 	"item_warden_book_of_strength"//1763
@@ -1820,20 +1789,37 @@
 		"ItemInitialCharges"				"1"
 		"ItemPurchasable"				"1"
 		
-		"OnSpellStart"
+		"precache"
 		{
-			"SpendCharge"
-			{}
-			"ApplyModifier"
-			{
-				"ModifierName"			"modifier_warden_book_of_str_bonus"
-				"Target"			"CASTER"
-			}
-			//"FireEffect"
-			//"FireSound"
+			"particlefile"				"particles/generic_hero_status.pcf"
 		}
 		"Modifiers"
 		{
+			"modifier_book_auto_applier"
+			{
+				"Passive"			"1"
+				"OnCreated"
+				{
+					"SpendCharge"
+					{}
+					"ApplyModifier"
+					{
+						"ModifierName"			"modifier_warden_book_of_str_bonus"
+						"Target"			"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"			"hero_levelup"
+						"Target"				"CASTER"
+						"EffectAttachType"		"follow_origin"
+					}
+					"RemoveModifier"
+					{
+						"Target"				"CASTER"
+						"ModifierName"			"modifier_book_auto_applier"
+					}
+				}
+			}
 			"modifier_warden_book_of_str_bonus"
 			{
 				"IsHidden"			"1"
@@ -1872,20 +1858,33 @@
 		"ItemInitialCharges"				"1"
 		"ItemPurchasable"				"1"
 		
-		"OnSpellStart"
-		{
-			"SpendCharge"
-			{}
-			"ApplyModifier"
-			{
-				"ModifierName"			"modifier_warden_book_of_int_bonus"
-				"Target"			"CASTER"
-			}
-			//"FireEffect"
-			//"FireSound"
-		}
 		"Modifiers"
 		{
+			"modifier_book_auto_applier"
+			{
+				"Passive"			"1"
+				"OnCreated"
+				{
+					"SpendCharge"
+					{}
+					"ApplyModifier"
+					{
+						"ModifierName"			"modifier_warden_book_of_int_bonus"
+						"Target"				"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"			"hero_levelup"
+						"Target"				"CASTER"
+						"EffectAttachType"		"follow_origin"
+					}
+					"RemoveModifier"
+					{
+						"Target"				"CASTER"
+						"ModifierName"			"modifier_book_auto_applier"
+					}
+				}
+			}
 			"modifier_warden_book_of_int_bonus"
 			{
 				"IsHidden"			"1"
@@ -1924,20 +1923,33 @@
 		"ItemInitialCharges"				"1"
 		"ItemPurchasable"				"1"
 		
-		"OnSpellStart"
-		{
-			"SpendCharge"
-			{}
-			"ApplyModifier"
-			{
-				"ModifierName"			"modifier_warden_book_of_agi_bonus"
-				"Target"			"CASTER"
-			}
-			//"FireEffect"
-			//"FireSound"
-		}
 		"Modifiers"
 		{
+			"modifier_book_auto_applier"
+			{
+				"Passive"			"1"
+				"OnCreated"
+				{
+					"SpendCharge"
+					{}
+					"ApplyModifier"
+					{
+						"ModifierName"			"modifier_warden_book_of_agi_bonus"
+						"Target"				"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"			"hero_levelup"
+						"Target"				"CASTER"
+						"EffectAttachType"		"follow_origin"
+					}
+					"RemoveModifier"
+					{
+						"Target"				"CASTER"
+						"ModifierName"			"modifier_book_auto_applier"
+					}
+				}
+			}
 			"modifier_warden_book_of_agi_bonus"
 			{
 				"IsHidden"			"1"
@@ -1958,8 +1970,170 @@
 		}
 	}
 
-	//"item_warden_attitude_powerful"//1770//姿势：勇猛，增加伤害，减少防御
-	//"item_warden_attitude_determination"//1771//姿势：决心，增加生命恢复，增加防御
-	//"item_warden_attitude_always_ready_to_fight"//1771//姿势：蓄势待发，增加回蓝，少量防御
+	"item_warden_attitude_powerful"//1770//姿势：勇猛，增加伤害，减少防御
+	{
+		"ID"						"1770"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					"item_datadriven"
+		"AbilityTextureName"		"item_warden_attitude_powerful"
+		"ItemKillable"				"0"
+
+		"AbilityCastPoint"			"0.0"
+		
+		"ItemCost"					"600"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"ItemStackable"				"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"				"1"
+		"ItemPurchasable"			"1"
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elementthinker.lua"
+				"Attitude"				"POWERFUL"
+				"Function"				"OnItemAttitudeChange"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_warden_attitude_powerful"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%damage_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%armor_reduce"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduce"			"5"
+			}
+		}
+	}
+	"item_warden_attitude_determination"//1771//姿势：决心，增加生命恢复，增加防御
+	{
+		"ID"						"1771"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					"item_datadriven"
+		"AbilityTextureName"		"item_warden_attitude_determination"
+		"ItemKillable"				"0"
+
+		"AbilityCastPoint"			"0.0"
+		
+		"ItemCost"					"600"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"ItemStackable"				"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"				"1"
+		"ItemPurchasable"			"1"
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elementthinker.lua"
+				"Attitude"				"DETERMINATION"
+				"Function"				"OnItemAttitudeChange"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_warden_attitude_determination"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%armor_bonus"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"3"
+			}
+		}
+	}
+	"item_warden_attitude_always_ready_to_fight"//1772//姿势：蓄势待发，增加回蓝，少量防御
+	{
+		"ID"						"1771"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"					"item_datadriven"
+		"AbilityTextureName"		"item_warden_attitude_always_ready_to_fight"
+		"ItemKillable"				"0"
+
+		"AbilityCastPoint"			"0.0"
+		
+		"ItemCost"					"600"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"ItemStackable"				"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"				"1"
+		"ItemPurchasable"			"1"
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/elementthinker.lua"
+				"Attitude"				"ALWAYSREADY"
+				"Function"				"OnItemAttitudeChange"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_warden_attitude_always_ready_to_fight"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%mana_regen"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%armor_bonus"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"2"
+			}
+		}
+	}
 
 }
