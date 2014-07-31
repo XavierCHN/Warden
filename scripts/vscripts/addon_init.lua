@@ -15,8 +15,8 @@ function tPrint(msg)
     if not msg then return end
     local tMsg = msg
     if not type(tMsg) == 'string' then tMsg = tostring(tMsg) end
-    print(ADDON_PREFIX..tMsg)
-    AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tMsg..'\n')
+    print(ADDON_PREFIX..tostring(tMsg))
+    AppendToLogFile('log/log_warden.txt',ADDON_PREFIX..tostring(tMsg)..'\n')
 end
 function tPrintTable( tbl )
     if not tbl then return end

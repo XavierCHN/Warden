@@ -16,7 +16,7 @@
   "npc_warden_dummy_sword"
   {
       "BaseClass"                   "npc_dota_creature"
-      "Model"                       "models/items/dragon_knight/dragon_immortal_1/dragon_immortal_1.mdl"
+      "Model"                       "models/development/invisiblebox.mdl"
       "ModelScale"                   "1.0"
       "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_NONE"
       "AttackCapabilities"          "DOTA_UNIT_CAP_NO_ATTACK"

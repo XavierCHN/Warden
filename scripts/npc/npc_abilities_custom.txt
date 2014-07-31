@@ -1900,11 +1900,9 @@
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"precache"
 		{
-			"particlefile"				"particles/abilities/ability_warden_result_qweq.pcf"
-			"particlefile"				"particles/units/heroes/hero_batrider.pcf"
+			"particlefile"				"particles/abilities/qweq_field.pcf"
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_juggernaut.txt"
 			"particlefile"				"particles/abilities/ability_warden_result_qwe.pcf"
-			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
 		}
 		"Modifiers"
 		{
@@ -1922,14 +1920,21 @@
 				}
 				"OnCreated"
 				{
+				//	"AttachEffect"
+				//	{
+				//		"EffectName"		"like_shit"
+				//		"Target"			"CASTER"
+				//		"EffectAttachType"	"follow_origin"
+				//	}
 					"AttachEffect"
 					{
-						"EffectName"		"like_shit"
+						"EffectName"		"warden_duel_ring"
 						"Target"			"CASTER"
-						"EffectAttachType"	"follow_origin"
+						"EffectAttachType"	"follow_overhead"
 					}
+					
 				}
-				"ThinkInterval"			"0.2"
+				"ThinkInterval"			"0.5"
 				"OnIntervalThink"
 				{
 					"Damage"
@@ -1990,7 +1995,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40"
+				"damage"				"60"
 			}
 			"05"
 			{
