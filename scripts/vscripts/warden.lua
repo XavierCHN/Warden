@@ -158,7 +158,8 @@ function WardenGameMode:Init()
 	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(WardenGameMode, 'OnAbilityUsed'),self)
 
 
-	ListenToGameEvent('entity_hurt', Dynamic_Wrap(WardenGameMode, 'OnEntityHurt'),self)
+	ListenToGameEvent('entity_hurt', Dynamic_Wrap(WardenGameMode, 'OnEntityHurt'), self)
+	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(WardenGameMode, 'OnHeroLevelUp'), self))
 
 
 	self:RegisterCommands()
@@ -814,12 +815,12 @@ function WardenGameMode:OnAssignBots(keys)
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:InitHero(hero)
-	-- level up the hero to 25
+	--[[ level up the hero to 25
 	local level = hero:GetLevel()
 	while level < 25 do
 		hero:HeroLevelUp(false)
 		level = hero:GetLevel()
-	end
+	end]]
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_NORMAL','ability_warden_normal_empty')
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_STORE' ,'ability_warden_store_empty' )
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_ENABLE','ability_warden_enable_empty')
@@ -859,19 +860,20 @@ function WardenGameMode:OnPlayerSay( keys )
 		end
 	end
 end
+-----------------------------------------------------------------------------------
+function WardenGameMode:OnHeroLevelUp(keys)
+	local plyid = keys.PlayerID
+	if not plyid then return end
+	local ply = PlayerResource:GetPlayer(plyid)
+	local hero = ply:GetAssignedHero()
+	
+	hero:SetAbilityPoints( 0 )
+	
+end
+-----------------------------------------------------------------------------------
 function WardenGameMode:OnAbilityUsed( keys )
 	ElementThinker:OnAbilityCast(keys)
 end
-function WardenGameMode:SpawnTestUnits()
-	
-	for i=1,10 do
-		tPrint('DEBUG: spawning test units')
-		local unit = CreateUnitByName('npc_dota_necronomicon_warrior_2',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
-		unit:AddNewModifier(nil,nil,'modifier_rooted',{})
-	end
-end
------------------------------------------------------------------------------------
--- ENDREGION : GAME EVENT HOOKS
 -----------------------------------------------------------------------------------
 function WardenGameMode:OnEntityHurt(keys)
 	tPrint('DEBUG:OnEntityHurt')
@@ -889,3 +891,16 @@ function WardenGameMode:OnEntityHurt(keys)
 	self.Health[attacked] =  attacked:GetHealth()
 	tPrint('DEBUG : DMG = '..tostring(dmgbit))
 end
+-----------------------------------------------------------------------------------
+-- ENDREGION : GAME EVENT HOOKS
+-----------------------------------------------------------------------------------
+
+function WardenGameMode:SpawnTestUnits()
+	
+	for i=1,10 do
+		tPrint('DEBUG: spawning test units')
+		local unit = CreateUnitByName('npc_dota_necronomicon_warrior_2',Vector(500,0,0) + RandomVector(300),false,nil,nil,DOTA_TEAM_BADGUYS)
+		unit:AddNewModifier(nil,nil,'modifier_rooted',{})
+	end
+end
+-----------------------------------------------------------------------------------
