@@ -1973,7 +1973,7 @@
 	"item_warden_attitude_powerful"//1770//姿势：勇猛，增加伤害，减少防御
 	{
 		"ID"						"1770"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"BaseClass"					"item_datadriven"
 		"AbilityTextureName"		"item_warden_attitude_powerful"
 		"ItemKillable"				"0"
@@ -2016,19 +2016,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"5"
+				"damage_bonus"			"25"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduce"			"5"
+				"var_type"				"FIELD_FLOAT"
+				"armor_reduce"			"-5.0"
 			}
 		}
 	}
 	"item_warden_attitude_determination"//1771//姿势：决心，增加生命恢复，增加防御
 	{
 		"ID"						"1771"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING" 
 		"BaseClass"					"item_datadriven"
 		"AbilityTextureName"		"item_warden_attitude_determination"
 		"ItemKillable"				"0"
@@ -2071,7 +2071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"5"
+				"health_regen"			"17"
 			}
 			"02"
 			{
@@ -2083,7 +2083,7 @@
 	"item_warden_attitude_always_ready_to_fight"//1772//姿势：蓄势待发，增加回蓝，少量防御
 	{
 		"ID"						"1771"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"BaseClass"					"item_datadriven"
 		"AbilityTextureName"		"item_warden_attitude_always_ready_to_fight"
 		"ItemKillable"				"0"
@@ -2126,7 +2126,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"5"
+				"mana_regen"			"13"
 			}
 			"02"
 			{

@@ -157,10 +157,7 @@ function WardenGameMode:Init()
 
 	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(WardenGameMode, 'OnAbilityUsed'),self)
 
-
 	ListenToGameEvent('entity_hurt', Dynamic_Wrap(WardenGameMode, 'OnEntityHurt'), self)
-	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(WardenGameMode, 'OnHeroLevelUp'), self))
-
 
 	self:RegisterCommands()
 
@@ -815,12 +812,12 @@ function WardenGameMode:OnAssignBots(keys)
 end
 -----------------------------------------------------------------------------------
 function WardenGameMode:InitHero(hero)
-	--[[ level up the hero to 25
+	--level up the hero to 25
 	local level = hero:GetLevel()
 	while level < 25 do
 		hero:HeroLevelUp(false)
 		level = hero:GetLevel()
-	end]]
+	end
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_NORMAL','ability_warden_normal_empty')
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_STORE' ,'ability_warden_store_empty' )
 	ElementThinker:RebuildAllAbilities(hero,'CHANGE_ENABLE','ability_warden_enable_empty')

@@ -13,11 +13,20 @@
     "VisionDayTimeRange"            "9000"
     "VisionNightTimeRange"          "9000"
   }
+  "npc_warden_dummy_sword"
+  {
+      "BaseClass"                   "npc_dota_creature"
+      "Model"                       "models/items/dragon_knight/dragon_immortal_1/dragon_immortal_1.mdl"
+      "ModelScale"                   "1.0"
+      "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_NONE"
+      "AttackCapabilities"          "DOTA_UNIT_CAP_NO_ATTACK"
+
+      "Ability1"                    "ability_warden_dummy_sword"
+  }
   "npc_warden_result_qwqeq"
   {
       "BaseClass"                     "npc_dota_creature"
       "Model"                         "models/heroes/dragon_knight/dragon_knight_dragon.mdl"
-      "BaseClass"                     "npc_dota_creature"     // Class of entity of link to.
       "ModelScale"                    "0.9"
       "Level"                         "1"
             

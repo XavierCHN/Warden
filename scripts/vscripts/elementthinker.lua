@@ -373,3 +373,11 @@ end
 function TEST_LOOP(keys)
     tPrint('TEST LOOP CALLED')
 end
+function TEST_HEALTH_START(keys)
+    tPrint('TEST HEALTH START')
+    tPrintTable(keys)
+end
+function TEST_HEALTH(keys)
+    tPrint(' TEST HEALTH')
+    tPrintTable(keys)
+end
