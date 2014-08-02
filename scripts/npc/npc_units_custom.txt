@@ -22,6 +22,7 @@
       "AttackCapabilities"          "DOTA_UNIT_CAP_NO_ATTACK"
 
       "Ability1"                    "ability_warden_dummy_sword"
+      "HealthBarOffset"             "0"
   }
   "npc_warden_result_qwqeq"
   {

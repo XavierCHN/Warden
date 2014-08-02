@@ -369,6 +369,7 @@
 		{
 			"modifier_warden_result_qeq_tgt"
 			{
+				"IsDebuff"		"1"
 				"IsHidden"		"0"
 				"Duration"		"6"
 				"OnCreated"
@@ -380,23 +381,31 @@
 					}
 				}
 				//AttachEffect
-				"ThinkInterval"		"3"
+				"ThinkInterval"		"2"
 				"OnIntervalThink"
 				{
 					"Damage"
 					{
 						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_MAGICAL"
-						"Damage"		"50"
+						"Damage"		"80"
 					}
 					"FireEffect"
 					{
-						"EffectName"
+						"EffectName"		"doom_bringer_devour"
+						"Target"			"TARGET"
+						"ControlPointEntities"
 						{
-							"EffectName"		"witchdoctor_maledict_aoe"
-							"Target"			"TARGET"
-							"EffectAttachType"	"follow_origin"		
+							"TARGET"		"attach_hitloc"
+							"CASTER"		"attach_mouth"
 						}
+						"EffectAttachType"	"start_at_customorigin"
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"doom_bringer_doom_ring"
+						"Target"			"TARGET"
+						"EffectAttachType"	"follow_origin"
 					}
 				}
 			}
@@ -1900,9 +1909,10 @@
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"precache"
 		{
-			"particlefile"				"particles/abilities/qweq_field.pcf"
+			"particlefile"				"particles/units/heroes/hero_legion_commander.pcf"
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_juggernaut.txt"
 			"particlefile"				"particles/abilities/ability_warden_result_qwe.pcf"
+			"particlefile"				"particles/abilities/another_qweq.pcf"
 		}
 		"Modifiers"
 		{
@@ -1928,13 +1938,13 @@
 				//	}
 					"AttachEffect"
 					{
-						"EffectName"		"warden_duel_ring"
+						"EffectName"		"this_is_another_shit"
 						"Target"			"CASTER"
-						"EffectAttachType"	"follow_overhead"
+						"EffectAttachType"	"follow_origin"
 					}
 					
 				}
-				"ThinkInterval"			"0.5"
+				"ThinkInterval"			"0.2"
 				"OnIntervalThink"
 				{
 					"Damage"
@@ -1995,12 +2005,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60"
+				"damage"				"50"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.2"
+				"duration"				"3.2"
 			}
 		}
 	}
